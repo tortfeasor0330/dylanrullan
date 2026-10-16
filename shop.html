@@ -1,0 +1,838 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Shop the Amare Triangle of Health Xtreme: Sunrise, Nitro Xtreme and Sunset. Doctor-recommended by Dr. Dylan Thor P. Rullan.">
+<meta property="og:title" content="Triangle of Health Shop | Dr. Dylan Thor P. Rullan">
+<meta property="og:image" content="images/shop/hero.png">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%232F7A55'/%3E%3Cpath d='M11 29c0-11 6-17 18-18 0 11-6 18-17 18' fill='%23F2B630'/%3E%3Ccircle cx='29' cy='29' r='5' fill='%23D9412E'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Shop the Triangle of Health | Dr. Dylan Thor P. Rullan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
+<style>
+/* Layout: Shika-style single-product store — dark hero with product + triangle card, review strip, trust ticker, two offer tiles, interactive triangle, benefits, daily ritual, doctor's note, image grid, bundle cards, ingredients, FAQ, follow banner, dark footer. Cart is a right-side drawer. */
+:root{
+  --red:#D9412E; --red-deep:#B8321F;
+  --green:#2F7A55; --green-deep:#173D2D; --green-soft:#E3F1E8;
+  --yellow:#F2B630; --yellow-soft:#FDF3D6; --red-soft:#FBE7E3;
+  --bg:#FFFFFF; --surface:#F4F6F3; --card:#FFFFFF;
+  --fg:#1B2220; --muted:#5E6864; --line:#E2E8E3;
+  --band:#131A17; --band-2:#1B2420; --band-fg:#F3F6F4; --band-muted:#AAB5AF; --band-line:#2C3732;
+  --link-green:#2F7A55; --yellow-ink:#9A6E08;
+  --f-display:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+  --r:14px; --shadow:0 10px 30px rgba(20,30,25,.08);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1412; --surface:#151C19; --card:#1A2320; --fg:#E8EDEA; --muted:#A3AEA8; --line:#28332E;
+  --green-soft:#1C3328; --yellow-soft:#3A3117; --red-soft:#3D221E; --link-green:#6CC596; --yellow-ink:#F2B630;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1412; --surface:#151C19; --card:#1A2320; --fg:#E8EDEA; --muted:#A3AEA8; --line:#28332E;
+  --green-soft:#1C3328; --yellow-soft:#3A3117; --red-soft:#3D221E; --link-green:#6CC596; --yellow-ink:#F2B630;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px}
+img{max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:84px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;margin-top:8px}
+.lead{color:var(--muted);max-width:58ch;margin-top:12px}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.hand{font-family:var(--f-hand);font-weight:700;line-height:1}
+.num{font-variant-numeric:tabular-nums}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;cursor:pointer;text-decoration:none;font-weight:600;font-size:14px;border-radius:999px;padding:13px 24px;transition:transform .15s,background .15s,box-shadow .15s;letter-spacing:.02em}
+.btn svg{width:16px;height:16px}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 8px 20px rgba(217,65,46,.28)}
+.btn-red:hover{background:var(--red-deep);transform:translateY(-1px)}
+.btn-green{background:var(--green);color:#fff}
+.btn-green:hover{background:#286B4A}
+.btn-ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.btn-line{border:1.5px solid var(--line);color:var(--fg);background:var(--card)}
+.btn-line:hover{border-color:var(--green)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.btn-block{width:100%}
+
+/* ANNOUNCEMENT */
+.announce{background:var(--green-deep);color:#F3F6F4;font-size:12.5px;text-align:center;padding-block:8px}
+.announce b{color:var(--yellow)}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--band);color:var(--band-fg);border-bottom:1px solid var(--band-line)}
+.nav .wrap{display:flex;align-items:center;gap:20px;padding-block:13px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;min-width:0}
+.logo-mark{width:38px;height:38px;flex-shrink:0}
+.logo-text{font-weight:700;font-size:15px;line-height:1.1}
+.logo-text small{display:block;font-weight:500;font-size:11px;color:var(--yellow);letter-spacing:.06em}
+.nav-links{display:flex;gap:24px;margin:0 0 0 auto;list-style:none;padding:0}
+.nav-links a{text-decoration:none;font-size:14px;color:var(--band-muted);font-weight:500}
+.nav-links a:hover{color:var(--band-fg)}
+.nav-links a.on{color:var(--red)}
+.icons{display:flex;gap:6px;align-items:center}
+.icon-btn{position:relative;width:40px;height:40px;border-radius:50%;border:1px solid var(--band-line);background:transparent;color:var(--band-fg);display:grid;place-items:center;cursor:pointer}
+.icon-btn svg{width:19px;height:19px}
+.icon-btn .count{position:absolute;top:-4px;right:-4px;min-width:19px;height:19px;border-radius:999px;background:var(--red);color:#fff;font-size:11px;font-weight:700;display:grid;place-items:center;padding:0 5px;font-variant-numeric:tabular-nums}
+.menu-btn{display:none}
+@media (max-width:900px){
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--band);flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-left,0px)) 16px;border-bottom:1px solid var(--band-line)}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:12px 0;border-bottom:1px solid var(--band-line)}
+  .icons{margin-left:auto}
+  .menu-btn{display:grid}
+}
+@media (max-width:420px){.logo-text small{display:none}.logo-text{font-size:14px}}
+
+/* HERO */
+.hero{background:var(--band);color:var(--band-fg);position:relative;overflow:hidden;padding-block:64px 96px}
+.hero::before{content:"";position:absolute;right:-160px;top:-160px;width:640px;height:640px;border-radius:50%;background:radial-gradient(circle,rgba(47,122,85,.5),transparent 65%)}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center}
+.hero .eyebrow{color:var(--yellow)}
+.hero h1{font-size:clamp(36px,5vw,60px);font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.hero h1 .accent{color:var(--red);display:block}
+.hero p.sub{color:var(--band-muted);max-width:46ch;margin-top:18px;font-size:16px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.hero-ctas .btn-ghost{color:var(--band-fg)}
+.trio{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.trio span{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;border:1px solid var(--band-line);background:var(--band-2);color:var(--band-fg);padding:6px 12px 6px 8px;border-radius:999px}
+.trio i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.hero-rating{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:13px;color:var(--band-muted)}
+.hero-rating .stars{color:var(--yellow);letter-spacing:2px}
+
+.hero-art{position:relative;min-height:520px}
+.hero-main{position:absolute;left:0;top:0;width:72%;aspect-ratio:1;max-width:100%;border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#2F7A55,#173D2D);box-shadow:0 30px 60px rgba(0,0,0,.45)}
+.hero-main img{width:100%;height:100%;object-fit:contain;display:block}
+.hero-side{position:absolute;right:0;bottom:0;width:44%;aspect-ratio:4/5;max-width:100%;border-radius:20px;overflow:hidden;background:var(--card);border:6px solid var(--card);box-shadow:0 24px 50px rgba(0,0,0,.5);transform:rotate(4deg)}
+.hero-side img{width:100%;height:100%;object-fit:cover;display:block;border-radius:14px}
+.hero-side figcaption{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(19,26,23,.82);color:#fff;font-size:11.5px;font-weight:600;border-radius:10px;padding:6px 10px;text-align:center;letter-spacing:.04em}
+.hero-note{position:absolute;right:4%;top:6%;color:var(--yellow);font-size:30px;transform:rotate(-6deg);text-align:center;z-index:2}
+.hero-note svg{display:block;margin:4px auto 0;width:56px;height:40px}
+.hero-chip{position:absolute;left:4%;bottom:6%;z-index:2;background:var(--card);color:var(--fg);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;font-size:12.5px;line-height:1.3}
+.hero-chip b{display:block;font-size:14px}
+.hero-chip .ic{width:34px;height:34px;border-radius:10px}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-art{min-height:0;aspect-ratio:1/0.92;max-width:560px;width:100%;margin-inline:auto}}
+@media (max-width:480px){.hero-note{font-size:22px;right:0;top:0}.hero-chip{padding:9px 11px;left:0}.hero-chip .ic{display:none}}
+
+.ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}
+.ic svg{width:22px;height:22px}
+.ic.r{background:var(--red-soft);color:var(--red)} .ic.g{background:var(--green-soft);color:var(--link-green)} .ic.y{background:var(--yellow-soft);color:var(--yellow-ink)} .ic.k{background:var(--surface);color:var(--fg);border:1px solid var(--line)}
+
+/* REVIEWS STRIP */
+.reviews{padding-block:56px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rcard{display:flex;gap:14px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.avatar{width:46px;height:46px;border-radius:10px;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.stars{color:var(--yellow);letter-spacing:2px;font-size:14px}
+.rcard q{display:block;font-size:13.5px;margin-top:4px;quotes:"\201C" "\201D"}
+.rcard small{display:block;color:var(--muted);font-size:12px;margin-top:8px}
+.rcard small b{color:var(--fg);font-weight:600}
+.sample-note{font-size:12px;color:var(--muted);margin-top:16px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.sample-note span{background:var(--yellow-soft);color:var(--fg);border-radius:6px;padding:2px 8px;font-weight:600;font-size:11px}
+@media (max-width:900px){.rgrid{grid-template-columns:1fr}}
+
+/* TICKER */
+.ticker{background:var(--green);color:#fff;overflow:hidden;padding-block:14px;border-block:1px solid #286B4A}
+.ticker-track{display:flex;gap:44px;width:max-content;animation:tick 32s linear infinite}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.ticker-item{display:flex;align-items:center;gap:10px;font-size:14px;font-weight:600;white-space:nowrap}
+.ticker-item svg{width:20px;height:20px;color:var(--yellow)}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.ticker-track{flex-wrap:wrap;width:auto;justify-content:center;row-gap:10px}.ticker-track [aria-hidden="true"]{display:none}}
+
+/* OFFERS */
+.offers{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.offer{border-radius:20px;padding:34px;position:relative;overflow:hidden;min-height:220px;display:flex;flex-direction:column;justify-content:space-between;gap:20px}
+.offer h3{font-size:clamp(22px,2.6vw,28px);font-weight:700;max-width:18ch}
+.offer p{margin-top:8px;max-width:40ch;font-size:14px}
+.offer .tag{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.offer.o1{background:var(--yellow-soft);color:var(--fg);border:1px solid var(--line)}
+.offer.o1 .tag{color:var(--yellow-ink)}
+.offer.o2{background:var(--band);color:var(--band-fg)}
+.offer.o2 p{color:var(--band-muted)}
+.offer.o2 .tag{color:var(--yellow)}
+.offer .seal{position:absolute;right:24px;top:24px;width:96px;height:96px;border-radius:50%;display:grid;place-items:center;text-align:center;font-weight:700;line-height:1.05;transform:rotate(-10deg);border:3px dashed rgba(255,255,255,.6)}
+.offer.o1 .seal{background:var(--red);color:#fff}
+.offer.o2 .seal{background:var(--yellow);color:#173D2D;border-color:rgba(23,61,45,.4)}
+.offer .seal b{display:block;font-size:22px}
+.offer .seal small{font-size:10px;letter-spacing:.08em}
+@media (max-width:800px){.offers{grid-template-columns:1fr}.offer .seal{width:78px;height:78px;right:16px;top:16px}.offer .seal b{font-size:18px}.offer h3{padding-right:84px}}
+
+/* TRIANGLE */
+.tri-sec{background:var(--surface)}
+.tri-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-top:36px}
+.tri-svg{width:100%;max-width:480px;margin-inline:auto;display:block}
+.tri-svg .edge{stroke:var(--line);stroke-width:3;fill:none}
+.tri-svg .fillTri{fill:var(--card)}
+.tri-svg .node{cursor:pointer}
+.tri-svg .node circle.halo{opacity:0;transition:opacity .2s}
+.tri-svg .node.on circle.halo,.tri-svg .node:hover circle.halo{opacity:1}
+.tri-svg .node:focus{outline:none}
+.tri-svg .node:focus-visible circle.dot{stroke:var(--yellow);stroke-width:5}
+.tri-svg text{font-family:var(--f-display)}
+.tri-svg .lbl{font-size:16px;font-weight:700;fill:var(--fg)}
+.tri-svg .sublbl{font-size:12px;fill:var(--muted)}
+.tri-svg .cen{font-size:13px;font-weight:600;fill:var(--muted);letter-spacing:.12em}
+.tri-svg .cen2{font-family:var(--f-hand);font-size:34px;font-weight:700;fill:var(--link-green)}
+.tri-panel{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:var(--shadow)}
+.tri-tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tri-tab{border:1.5px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:7px 14px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;gap:8px;align-items:center}
+.tri-tab i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.tri-tab[aria-selected="true"]{border-color:var(--fg);background:var(--fg);color:var(--bg)}
+.tri-body{margin-top:20px}
+.tri-body .when{font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.tri-body h3{font-size:24px;margin-top:6px}
+.tri-body p{color:var(--muted);margin-top:10px;font-size:14.5px}
+.tri-facts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.tri-facts div{background:var(--surface);border-radius:12px;padding:12px 14px;font-size:13px}
+.tri-facts span{display:block;color:var(--muted);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.tri-facts b{font-weight:600}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips span{font-size:12px;background:var(--green-soft);color:var(--link-green);border-radius:999px;padding:3px 10px;font-weight:500}
+@media (max-width:900px){.tri-wrap{grid-template-columns:1fr;gap:28px}.tri-facts{grid-template-columns:1fr}}
+
+/* BENEFITS */
+.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.bcard{border:1px solid var(--line);border-radius:var(--r);padding:28px;background:var(--card)}
+.bcard .ic{width:54px;height:54px;border-radius:50%}
+.bcard h3{font-size:18px;margin-top:18px}
+.bcard p{color:var(--muted);font-size:14px;margin-top:8px}
+.bcard .from{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+@media (max-width:900px){.bgrid{grid-template-columns:1fr}}
+
+/* RITUAL */
+.ritual{background:var(--band);color:var(--band-fg)}
+.ritual .lead{color:var(--band-muted)}
+.rsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;position:relative}
+.rstep{background:var(--band-2);border:1px solid var(--band-line);border-radius:var(--r);padding:26px;position:relative}
+.rstep .time{font-family:var(--f-hand);font-size:42px;line-height:1;color:var(--yellow)}
+.rstep .clock{font-size:12px;font-weight:600;color:var(--band-muted);letter-spacing:.08em;text-transform:uppercase;margin-top:6px}
+.rstep h3{font-size:17px;margin-top:14px}
+.rstep ol{margin:10px 0 0;padding-left:18px;color:var(--band-muted);font-size:13.5px;display:grid;gap:4px}
+.rstep ol b{color:var(--band-fg);font-weight:600}
+.rstep .bar{position:absolute;left:0;top:0;bottom:0;width:4px;border-radius:14px 0 0 14px}
+@media (max-width:900px){.rsteps{grid-template-columns:1fr}}
+
+/* DOCTOR */
+.doc .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:56px;align-items:center}
+.doc-art{position:relative;max-width:420px;width:100%;margin-inline:auto}
+.doc-art .arch{position:absolute;left:6%;right:6%;bottom:0;height:84%;border-radius:999px 999px 0 0;background:linear-gradient(170deg,#3C9468,#173D2D)}
+.doc-art img{position:relative;display:block;width:100%;height:auto;aspect-ratio:600/769;transform:translateX(-6%)}
+.doc-art .stamp{position:absolute;right:0;bottom:22px;background:var(--yellow);color:#1B2220;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:600;line-height:1.3}
+.doc-art .stamp b{display:block;font-size:15px}
+.doc blockquote{margin:18px 0 0;font-size:clamp(18px,2vw,22px);font-weight:500;line-height:1.5;border-left:4px solid var(--red);padding-left:20px}
+.doc .sig{margin-top:20px;font-family:var(--f-hand);font-size:34px;color:var(--link-green)}
+.doc .sig small{display:block;font-family:var(--f-body);font-size:13px;color:var(--muted)}
+.draft{display:inline-block;margin-top:14px;font-size:11px;font-weight:700;background:var(--yellow-soft);color:var(--fg);border-radius:6px;padding:2px 8px}
+.doc .btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+@media (max-width:900px){.doc .wrap{grid-template-columns:1fr;gap:32px}}
+
+/* GRID */
+.igrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:36px}
+.igrid figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:1;max-width:100%;background:var(--surface)}
+.igrid img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.igrid figure:hover img{transform:scale(1.04)}
+@media (max-width:540px){.igrid{gap:6px}.igrid figure{border-radius:8px}}
+
+/* BUNDLES */
+.bundles{background:var(--surface)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:40px;align-items:stretch}
+.pcard{background:var(--card);border:1.5px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+.pcard.best{border-color:var(--red);box-shadow:0 18px 40px rgba(217,65,46,.15)}
+.ribbon{position:absolute;left:14px;top:14px;z-index:1;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:4px 11px}
+.ribbon.g{background:var(--green)}
+.pcard .pimg{aspect-ratio:1;max-width:100%;background:var(--surface)}
+.pcard .pimg img{width:100%;height:100%;object-fit:cover;display:block}
+.pbody{padding:20px;display:flex;flex-direction:column;gap:8px;flex:1}
+.pbody h3{font-size:18px}
+.pbody .incl{font-size:13px;color:var(--muted)}
+.save{display:inline-block;align-self:flex-start;font-size:12px;font-weight:700;color:var(--link-green);background:var(--green-soft);border-radius:6px;padding:2px 8px}
+.price{display:flex;align-items:baseline;gap:10px;margin-top:4px;font-variant-numeric:tabular-nums}
+.price b{font-size:24px;font-weight:700}
+.price s{color:var(--muted);font-size:14px}
+.price small{color:var(--muted);font-size:12px}
+.perks{list-style:none;padding:0;margin:6px 0 0;display:grid;gap:6px;font-size:13px;flex:1}
+.perks li{display:flex;gap:8px;align-items:flex-start}
+.perks svg{width:16px;height:16px;color:var(--link-green);flex-shrink:0;margin-top:3px}
+.qty-row{display:flex;gap:10px;align-items:center;margin-top:12px}
+.stepper{display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:999px;overflow:hidden;flex-shrink:0}
+.stepper button{width:34px;height:40px;border:0;background:transparent;color:var(--fg);cursor:pointer;font-size:17px}
+.stepper output{min-width:24px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.qty-row .btn{flex:1}
+@media (max-width:960px){.pgrid{grid-template-columns:1fr;max-width:460px;margin-inline:auto}}
+
+.singles{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.single{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.single .dotbig{width:52px;height:52px;border-radius:12px;flex-shrink:0;display:grid;place-items:center;color:#fff}
+.single .dotbig svg{width:24px;height:24px}
+.single div{flex:1;min-width:0}
+.single b{display:block;font-size:14.5px}
+.single small{color:var(--muted);font-size:12px;display:block}
+.single .p{font-weight:700;font-size:14px;font-variant-numeric:tabular-nums;color:var(--fg)}
+.addmini{width:38px;height:38px;border-radius:50%;border:0;background:var(--fg);color:var(--bg);cursor:pointer;display:grid;place-items:center;flex-shrink:0}
+.addmini svg{width:18px;height:18px}
+@media (max-width:900px){.singles{grid-template-columns:1fr}}
+
+/* INGREDIENTS + FAQ */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+details.acc{border-bottom:1px solid var(--line)}
+details.acc summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:18px 0;font-weight:600;font-size:15.5px}
+details.acc summary::-webkit-details-marker{display:none}
+details.acc summary::after{content:"+";font-size:22px;font-weight:400;color:var(--red);line-height:1;transition:transform .2s}
+details.acc[open] summary::after{transform:rotate(45deg)}
+details.acc .acc-body{padding:0 0 18px;color:var(--muted);font-size:14px}
+details.acc .acc-body ul{margin:8px 0 0;padding-left:18px;display:grid;gap:4px}
+.acc-dot{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:10px;vertical-align:middle}
+.free-of{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.free-of span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:5px 12px;color:var(--muted)}
+@media (max-width:900px){.two{grid-template-columns:1fr;gap:36px}}
+
+/* FOLLOW */
+.follow{padding-block:0 84px}
+.follow-card{position:relative;border-radius:22px;overflow:hidden;min-height:260px;display:grid;place-items:center;text-align:center;color:#fff}
+.follow-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.follow-card::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(19,26,23,.82),rgba(19,26,23,.35))}
+.follow-card div{position:relative;z-index:1;padding:32px 20px}
+.follow-card h3{font-size:clamp(22px,3vw,32px)}
+.follow-card p{margin-top:8px;color:#DDE5E0}
+.follow-card .btn{margin-top:18px}
+
+/* FOOTER */
+footer{background:var(--band);color:var(--band-fg)}
+footer .wrap{padding-block:56px 28px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:32px}
+footer h4{font-size:14px;margin-bottom:14px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer li,footer p{font-size:13px;color:var(--band-muted)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--band-fg)}
+.contact-row{display:flex;gap:10px;align-items:flex-start}
+.contact-row svg{width:16px;height:16px;color:var(--red);flex-shrink:0;margin-top:3px}
+.copy{background:none;border:1px solid var(--band-line);color:var(--band-muted);border-radius:6px;font-size:11px;padding:1px 7px;cursor:pointer;margin-left:4px}
+.legal{border-top:1px solid var(--band-line);margin-top:36px;padding-top:20px;display:grid;gap:10px;font-size:12px;color:var(--band-muted)}
+.legal b{color:var(--band-fg)}
+.fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--band-muted);margin-top:14px}
+@media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fgrid{grid-template-columns:1fr}}
+
+/* CART DRAWER */
+.scrim{position:fixed;inset:0;background:rgba(10,14,12,.55);z-index:80;opacity:0;pointer-events:none;transition:opacity .25s}
+.scrim.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;right:0;bottom:0;width:min(420px,100%);background:var(--bg);color:var(--fg);z-index:90;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;box-shadow:-20px 0 50px rgba(0,0,0,.25);padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);padding-right:env(safe-area-inset-right,0px)}
+.drawer.on{transform:none}
+.dr-head{display:flex;justify-content:space-between;align-items:center;padding:18px 20px;border-bottom:1px solid var(--line)}
+.dr-head h3{font-size:18px}
+.x{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;display:grid;place-items:center}
+.dr-body{flex:1;overflow-y:auto;padding:16px 20px}
+.dr-foot{border-top:1px solid var(--line);padding:16px 20px;display:grid;gap:10px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.line img{width:64px;height:64px;border-radius:10px;object-fit:cover}
+.line b{display:block;font-size:14px}
+.line small{color:var(--muted);font-size:12px}
+.line .lp{font-weight:700;font-variant-numeric:tabular-nums;text-align:right;font-size:14px}
+.line .stepper{margin-top:6px}
+.line .stepper button{width:28px;height:30px;font-size:15px}
+.rm{background:none;border:0;color:var(--muted);font-size:12px;cursor:pointer;padding:4px 0;text-decoration:underline}
+.empty{text-align:center;padding:40px 10px;color:var(--muted)}
+.empty svg{width:48px;height:48px;color:var(--line);margin-bottom:10px}
+.totrow{display:flex;justify-content:space-between;font-size:14px;font-variant-numeric:tabular-nums}
+.totrow.big{font-size:17px;font-weight:700}
+.fine{font-size:12px;color:var(--muted)}
+.progress{background:var(--surface);border-radius:12px;padding:12px;font-size:12.5px;margin-bottom:6px}
+.progress .barwrap{height:6px;border-radius:6px;background:var(--line);margin-top:8px;overflow:hidden}
+.progress .barfill{height:100%;background:var(--green);border-radius:6px;transition:width .3s}
+form.co{display:grid;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field label{font-size:12px;font-weight:600;color:var(--muted)}
+.field input,.field select,.field textarea{border:1.5px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:10px 12px;font-size:14px;width:100%}
+.field textarea{min-height:64px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field.err input,.field.err select{border-color:var(--red)}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.pay{display:grid;gap:8px}
+.pay label{display:flex;gap:10px;align-items:center;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;font-size:13.5px;cursor:pointer}
+.pay label:has(input:checked){border-color:var(--green);background:var(--green-soft)}
+.pay input{accent-color:var(--green)}
+.form-msg{font-size:13px;color:var(--red)}
+.done{text-align:center;padding:10px 0}
+.done .tick{width:60px;height:60px;border-radius:50%;background:var(--green-soft);color:var(--link-green);display:grid;place-items:center;margin:0 auto}
+.done .tick svg{width:30px;height:30px}
+.done h4{font-size:19px;margin-top:14px}
+.done p{color:var(--muted);font-size:13.5px;margin-top:6px}
+.receipt{margin-top:16px;text-align:left;border:1px dashed var(--line);border-radius:12px;padding:6px 14px;font-size:13px}
+.receipt div{display:flex;justify-content:space-between;gap:14px;padding:7px 0;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.receipt div:last-child{border-bottom:0}
+.receipt span{color:var(--muted)}
+.backlink{background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;padding:0;display:inline-flex;gap:6px;align-items:center;margin-bottom:12px}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:99;display:flex;gap:12px;align-items:center}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0);pointer-events:auto}
+.toast button{background:none;border:0;color:var(--yellow);font-weight:700;cursor:pointer;font-size:13px}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-bag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8h14l-1.2 11.2A2 2 0 0 1 15.8 21H8.2a2 2 0 0 1-2-1.8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z"/><path d="M9.5 14.5a2.5 2.5 0 0 0 2.5 2.5"/></g></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-8-4.6-8-10.4A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6C20 15.4 12 20 12 20z"/><path d="M7 12h2.5l1.5-2.5 2 5 1.5-2.5H17"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v10H3zM14 9h4l3 3v4h-7"/><circle cx="7" cy="17.5" r="1.8"/><circle cx="17" cy="17.5" r="1.8"/></g></symbol>
+    <symbol id="i-steth" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v6a4 4 0 0 0 8 0V3"/><path d="M10 13v2a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="11" r="2"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  </defs>
+</svg>
+
+<div class="announce"><div class="wrap">Doctor-recommended daily nutrition · <b>Free 15-min consult</b> with every 3-Month Triangle</div></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="index.html" aria-label="Dr. Dylan Thor P. Rullan, clinic home">
+      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#F2B630"/><path d="M12 28c3-5 7-9 12-12" stroke="#173D2D" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span class="logo-text">Dr. Rullan Shop<small>INTEGRATIVE &amp; NATUROPATHIC MEDICINE</small></span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#shop" class="on">Shop</a></li>
+      <li><a href="#triangle">The Triangle</a></li>
+      <li><a href="#ritual">How to Use</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="index.html">Clinic</a></li>
+      <li><a href="index.html#book">Book a Consult</a></li>
+    </ul>
+    <div class="icons">
+      <button class="icon-btn" type="button" id="cartBtn" aria-label="Open cart"><svg><use href="#i-bag"/></svg><span class="count" id="cartCount" hidden>0</span></button>
+      <button class="icon-btn menu-btn" type="button" id="menuBtn" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><svg><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Amare Triangle of Health™ Xtreme</div>
+      <h1>Three Steps.<span class="accent">One Daily Rhythm.</span></h1>
+      <p class="sub">Most diets leave nutritional gaps. The Triangle of Health fills them in three simple steps: a superfood drink in the morning, Nitro through the day, and omega-rich softgels at night.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="#shop">Shop Now <svg><use href="#i-arrow"/></svg></a>
+        <a class="btn btn-ghost" href="#triangle">How it works</a>
+      </div>
+      <div class="trio">
+        <span><i style="background:#F2B630"></i>Sunrise · morning</span>
+        <span><i style="background:#D9412E"></i>Nitro Xtreme · all day</span>
+        <span><i style="background:#3C9468"></i>Sunset · evening</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-main"><img src="images/shop/hero.png" alt="Amare Triangle of Health Xtreme product set" width="1000" height="1000"></div>
+      <figure class="hero-side" style="margin:0"><img src="images/shop/triangle.jpg" alt="The Amare Triangle of Health" width="800" height="1000"><figcaption>THE TRIANGLE OF HEALTH</figcaption></figure>
+      <div class="hero-note hand">Morning,<br>noon &amp; night
+        <svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M50 4C46 22 34 32 12 32"/><path d="M20 24l-8 8 10 4"/></svg>
+      </div>
+      <div class="hero-chip"><span class="ic g"><svg><use href="#i-steth"/></svg></span><div><b>Doctor-recommended</b>by Dr. Dylan Thor P. Rullan</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews" aria-label="Customer reviews">
+  <div class="wrap">
+    <div class="rgrid">
+      <div class="rcard"><span class="avatar" style="background:#2F7A55">AM</span><div><div class="stars" aria-label="5 out of 5">★★★★★</div><q>Sunrise has become part of my breakfast. Easy to mix and it tastes good in a smoothie.</q><small><b>Ana M.</b> · Triangle of Health</small></div></div>
+      <div class="rcard"><span class="avatar" style="background:#D9412E">RB</span><div><div class="stars" aria-label="5 out of 5">★★★★★</div><q>I like that it is a simple routine: morning, noon, night. Dr. Rullan explained exactly how to take it.</q><small><b>Ramon B.</b> · 1-Month Triangle</small></div></div>
+      <div class="rcard"><span class="avatar" style="background:#C08A10">JT</span><div><div class="stars" aria-label="5 out of 5">★★★★★</div><q>Ordering was easy and the clinic followed up to check how I was doing after the first week.</q><small><b>Joy T.</b> · 7-Day Trial</small></div></div>
+    </div>
+    <p class="sample-note"><span>Sample</span>Placeholder reviews. Replace with real, consented customer reviews before launch.</p>
+  </div>
+</section>
+
+<div class="ticker" aria-label="Product qualities">
+  <div class="ticker-track">
+    <span class="ticker-item"><svg><use href="#i-leaf"/></svg>Non-GMO</span>
+    <span class="ticker-item"><svg><use href="#i-shield"/></svg>Gluten-free</span>
+    <span class="ticker-item"><svg><use href="#i-check"/></svg>Soy &amp; dairy-free</span>
+    <span class="ticker-item"><svg><use href="#i-drop"/></svg>No artificial colors or flavors</span>
+    <span class="ticker-item"><svg><use href="#i-sun"/></svg>22 plant-based superfoods</span>
+    <span class="ticker-item"><svg><use href="#i-steth"/></svg>Doctor-recommended</span>
+    <span class="ticker-item" aria-hidden="true"><svg><use href="#i-leaf"/></svg>Non-GMO</span>
+    <span class="ticker-item" aria-hidden="true"><svg><use href="#i-shield"/></svg>Gluten-free</span>
+    <span class="ticker-item" aria-hidden="true"><svg><use href="#i-check"/></svg>Soy &amp; dairy-free</span>
+    <span class="ticker-item" aria-hidden="true"><svg><use href="#i-drop"/></svg>No artificial colors or flavors</span>
+    <span class="ticker-item" aria-hidden="true"><svg><use href="#i-sun"/></svg>22 plant-based superfoods</span>
+    <span class="ticker-item" aria-hidden="true"><svg><use href="#i-steth"/></svg>Doctor-recommended</span>
+  </div>
+</div>
+
+<section>
+  <div class="wrap">
+    <div class="offers">
+      <div class="offer o1">
+        <div><div class="tag">New here?</div><h3>Try the Triangle for 7 days</h3><p>A one-week supply of all three steps. See how the routine fits your day before committing to a full month.</p></div>
+        <div><button class="btn btn-red" type="button" data-add="trial">Get the 7-Day Trial <svg><use href="#i-arrow"/></svg></button></div>
+        <div class="seal" aria-hidden="true"><div><b>7</b><small>DAY TRIAL</small></div></div>
+      </div>
+      <div class="offer o2">
+        <div><div class="tag">Best value</div><h3>Stock up for 3 months</h3><p>Three full Triangle packs plus a free 15-minute online consult with Dr. Rullan to tailor the routine to you.</p></div>
+        <div><button class="btn btn-red" type="button" data-add="m3">Get 3 Months + Free Consult <svg><use href="#i-arrow"/></svg></button></div>
+        <div class="seal" aria-hidden="true"><div><b>FREE</b><small>CONSULT</small></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tri-sec" id="triangle">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">The Triangle</div><h2 class="h2">Three Products That Work as One System</h2><p class="lead">Each corner covers a different part of the day. Nitro is taken first so your body is ready to use the nutrients in Sunrise and Sunset.</p></div>
+    <div class="tri-wrap">
+      <svg class="tri-svg" viewBox="0 0 480 440" role="tablist" aria-label="Triangle of Health products">
+        <defs>
+          <linearGradient id="gEdge" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F2B630"/><stop offset=".5" stop-color="#D9412E"/><stop offset="1" stop-color="#3C9468"/></linearGradient>
+        </defs>
+        <polygon class="fillTri" points="240,60 70,360 410,360"/>
+        <polygon points="240,60 70,360 410,360" fill="none" stroke="url(#gEdge)" stroke-width="4" stroke-dasharray="10 8"/>
+        <text class="cen" x="240" y="250" text-anchor="middle">YOUR DAY</text>
+        <text class="cen2" x="240" y="290" text-anchor="middle">in balance</text>
+        <g class="node on" data-node="sunrise" tabindex="0" role="tab" aria-label="Sunrise, morning">
+          <circle class="halo" cx="240" cy="60" r="46" fill="#F2B630" fill-opacity=".22"/>
+          <circle class="dot" cx="240" cy="60" r="32" fill="#F2B630"/>
+          <use href="#i-sun" x="226" y="46" width="28" height="28" style="color:#173D2D"/>
+          <text class="lbl" x="284" y="66" text-anchor="start">Sunrise</text>
+        </g>
+        <g class="node" data-node="nitro" tabindex="0" role="tab" aria-label="Nitro Xtreme, through the day">
+          <circle class="halo" cx="70" cy="360" r="46" fill="#D9412E" fill-opacity=".22"/>
+          <circle class="dot" cx="70" cy="360" r="32" fill="#D9412E"/>
+          <use href="#i-drop" x="56" y="346" width="28" height="28" style="color:#FFFFFF"/>
+          <text class="lbl" x="70" y="420" text-anchor="middle">Nitro Xtreme</text>
+        </g>
+        <g class="node" data-node="sunset" tabindex="0" role="tab" aria-label="Sunset, evening">
+          <circle class="halo" cx="410" cy="360" r="46" fill="#3C9468" fill-opacity=".25"/>
+          <circle class="dot" cx="410" cy="360" r="32" fill="#2F7A55"/>
+          <use href="#i-moon" x="396" y="346" width="28" height="28" style="color:#F2B630"/>
+          <text class="lbl" x="410" y="420" text-anchor="middle">Sunset</text>
+        </g>
+      </svg>
+      <div class="tri-panel">
+        <div class="tri-tabs" role="tablist" aria-label="Choose a product">
+          <button class="tri-tab" type="button" role="tab" data-node="sunrise" aria-selected="true"><i style="background:#F2B630"></i>Sunrise</button>
+          <button class="tri-tab" type="button" role="tab" data-node="nitro" aria-selected="false"><i style="background:#D9412E"></i>Nitro Xtreme</button>
+          <button class="tri-tab" type="button" role="tab" data-node="sunset" aria-selected="false"><i style="background:#2F7A55"></i>Sunset</button>
+        </div>
+        <div class="tri-body" id="triBody" aria-live="polite"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Why the Triangle</div><h2 class="h2">Built Around Your Body's Daily Needs</h2></div>
+    <div class="bgrid">
+      <div class="bcard"><span class="ic y"><svg><use href="#i-sun"/></svg></span><h3>Antioxidant Support</h3><p>22 plant-based superfoods deliver antioxidants, vitamins and minerals that help the body fight oxidative stress and maintain healthy cells.</p><span class="from" style="color:var(--yellow-ink)">From Sunrise</span></div>
+      <div class="bcard"><span class="ic r"><svg><use href="#i-bolt"/></svg></span><h3>Nutrient Delivery</h3><p>Organic noni fruit helps the body produce nitric oxide. Xtreme adds CoQ10, thiamine, chromium and zinc, taken under the tongue for fast absorption.</p><span class="from" style="color:var(--red)">From Nitro Xtreme</span></div>
+      <div class="bcard"><span class="ic g"><svg><use href="#i-heart"/></svg></span><h3>Heart, Brain &amp; Cell Care</h3><p>Omega-3s support brain and heart health. Astaxanthin, tocotrienols and vitamin D3 support cellular repair and immune function overnight.</p><span class="from" style="color:var(--link-green)">From Sunset</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="ritual" id="ritual">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--yellow)">How to Use</div>
+    <h2 class="h2">Your Daily Ritual</h2>
+    <p class="lead">Under two minutes a day. Take Nitro first each time, then the next step.</p>
+    <div class="rsteps">
+      <div class="rstep"><span class="bar" style="background:#F2B630"></span><div class="time">Morning</div><div class="clock">With breakfast</div><h3>Nitro, then Sunrise</h3><ol><li><b>1 mL Nitro Xtreme</b> under the tongue. Hold for 20 seconds.</li><li><b>1 Sunrise pouch</b> on its own or in a smoothie, juice or water.</li></ol></div>
+      <div class="rstep"><span class="bar" style="background:#D9412E"></span><div class="time">Noon</div><div class="clock">4–5 hours later</div><h3>Nitro boost</h3><ol><li><b>1 mL Nitro Xtreme</b> under the tongue, ideally before lunch.</li></ol></div>
+      <div class="rstep"><span class="bar" style="background:#3C9468"></span><div class="time">Evening</div><div class="clock">With dinner</div><h3>Nitro, then Sunset</h3><ol><li><b>1 mL Nitro Xtreme</b> under the tongue.</li><li><b>3 Sunset softgels</b> with your evening meal.</li></ol></div>
+    </div>
+  </div>
+</section>
+
+<section class="doc">
+  <div class="wrap">
+    <div class="doc-art">
+      <div class="arch" aria-hidden="true"></div>
+      <img src="images/dr-rullan-hero.webp" alt="Dr. Dylan Thor P. Rullan" width="600" height="769" loading="lazy">
+      <div class="stamp"><b>Dr. Rullan</b>Integrative &amp; Naturopathic</div>
+    </div>
+    <div>
+      <div class="eyebrow">From the Doctor</div>
+      <h2 class="h2">Why I Recommend the Triangle</h2>
+      <blockquote>Many of my patients eat well and still come up short on key nutrients. The Triangle gives them a simple daily routine that covers the basics, so our consultations can focus on the root cause.</blockquote>
+      <div class="sig">Dr. Dylan Thor P. Rullan<small>Integrative &amp; Naturopathic Medicine</small></div>
+      <span class="draft">DRAFT · for Dr. Rullan to review and approve</span>
+      <div class="btns"><a class="btn btn-red" href="#shop">Shop the Triangle <svg><use href="#i-arrow"/></svg></a><a class="btn btn-line" href="index.html#book">Book a consultation</a></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Real Routines</div><h2 class="h2">Designed for Your Health and Your Lifestyle</h2><p class="lead">From breakfast smoothies to evening wind-downs, the Triangle fits into the day you already have.</p></div>
+    <div class="igrid">
+      <figure><img src="images/shop/lifestyle-1.jpg" alt="Morning Sunrise smoothie" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-2.jpg" alt="Taking Nitro under the tongue" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-3.jpg" alt="Evening Sunset softgels" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-4.jpg" alt="Family breakfast table" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-5.jpg" alt="Active day" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-6.jpg" alt="Unboxing the Triangle pack" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-7.jpg" alt="Customer with a Sunrise pouch" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-8.jpg" alt="Clinic consultation" loading="lazy" width="700" height="700"></figure>
+      <figure><img src="images/shop/lifestyle-9.jpg" alt="Flat lay of Sunrise, Sunset and Nitro" loading="lazy" width="700" height="700"></figure>
+    </div>
+  </div>
+</section>
+
+<section class="bundles" id="shop">
+  <div class="wrap">
+    <div class="center"><div class="eyebrow">Shop</div><h2 class="h2">Choose Your Triangle</h2><p class="lead">Every pack includes all three steps. Longer packs cost less per day.</p></div>
+    <div class="pgrid" id="pgrid"></div>
+    <div class="singles" id="singles"></div>
+    <p class="sample-note" style="justify-content:center"><span>Sample prices</span>Set your real prices and pack contents in the SHOP settings before launch.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap two">
+    <div id="ingredients">
+      <div class="eyebrow">What's Inside</div>
+      <h2 class="h2">Key Ingredients</h2>
+      <details class="acc" open id="acc-sunrise"><summary><span><span class="acc-dot" style="background:#F2B630"></span>Sunrise · superfood drink</span></summary><div class="acc-body">A blend of 22 plant-based superfoods providing antioxidants, vitamins and minerals. Supports the body's own production of antioxidant enzymes.<ul><li>Serving: 1 pouch each morning</li><li>Mix with water, juice or a smoothie</li></ul></div></details>
+      <details class="acc" id="acc-nitro"><summary><span><span class="acc-dot" style="background:#D9412E"></span>Nitro Xtreme · sublingual liquid</span></summary><div class="acc-body">Organic noni fruit (Morinda citrifolia) concentrate, which helps the body produce nitric oxide, plus:<ul><li>CoQ10</li><li>Thiamine (vitamin B1)</li><li>Chromium and zinc</li><li>Serving: 1 mL under the tongue, up to 3 times a day</li></ul></div></details>
+      <details class="acc" id="acc-sunset"><summary><span><span class="acc-dot" style="background:#2F7A55"></span>Sunset · softgels</span></summary><div class="acc-body">Omega-3 fatty acids, vitamin E tocotrienols, astaxanthin, beta-carotene and vitamin D3.<ul><li>Serving: 3 softgels with your evening meal</li></ul></div></details>
+      <div class="free-of"><span>Non-GMO</span><span>Gluten-free</span><span>Soy-free</span><span>Dairy-free</span><span>No artificial preservatives</span><span>No artificial colors, flavors or sweeteners</span></div>
+    </div>
+    <div id="faq">
+      <div class="eyebrow">Questions</div>
+      <h2 class="h2">Frequently Asked</h2>
+      <details class="acc"><summary>Can I take the Triangle with my medication?</summary><div class="acc-body">Check with your doctor first, especially if you take blood thinners, diabetes or blood-pressure medication, or are pregnant or breastfeeding. You can book a consultation with Dr. Rullan to review your current medication.</div></details>
+      <details class="acc"><summary>Why take Nitro before the other two?</summary><div class="acc-body">Nitro is designed to support nitric oxide production, which helps with nutrient delivery. Taking it first prepares your body for Sunrise in the morning and Sunset in the evening.</div></details>
+      <details class="acc"><summary>When will I notice a difference?</summary><div class="acc-body">Everyone is different. Nutritional support works best taken consistently, which is why we suggest at least one full month alongside a balanced diet and regular activity.</div></details>
+      <details class="acc"><summary>How do I pay, and how is it delivered?</summary><div class="acc-body">Place your order here, then the clinic confirms stock, shipping fee and payment by message. We accept GCash, bank transfer and cash on delivery in selected areas.</div></details>
+      <details class="acc"><summary>Is this a medicine?</summary><div class="acc-body">No. The Triangle of Health products are food supplements. They are not intended to diagnose, treat, cure or prevent any disease.</div></details>
+    </div>
+  </div>
+</section>
+
+<div class="follow">
+  <div class="wrap">
+    <div class="follow-card">
+      <img src="images/shop/follow-banner.jpg" alt="" width="1600" height="600" loading="lazy">
+      <div><h3>Follow Dr. Rullan for Daily Wellness Tips</h3><p>Recipes, routines and answers to your questions.</p><a class="btn btn-red" href="https://www.facebook.com/" target="_blank" rel="noopener">Follow on Facebook <svg><use href="#i-arrow"/></svg></a></div>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="index.html"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#F2B630"/><path d="M12 28c3-5 7-9 12-12" stroke="#173D2D" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg><span class="logo-text">Dr. Dylan Thor P. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC</small></span></a>
+        <p style="margin-top:14px;max-width:34ch">Root-cause medicine, and the daily nutrition to support it.</p>
+      </div>
+      <div><h4>Shop</h4><ul><li><a href="#shop">Triangle packs</a></li><li><a href="#triangle">The Triangle</a></li><li><a href="#ritual">How to use</a></li><li><a href="#ingredients">Ingredients</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+      <div><h4>Clinic</h4><ul><li><a href="index.html">Home</a></li><li><a href="index.html#services">Services</a></li><li><a href="index.html#about">About the doctor</a></li><li><a href="index.html#book">Book a consult</a></li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li class="contact-row"><svg><use href="#i-pin"/></svg><span id="c-addr"></span></li>
+        <li class="contact-row"><svg><use href="#i-phone"/></svg><span><span id="c-phone"></span><button class="copy" data-copy="phone" type="button">Copy</button></span></li>
+        <li class="contact-row"><svg><use href="#i-mail"/></svg><span><span id="c-email"></span><button class="copy" data-copy="email" type="button">Copy</button></span></li>
+      </ul></div>
+    </div>
+    <div class="legal">
+      <p><b>MAHALAGANG PAALALA:</b> Ang Amare Sunrise, Sunset at Nitro Xtreme ay hindi gamot at hindi dapat gamiting panggamot sa anumang uri ng sakit. <b>No approved therapeutic claims.</b></p>
+      <p>These statements have not been evaluated by the Food and Drug Administration. These products are not intended to diagnose, treat, cure or prevent any disease. Amare, Sunrise, Sunset, Nitro Xtreme and Triangle of Health are trademarks of Amare Global. Sold by an independent distributor.</p>
+    </div>
+    <div class="fbot"><span>© 2026 Dr. Dylan Thor P. Rullan · Integrative &amp; Naturopathic Medicine</span><span>Prices in Philippine pesos (₱)</span></div>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
+  <div class="dr-head"><h3 id="drTitle">Your Cart</h3><button class="x" type="button" id="closeCart" aria-label="Close cart"><svg width="16" height="16"><use href="#i-x"/></svg></button></div>
+  <div class="dr-body" id="drBody"></div>
+  <div class="dr-foot" id="drFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"><span id="toastMsg"></span><button type="button" id="toastBtn">View cart</button></div>
+
+<script>
+/* ---- Shop settings: edit these ---- */
+const SHOP = {
+  address: "Clinic address, City, Philippines",
+  phone: "+63 917 000 0000",
+  whatsapp: "639170000000",          // digits only, for the "Send on WhatsApp" link
+  email: "orders@drdylanrullan.com",
+  freeShipFrom: 5000,                 // ₱ subtotal for free shipping
+  shippingFee: 150,
+  bundles: [
+    { id:"trial", name:"7-Day Trial", incl:"7 Sunrise pouches · 21 Sunset softgels · Nitro Xtreme sample", price:1250, compare:1450, img:"images/shop/bundle-trial.jpg", perks:["All three steps for one week","Ideal first order"], ribbon:"" },
+    { id:"m1", name:"1-Month Triangle", incl:"30 Sunrise pouches · 90 Sunset softgels · 1 Nitro Xtreme (56 mL)", price:5450, compare:5950, img:"images/shop/bundle-1m.jpg", perks:["30 days of the full routine","Free shipping"], ribbon:"Most popular", ribbonG:true },
+    { id:"m3", name:"3-Month Triangle", incl:"3 × 1-Month Triangle packs", price:15450, compare:17850, img:"images/shop/bundle-3m.jpg", perks:["90 days of the full routine","Free shipping","Free 15-min online consult with Dr. Rullan"], ribbon:"Best value", best:true }
+  ],
+  singles: [
+    { id:"sunrise", name:"Sunrise", sub:"30 pouches", price:2650, color:"#F2B630", icon:"i-sun", ink:"#173D2D" },
+    { id:"nitro", name:"Nitro Xtreme", sub:"56 mL bottle", price:1650, color:"#D9412E", icon:"i-drop", ink:"#fff" },
+    { id:"sunset", name:"Sunset", sub:"90 softgels", price:1850, color:"#2F7A55", icon:"i-moon", ink:"#F2B630" }
+  ]
+};
+const TRI = {
+  sunrise:{when:"Morning · with breakfast",color:"#C08A10",name:"Amare Sunrise",text:"A delicious blend of 22 plant-based superfoods that supports your body from the inside out, giving antioxidant support to help fight oxidative stress and maintain cellular health.",facts:[["Format","Drink pouch"],["Serving","1 pouch daily"]],chips:["22 superfoods","Antioxidants","Vitamins","Minerals"],acc:"acc-sunrise"},
+  nitro:{when:"Morning, noon & evening",color:"#D9412E",name:"Amare Nitro Xtreme",text:"Organic noni fruit helps the body produce nitric oxide, which supports nutrient delivery. Xtreme adds CoQ10, thiamine, chromium and zinc. Hold under the tongue for 20 seconds before swallowing.",facts:[["Format","Sublingual liquid"],["Serving","1 mL up to 3× daily"]],chips:["Noni fruit","CoQ10","Thiamine","Chromium","Zinc"],acc:"acc-nitro"},
+  sunset:{when:"Evening · with dinner",color:"#2F7A55",name:"Amare Sunset",text:"Omega-3s support brain and heart health, while astaxanthin, tocotrienols and vitamin D3 help fight the effects of oxidative stress and support cellular repair and immune function.",facts:[["Format","Softgels"],["Serving","3 softgels daily"]],chips:["Omega-3","Astaxanthin","Tocotrienols","Vitamin D3","Beta-carotene"],acc:"acc-sunset"}
+};
+
+const $=s=>document.querySelector(s);
+const peso=n=>"₱"+Number(n).toLocaleString("en-PH",{minimumFractionDigits:0,maximumFractionDigits:2});
+const ALL=[...SHOP.bundles,...SHOP.singles];
+const find=id=>ALL.find(p=>p.id===id);
+$("#c-addr").textContent=SHOP.address;$("#c-phone").textContent=SHOP.phone;$("#c-email").textContent=SHOP.email;
+
+let toastTimer;
+function toast(msg,withBtn){$("#toastMsg").textContent=msg;$("#toastBtn").hidden=!withBtn;const t=$("#toast");t.classList.add("show");clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove("show"),2800)}
+$("#toastBtn").addEventListener("click",()=>{$("#toast").classList.remove("show");openCart()});
+async function copyText(txt){try{await navigator.clipboard.writeText(txt);toast("Copied")}catch(e){toast("Select and copy: "+txt.slice(0,40)+"…")}}
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copyText(SHOP[b.dataset.copy])));
+$("#menuBtn").addEventListener("click",()=>{const o=$("#navLinks").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",o)});
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>$("#navLinks").classList.remove("open")));
+
+/* ---- Triangle ---- */
+function showTri(key){
+  const d=TRI[key];
+  document.querySelectorAll(".tri-svg .node").forEach(n=>{const on=n.dataset.node===key;n.classList.toggle("on",on);n.setAttribute("aria-selected",on)});
+  document.querySelectorAll(".tri-tab").forEach(t=>t.setAttribute("aria-selected",t.dataset.node===key));
+  $("#triBody").innerHTML=`<div class="when" style="color:${d.color}">${d.when}</div><h3>${d.name}</h3><p>${d.text}</p>
+    <div class="tri-facts">${d.facts.map(f=>`<div><span>${f[0]}</span><b>${f[1]}</b></div>`).join("")}</div>
+    <div class="chips">${d.chips.map(c=>`<span>${c}</span>`).join("")}</div>
+    <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap"><button class="btn btn-red btn-sm" type="button" data-add="${key}">Add ${d.name.replace("Amare ","")} <svg><use href="#i-plus"/></svg></button><a class="btn btn-line btn-sm" href="#${d.acc}" data-open="${d.acc}">Full ingredients</a></div>`;
+}
+document.querySelectorAll(".tri-svg .node,.tri-tab").forEach(n=>{n.addEventListener("click",()=>showTri(n.dataset.node));n.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();showTri(n.dataset.node)}})});
+document.addEventListener("click",e=>{const a=e.target.closest("[data-open]");if(a){const d=document.getElementById(a.dataset.open);if(d)d.open=true}});
+showTri("sunrise");
+
+/* ---- Products ---- */
+const pq={};
+function renderProducts(){
+  $("#pgrid").innerHTML=SHOP.bundles.map(b=>{
+    pq[b.id]=pq[b.id]||1;
+    const save=b.compare-b.price;
+    return `<article class="pcard${b.best?" best":""}">${b.ribbon?`<span class="ribbon${b.ribbonG?" g":""}">${b.ribbon}</span>`:""}
+      <div class="pimg"><img src="${b.img}" alt="${b.name}" loading="lazy" width="800" height="800"></div>
+      <div class="pbody"><h3>${b.name}</h3><div class="incl">${b.incl}</div>
+        <span class="save">Save ${peso(save)}</span>
+        <div class="price"><b>${peso(b.price)}</b><s>${peso(b.compare)}</s></div>
+        <ul class="perks">${b.perks.map(p=>`<li><svg><use href="#i-check"/></svg>${p}</li>`).join("")}</ul>
+        <div class="qty-row"><div class="stepper" aria-label="Quantity"><button type="button" data-pq="${b.id}" data-d="-1" aria-label="Decrease">−</button><output id="pq-${b.id}">${pq[b.id]}</output><button type="button" data-pq="${b.id}" data-d="1" aria-label="Increase">+</button></div>
+        <button class="btn btn-red" type="button" data-add="${b.id}" data-useq="1">Add to Cart <svg><use href="#i-bag"/></svg></button></div>
+      </div></article>`}).join("");
+  $("#singles").innerHTML=SHOP.singles.map(s=>`<div class="single"><span class="dotbig" style="background:${s.color};color:${s.ink}"><svg><use href="#${s.icon}"/></svg></span><div><b>${s.name}</b><small>${s.sub}</small><span class="p">${peso(s.price)}</span></div><button class="addmini" type="button" data-add="${s.id}" aria-label="Add ${s.name} to cart"><svg><use href="#i-plus"/></svg></button></div>`).join("");
+}
+document.addEventListener("click",e=>{
+  const s=e.target.closest("[data-pq]");
+  if(s){const id=s.dataset.pq;pq[id]=Math.max(1,Math.min(20,(pq[id]||1)+Number(s.dataset.d)));$("#pq-"+id).textContent=pq[id];return}
+  const a=e.target.closest("[data-add]");
+  if(a){const id=a.dataset.add;const q=a.dataset.useq?pq[id]:1;addToCart(id,q)}
+});
+renderProducts();
+
+/* ---- Cart (kept in this browser) ---- */
+let cart=[]; let view="cart"; let lastOrder=null;
+try{const raw=localStorage.getItem("rullan-cart");if(raw)cart=JSON.parse(raw).filter(l=>find(l.id))}catch(e){cart=[]}
+function save(){try{localStorage.setItem("rullan-cart",JSON.stringify(cart))}catch(e){}}
+function addToCart(id,q){const p=find(id);if(!p)return;const l=cart.find(x=>x.id===id);if(l)l.q=Math.min(20,l.q+q);else cart.push({id,q});save();renderCart();toast(`${p.name} added`,true)}
+const subtotal=()=>cart.reduce((s,l)=>s+find(l.id).price*l.q,0);
+const shipping=()=>{const st=subtotal();return st===0||st>=SHOP.freeShipFrom?0:SHOP.shippingFee};
+function count(){return cart.reduce((s,l)=>s+l.q,0)}
+function imgFor(p){return p.img||null}
+function renderCart(){
+  const c=count();const badge=$("#cartCount");badge.hidden=!c;badge.textContent=c;
+  const body=$("#drBody"),foot=$("#drFoot");
+  if(view==="done"){renderDone();return}
+  if(view==="checkout"&&cart.length){renderCheckout();return}
+  view="cart";$("#drTitle").textContent="Your Cart";
+  if(!cart.length){body.innerHTML=`<div class="empty"><svg><use href="#i-bag"/></svg><p>Your cart is empty.</p><a class="btn btn-red btn-sm" href="#shop" id="contShop" style="margin-top:14px">Continue shopping</a></div>`;foot.innerHTML="";body.querySelector("#contShop").addEventListener("click",closeCart);return}
+  const st=subtotal();const left=Math.max(0,SHOP.freeShipFrom-st);
+  body.innerHTML=`<div class="progress">${left?`Add <b>${peso(left)}</b> more for free shipping`:`<b>You get free shipping</b>`}<div class="barwrap"><div class="barfill" style="width:${Math.min(100,st/SHOP.freeShipFrom*100)}%"></div></div></div>`+
+    cart.map(l=>{const p=find(l.id);const im=imgFor(p);return `<div class="line">${im?`<img src="${im}" alt="">`:`<span class="dotbig" style="width:64px;height:64px;border-radius:10px;display:grid;place-items:center;background:${p.color};color:${p.ink}"><svg width="26" height="26"><use href="#${p.icon}"/></svg></span>`}
+      <div><b>${p.name}</b><small>${peso(p.price)} each</small><div><div class="stepper"><button type="button" data-cq="${l.id}" data-d="-1" aria-label="Decrease">−</button><output>${l.q}</output><button type="button" data-cq="${l.id}" data-d="1" aria-label="Increase">+</button></div></div><button class="rm" type="button" data-rm="${l.id}">Remove</button></div>
+      <div class="lp">${peso(p.price*l.q)}</div></div>`}).join("");
+  foot.innerHTML=`<div class="totrow"><span>Subtotal</span><span>${peso(st)}</span></div><div class="totrow"><span>Shipping</span><span>${shipping()?peso(shipping()):"Free"}</span></div><div class="totrow big"><span>Estimated total</span><span>${peso(st+shipping())}</span></div><p class="fine">Final shipping fee is confirmed with your order.</p><button class="btn btn-red btn-block" type="button" id="toCheckout">Check Out <svg><use href="#i-arrow"/></svg></button>`;
+  foot.querySelector("#toCheckout").addEventListener("click",()=>{view="checkout";renderCart()});
+}
+document.addEventListener("click",e=>{
+  const q=e.target.closest("[data-cq]");if(q){const l=cart.find(x=>x.id===q.dataset.cq);if(l){l.q+=Number(q.dataset.d);if(l.q<1)cart=cart.filter(x=>x!==l);if(l.q>20)l.q=20;save();renderCart()}return}
+  const r=e.target.closest("[data-rm]");if(r){cart=cart.filter(x=>x.id!==r.dataset.rm);save();renderCart()}
+});
+const draft={};
+function renderCheckout(){
+  $("#drTitle").textContent="Checkout";
+  const st=subtotal();
+  $("#drBody").innerHTML=`<button class="backlink" type="button" id="backCart">← Back to cart</button>
+  <form class="co" id="coForm" novalidate>
+    <div class="field"><label for="co-name">Full name</label><input id="co-name" autocomplete="name" placeholder="Juan Dela Cruz"></div>
+    <div class="row2"><div class="field"><label for="co-phone">Mobile</label><input id="co-phone" type="tel" autocomplete="tel" placeholder="+63 9XX XXX XXXX"></div><div class="field"><label for="co-email">Email</label><input id="co-email" type="email" autocomplete="email" placeholder="you@example.com"></div></div>
+    <div class="field"><label for="co-addr">Delivery address</label><input id="co-addr" autocomplete="street-address" placeholder="House no., street, barangay"></div>
+    <div class="row2"><div class="field"><label for="co-city">City / Municipality</label><input id="co-city" autocomplete="address-level2"></div><div class="field"><label for="co-prov">Province</label><input id="co-prov" autocomplete="address-level1"></div></div>
+    <div class="field"><label>Payment method</label><div class="pay">
+      <label><input type="radio" name="pay" id="pay-gcash" value="GCash" checked> GCash</label>
+      <label><input type="radio" name="pay" id="pay-bank" value="Bank transfer"> Bank transfer</label>
+      <label><input type="radio" name="pay" id="pay-cod" value="Cash on delivery"> Cash on delivery (selected areas)</label></div></div>
+    <div class="field"><label for="co-notes">Notes (optional)</label><textarea id="co-notes" placeholder="Landmark, preferred delivery time…"></textarea></div>
+    <p class="form-msg" id="coMsg" role="alert"></p>
+  </form>`;
+  ["name","phone","email","addr","city","prov","notes"].forEach(k=>{const el=$("#co-"+k);if(draft[k])el.value=draft[k];el.addEventListener("input",()=>draft[k]=el.value)});
+  $("#drFoot").innerHTML=`<div class="totrow"><span>Subtotal (${count()} items)</span><span>${peso(st)}</span></div><div class="totrow"><span>Shipping</span><span>${shipping()?peso(shipping()):"Free"}</span></div><div class="totrow big"><span>Total</span><span>${peso(st+shipping())}</span></div><button class="btn btn-red btn-block" type="button" id="placeOrder">Place Order</button><p class="fine">The clinic confirms your order, shipping and payment details by message before anything is charged.</p>`;
+  $("#backCart").addEventListener("click",()=>{view="cart";renderCart()});
+  $("#placeOrder").addEventListener("click",placeOrder);
+}
+function placeOrder(){
+  const v=k=>($("#co-"+k).value||"").trim();
+  const bad=(k,c)=>{$("#co-"+k).closest(".field").classList.toggle("err",c);return c};
+  let b=false;b=bad("name",v("name").length<2)||b;b=bad("phone",v("phone").replace(/\D/g,"").length<7)||b;b=bad("addr",v("addr").length<5)||b;b=bad("city",!v("city"))||b;
+  if(v("email"))b=bad("email",!/^\S+@\S+\.\S+$/.test(v("email")))||b;
+  if(b){$("#coMsg").textContent="Fill in the highlighted fields: name, mobile, address and city are needed for delivery.";return}
+  const d=new Date();const ref="TOH-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
+  lastOrder={ref,items:cart.map(l=>({...l,name:find(l.id).name,price:find(l.id).price})),subtotal:subtotal(),shipping:shipping(),name:v("name"),phone:v("phone"),email:v("email"),addr:`${v("addr")}, ${v("city")}${v("prov")?", "+v("prov"):""}`,pay:document.querySelector('input[name="pay"]:checked').value,notes:v("notes")};
+  cart=[];save();view="done";renderCart();
+}
+function orderText(o){return `New order ${o.ref} – Triangle of Health\n${o.items.map(i=>`${i.q} × ${i.name} (${peso(i.price*i.q)})`).join("\n")}\nSubtotal: ${peso(o.subtotal)}\nShipping: ${o.shipping?peso(o.shipping):"Free"}\nTotal: ${peso(o.subtotal+o.shipping)}\nPayment: ${o.pay}\n\nName: ${o.name}\nMobile: ${o.phone}${o.email?"\nEmail: "+o.email:""}\nAddress: ${o.addr}${o.notes?"\nNotes: "+o.notes:""}`}
+function renderDone(){
+  const o=lastOrder;$("#drTitle").textContent="Order Placed";
+  $("#drBody").innerHTML=`<div class="done"><div class="tick"><svg><use href="#i-check"/></svg></div><h4>Thank you, ${o.name.split(" ")[0].replace(/[<>&"]/g,"")}!</h4><p>Send your order to the clinic with one tap below. We confirm stock, shipping and ${o.pay} details by message.</p>
+  <div class="receipt"><div><span>Reference</span><b>${o.ref}</b></div>${o.items.map(i=>`<div><span>${i.q} × ${i.name}</span><b>${peso(i.price*i.q)}</b></div>`).join("")}<div><span>Shipping</span><b>${o.shipping?peso(o.shipping):"Free"}</b></div><div><span>Total</span><b>${peso(o.subtotal+o.shipping)}</b></div><div><span>Payment</span><b>${o.pay}</b></div></div></div>`;
+  $("#drFoot").innerHTML=`<a class="btn btn-green btn-block" target="_blank" rel="noopener" href="https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(orderText(o))}">Send order on WhatsApp</a><button class="btn btn-line btn-block" type="button" id="copyOrder">Copy order details</button><p class="fine">Or email it to ${SHOP.email}. <button class="rm" type="button" id="newOrder">Start a new order</button></p>`;
+  $("#copyOrder").addEventListener("click",()=>copyText(orderText(o)));
+  $("#newOrder").addEventListener("click",()=>{view="cart";lastOrder=null;renderCart()});
+}
+function openCart(){$("#drawer").classList.add("on");$("#scrim").classList.add("on");$("#drawer").setAttribute("aria-hidden","false");document.body.classList.add("lock");if(view==="done"&&!lastOrder)view="cart";renderCart();setTimeout(()=>$("#closeCart").focus(),50)}
+function closeCart(){$("#drawer").classList.remove("on");$("#scrim").classList.remove("on");$("#drawer").setAttribute("aria-hidden","true");document.body.classList.remove("lock")}
+$("#cartBtn").addEventListener("click",openCart);$("#closeCart").addEventListener("click",closeCart);$("#scrim").addEventListener("click",closeCart);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
+renderCart();
+</script>
+
+</body>
+</html>
