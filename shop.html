@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="description" content="Shop the Amare Triangle of Health Xtreme: Sunrise, Nitro Xtreme and Sunset. Doctor-recommended by Dr. Dylan Thor P. Rullan.">
 <meta property="og:title" content="Triangle of Health Shop | Dr. Dylan Thor P. Rullan">
-<meta property="og:image" content="images/shop/hero.png">
+<meta property="og:image" content="images/shop/hero-products.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%232F7A55'/%3E%3Cpath d='M11 29c0-11 6-17 18-18 0 11-6 18-17 18' fill='%23F2B630'/%3E%3Ccircle cx='29' cy='29' r='5' fill='%23D9412E'/%3E%3C/svg%3E">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 <title>Shop the Triangle of Health | Dr. Dylan Thor P. Rullan</title>
@@ -114,19 +114,21 @@ section{padding-block:84px}
 .hero-rating{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:13px;color:var(--band-muted)}
 .hero-rating .stars{color:var(--yellow);letter-spacing:2px}
 
-.hero-art{position:relative;min-height:520px}
-.hero-main{position:absolute;left:0;top:0;width:72%;aspect-ratio:1;max-width:100%;border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#2F7A55,#173D2D);box-shadow:0 30px 60px rgba(0,0,0,.45)}
-.hero-main img{width:100%;height:100%;object-fit:contain;display:block}
-.hero-side{position:absolute;right:0;bottom:0;width:44%;aspect-ratio:4/5;max-width:100%;border-radius:20px;overflow:hidden;background:var(--card);border:6px solid var(--card);box-shadow:0 24px 50px rgba(0,0,0,.5);transform:rotate(4deg)}
-.hero-side img{width:100%;height:100%;object-fit:cover;display:block;border-radius:14px}
-.hero-side figcaption{position:absolute;left:10px;right:10px;bottom:10px;background:rgba(19,26,23,.82);color:#fff;font-size:11.5px;font-weight:600;border-radius:10px;padding:6px 10px;text-align:center;letter-spacing:.04em}
-.hero-note{position:absolute;right:4%;top:6%;color:var(--yellow);font-size:30px;transform:rotate(-6deg);text-align:center;z-index:2}
+.hero-art{position:relative;width:100%;aspect-ratio:1/0.9;max-width:100%}
+.stage{position:absolute;left:0;top:10%;width:76%;bottom:0;border-radius:999px 999px 28px 28px;background:radial-gradient(ellipse at 50% 72%,rgba(242,182,48,.42),transparent 58%),linear-gradient(170deg,#3C9468 0%,#2F7A55 45%,#173D2D 100%);box-shadow:inset 0 0 0 10px rgba(255,255,255,.04)}
+.stage::after{content:"";position:absolute;left:8%;right:8%;bottom:7%;height:7%;border-radius:50%;background:radial-gradient(ellipse,rgba(0,0,0,.45),transparent 70%)}
+.ring{position:absolute;left:-3%;top:4%;width:82%;bottom:0;border-radius:999px 999px 0 0;border:2px dashed rgba(242,182,48,.5);border-bottom:0;pointer-events:none}
+.hero-products{position:absolute;left:-3%;bottom:9%;width:100%;max-width:none;height:auto;z-index:3;filter:drop-shadow(0 22px 26px rgba(0,0,0,.45))}
+.hero-side{position:absolute;right:0;top:0;width:42%;aspect-ratio:1;max-width:100%;margin:0;border-radius:18px;overflow:hidden;background:var(--card);border:6px solid var(--card);box-shadow:0 24px 50px rgba(0,0,0,.5);transform:rotate(5deg);z-index:2}
+.hero-side img{width:100%;height:100%;object-fit:cover;display:block;border-radius:12px}
+.hero-side figcaption{position:absolute;left:8px;right:8px;top:8px;background:rgba(19,26,23,.85);color:#fff;font-size:11px;font-weight:700;border-radius:8px;padding:5px 8px;text-align:center;letter-spacing:.08em}
+.hero-note{position:absolute;left:4%;top:-2%;color:var(--yellow);font-size:28px;transform:rotate(-8deg);text-align:center;z-index:4}
 .hero-note svg{display:block;margin:4px auto 0;width:56px;height:40px}
-.hero-chip{position:absolute;left:4%;bottom:6%;z-index:2;background:var(--card);color:var(--fg);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;font-size:12.5px;line-height:1.3}
+.hero-chip{position:absolute;right:2%;bottom:-6%;z-index:4;background:var(--card);color:var(--fg);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;font-size:12.5px;line-height:1.3}
 .hero-chip b{display:block;font-size:14px}
 .hero-chip .ic{width:34px;height:34px;border-radius:10px}
-@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-art{min-height:0;aspect-ratio:1/0.92;max-width:560px;width:100%;margin-inline:auto}}
-@media (max-width:480px){.hero-note{font-size:22px;right:0;top:0}.hero-chip{padding:9px 11px;left:0}.hero-chip .ic{display:none}}
+@media (max-width:960px){.hero .wrap{grid-template-columns:1fr}.hero-art{max-width:600px;margin-inline:auto}}
+@media (max-width:480px){.hero-note{font-size:21px;top:-4%}.hero-chip{padding:8px 10px;font-size:11.5px}.hero-chip b{font-size:12.5px}.hero-chip .ic{display:none}.hero-chip{bottom:-12%}.hero-side figcaption{font-size:8px;padding:3px 4px;white-space:nowrap;letter-spacing:.04em}}
 
 .ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}
 .ic svg{width:22px;height:22px}
@@ -450,10 +452,12 @@ form.co{display:grid;gap:12px}
       </div>
     </div>
     <div class="hero-art">
-      <div class="hero-main"><img src="images/shop/hero.png" alt="Amare Triangle of Health Xtreme product set" width="1000" height="1000"></div>
-      <figure class="hero-side" style="margin:0"><img src="images/shop/triangle.jpg" alt="The Amare Triangle of Health" width="800" height="1000"><figcaption>THE TRIANGLE OF HEALTH</figcaption></figure>
+      <div class="stage" aria-hidden="true"></div>
+      <div class="ring" aria-hidden="true"></div>
+      <figure class="hero-side"><img src="images/shop/arteries.jpg" alt="Illustration of arteries narrowed by plaque build-up" width="800" height="800"><figcaption>HEART HEALTH STARTS DAILY</figcaption></figure>
+      <img class="hero-products" src="images/shop/hero-products.webp" alt="Amare Triangle of Health Xtreme: Nitro Xtreme, Sunrise box and pouch, and Sunset softgels" width="1163" height="513">
       <div class="hero-note hand">Morning,<br>noon &amp; night
-        <svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M50 4C46 22 34 32 12 32"/><path d="M20 24l-8 8 10 4"/></svg>
+        <svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M10 4C14 22 26 32 48 32"/><path d="M40 24l8 8-10 4"/></svg>
       </div>
       <div class="hero-chip"><span class="ic g"><svg><use href="#i-steth"/></svg></span><div><b>Doctor-recommended</b>by Dr. Dylan Thor P. Rullan</div></div>
     </div>
