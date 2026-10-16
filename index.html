@@ -1,0 +1,951 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Dr. Dylan Thor P. Rullan — integrative and naturopathic medicine. Book a face-to-face or online consultation.">
+<meta property="og:title" content="Dr. Dylan Thor P. Rullan | Integrative &amp; Naturopathic Medicine">
+<meta property="og:description" content="Root-cause medicine, in the clinic and online. Book your consultation.">
+<meta property="og:image" content="images/dr-rullan-hero.webp">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%232F7A55'/%3E%3Cpath d='M11 29c0-11 6-17 18-18 0 11-6 18-17 18' fill='%23F2B630'/%3E%3Ccircle cx='29' cy='29' r='5' fill='%23D9412E'/%3E%3C/svg%3E">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Dr. Dylan Thor P. Rullan | Integrative &amp; Naturopathic Medicine</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
+<style>
+/* Layout: template rhythm — dark hero band, floating trust strip, light content sections alternating with dark bands, booking as the closing dark band, dark footer. */
+:root{
+  --red:#D9412E; --red-deep:#B8321F;
+  --green:#2F7A55; --green-deep:#173D2D; --green-soft:#E3F1E8;
+  --yellow:#F2B630; --yellow-soft:#FDF3D6;
+  --red-soft:#FBE7E3;
+  --bg:#FFFFFF; --surface:#F4F6F3; --card:#FFFFFF;
+  --fg:#1B2220; --muted:#5E6864; --line:#E2E8E3;
+  --band:#131A17; --band-2:#1B2420; --band-fg:#F3F6F4; --band-muted:#AAB5AF; --band-line:#2C3732;
+  --link-green:#2F7A55;
+  --f-display:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-body:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --f-hand:"Caveat","Segoe Print","Bradley Hand",cursive;
+  --r:14px; --shadow:0 10px 30px rgba(20,30,25,.08);
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1412; --surface:#151C19; --card:#1A2320; --fg:#E8EDEA; --muted:#A3AEA8; --line:#28332E;
+  --green-soft:#1C3328; --yellow-soft:#3A3117; --red-soft:#3D221E; --link-green:#6CC596;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0F1412; --surface:#151C19; --card:#1A2320; --fg:#E8EDEA; --muted:#A3AEA8; --line:#28332E;
+  --green-soft:#1C3328; --yellow-soft:#3A3117; --red-soft:#3D221E; --link-green:#6CC596;
+  --shadow:0 10px 30px rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:var(--f-display);margin:0;line-height:1.15;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+button,input,select,textarea{font:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:2px;border-radius:6px}
+
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+section{padding-block:88px}
+.eyebrow{font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}
+.h2{font-size:clamp(28px,3.4vw,40px);font-weight:700;margin-top:8px}
+.lead{color:var(--muted);max-width:56ch;margin-top:12px}
+.hand{font-family:var(--f-hand);font-weight:700;line-height:1}
+
+.btn{display:inline-flex;align-items:center;gap:8px;border:0;cursor:pointer;text-decoration:none;font-weight:600;font-size:14px;border-radius:999px;padding:13px 24px;transition:transform .15s,background .15s,box-shadow .15s}
+.btn svg{width:16px;height:16px}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 8px 20px rgba(217,65,46,.28)}
+.btn-red:hover{background:var(--red-deep);transform:translateY(-1px)}
+.btn-ghost{background:transparent;color:inherit;border:1.5px solid currentColor}
+.btn-ghost:hover{background:rgba(127,127,127,.1)}
+.btn-sm{padding:9px 16px;font-size:13px}
+.btn[disabled]{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* NAV */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--band);color:var(--band-fg);border-bottom:1px solid var(--band-line)}
+.nav .wrap{display:flex;align-items:center;gap:24px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
+.logo-mark{width:38px;height:38px;flex-shrink:0}
+.logo-text{font-weight:700;font-size:16px;line-height:1.1}
+.logo-text small{display:block;font-weight:500;font-size:11px;color:var(--yellow);letter-spacing:.06em}
+.nav-links{display:flex;gap:26px;margin-left:auto;list-style:none;padding:0;margin-block:0}
+.nav-links a{text-decoration:none;font-size:14px;color:var(--band-muted);font-weight:500}
+.nav-links a:hover,.nav-links a.on{color:var(--band-fg)}
+.nav-links a.on{color:var(--red)}
+.nav .btn{margin-left:8px}
+.menu-btn{display:none;margin-left:auto;background:none;border:1px solid var(--band-line);color:var(--band-fg);border-radius:10px;padding:8px 10px;cursor:pointer}
+@media (max-width:900px){
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;background:var(--band);flex-direction:column;gap:0;padding:8px max(16px,env(safe-area-inset-left,0px)) 16px;border-bottom:1px solid var(--band-line)}
+  .nav-links.open{display:flex}
+  .nav-links a{display:block;padding:12px 0;border-bottom:1px solid var(--band-line)}
+  .menu-btn{display:block}
+  .nav .btn{margin-left:0}
+}
+@media (max-width:480px){.nav .btn-nav{display:none}}
+
+/* HERO */
+.hero{background:var(--band);color:var(--band-fg);padding-block:56px 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-180px;top:-120px;width:620px;height:620px;border-radius:50%;background:radial-gradient(circle,rgba(47,122,85,.45),transparent 65%)}
+.hero::after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:end;position:relative;z-index:1}
+.hero-copy{padding-bottom:120px;align-self:center}
+.hero h1{font-size:clamp(38px,5.4vw,64px);font-weight:800;letter-spacing:-.02em;margin-top:14px}
+.hero h1 .accent{color:var(--red);display:block}
+.hero .eyebrow{color:var(--yellow)}
+.hero p.sub{color:var(--band-muted);max-width:48ch;margin-top:20px;font-size:16px}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px;align-items:center}
+.play{display:inline-flex;align-items:center;gap:12px;color:var(--band-fg);text-decoration:none;font-size:14px;font-weight:500}
+.play span{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--band-fg);display:grid;place-items:center}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.creds span{font-size:12px;border:1px solid var(--band-line);background:var(--band-2);color:var(--band-muted);padding:5px 12px;border-radius:999px}
+.hero-photo{position:relative;justify-self:center;width:min(460px,100%);align-self:end}
+.hero-photo .arch{position:absolute;left:8%;right:8%;bottom:0;height:82%;border-radius:999px 999px 0 0;background:linear-gradient(170deg,#3C9468 0%,#2F7A55 45%,#173D2D 100%);box-shadow:inset 0 0 0 10px rgba(255,255,255,.04)}
+.hero-photo .ring{position:absolute;left:2%;right:2%;bottom:0;height:90%;border-radius:999px 999px 0 0;border:2px dashed rgba(242,182,48,.55);border-bottom:0}
+.hero-photo .cutout{position:relative;display:block;width:100%;max-width:100%;height:auto;aspect-ratio:600/769;transform:translateX(-9%);filter:drop-shadow(-14px 18px 28px rgba(0,0,0,.45))}
+.sprig{position:absolute;color:var(--yellow);opacity:.9}
+.sprig.s1{width:46px;height:46px;right:-4px;top:14%;transform:rotate(30deg)}
+.sprig.s2{width:30px;height:30px;left:4%;top:30%;color:#E2533F;transform:rotate(-50deg)}
+.hero-note{position:absolute;left:-46px;top:12%;color:var(--yellow);font-size:28px;transform:rotate(-8deg);text-align:center;z-index:2}
+.hero-note svg{display:block;margin:4px auto 0;width:60px;height:40px}
+.badge-float{position:absolute;background:var(--card);color:var(--fg);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow);display:flex;gap:10px;align-items:center;font-size:13px;line-height:1.3;z-index:2}
+.badge-float.b1{right:-14px;top:52%}
+.badge-float.b2{left:-28px;bottom:150px}
+.badge-float b{display:block;font-size:14px}
+.badge-float i{width:34px;height:34px;border-radius:10px;background:var(--green-soft);display:grid;place-items:center;flex-shrink:0;color:var(--link-green)}
+.badge-float i.y{background:var(--yellow-soft);color:#B9850F}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr}.hero-copy{padding-bottom:0}.hero-photo{width:min(380px,96%)}.hero-note{left:-4px;font-size:24px}.badge-float.b1{right:0}.badge-float.b2{left:0}}
+@media (max-width:480px){.badge-float{padding:9px 11px;font-size:12px}.badge-float b{font-size:13px}.badge-float i{width:28px;height:28px}.hero-note{display:none}}
+
+/* TRUST STRIP */
+.strip{margin-top:-64px;position:relative;z-index:2}
+.strip-card{background:var(--card);border-radius:18px;box-shadow:var(--shadow);border:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr)}
+.strip-item{display:flex;gap:14px;align-items:center;padding:22px 24px;border-right:1px solid var(--line)}
+.strip-item:last-child{border-right:0}
+.strip-item b{display:block;font-size:14px;font-weight:600}
+.strip-item small{color:var(--muted);font-size:12.5px}
+.ic{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0}
+.ic svg{width:22px;height:22px}
+.ic.r{background:var(--red-soft);color:var(--red)} .ic.g{background:var(--green-soft);color:var(--link-green)} .ic.y{background:var(--yellow-soft);color:#B9850F} .ic.k{background:var(--surface);color:var(--fg);border:1px solid var(--line)}
+@media (max-width:900px){.strip-card{grid-template-columns:1fr 1fr}.strip-item:nth-child(2){border-right:0}.strip-item:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:480px){.strip-card{grid-template-columns:1fr}.strip-item{border-right:0;border-bottom:1px solid var(--line)}.strip-item:last-child{border-bottom:0}}
+
+/* SERVICES */
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.link-arrow{color:var(--red);font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
+.services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
+.svc-top{height:140px;display:grid;place-items:center;position:relative}
+.svc-top svg{width:72px;height:72px}
+.svc-top .tag{position:absolute;left:12px;top:12px;font-size:11px;font-weight:600;background:rgba(255,255,255,.9);color:#1B2220;border-radius:999px;padding:3px 10px}
+.svc.t1 .svc-top{background:linear-gradient(150deg,#2F7A55,#173D2D);color:#F2B630}
+.svc.t2 .svc-top{background:linear-gradient(150deg,#E2533F,#A92E1C);color:#FFE7A6}
+.svc.t3 .svc-top{background:linear-gradient(150deg,#F2B630,#D3910E);color:#173D2D}
+.svc.t4 .svc-top{background:linear-gradient(150deg,#4A5550,#1F2724);color:#F2B630}
+.svc-body{padding:18px;display:flex;flex-direction:column;gap:8px;flex:1}
+.svc h3{font-size:16px;font-weight:600}
+.svc p{color:var(--muted);font-size:13px;line-height:1.55;flex:1}
+.svc-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;padding-top:12px;border-top:1px dashed var(--line)}
+.svc-foot b{font-size:15px;font-variant-numeric:tabular-nums}
+.svc-foot small{display:block;color:var(--muted);font-size:11.5px;font-weight:400}
+@media (max-width:1000px){.services{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.services{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about{background:var(--surface)}
+.about .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:56px;align-items:center}
+.about-photo{position:relative;border-radius:20px;overflow:hidden;background:#173D2D}
+.about-photo img{display:block;width:100%;max-width:100%;aspect-ratio:560/574;object-fit:cover}
+.about-photo .hand{position:absolute;right:18px;top:22px;color:#fff;font-size:30px;transform:rotate(-6deg);text-shadow:0 2px 10px rgba(0,0,0,.4);text-align:right}
+.about-photo .stamp{position:absolute;left:16px;bottom:16px;background:var(--yellow);color:#1B2220;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:600;line-height:1.3}
+.about-photo .stamp b{display:block;font-size:20px}
+.about-list{display:grid;gap:16px;margin-top:26px}
+.about-list li{display:flex;gap:14px;align-items:flex-start;list-style:none}
+.about-list ul{padding:0;margin:0}
+.about-list b{display:block;font-size:14.5px;font-weight:600}
+.about-list small{color:var(--muted);font-size:13px}
+.about-text p+p{margin-top:12px}
+.about-text p{color:var(--muted);max-width:60ch}
+.about .btn{margin-top:28px;color:var(--red)}
+@media (max-width:900px){.about .wrap{grid-template-columns:1fr;gap:36px}.about-photo{max-width:480px}}
+
+/* OFFER */
+.offer{padding-block:0 88px;background:var(--surface)}
+.offer-card{background:var(--band);color:var(--band-fg);border-radius:22px;padding:44px clamp(24px,5vw,56px);display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
+.offer-card::after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;border-radius:50%;background:radial-gradient(circle,rgba(242,182,48,.28),transparent 70%)}
+.offer-card h3{font-size:clamp(26px,3.2vw,36px);font-weight:700}
+.offer-card h3 span{color:var(--yellow)}
+.offer-card p{color:var(--band-muted);margin-top:10px;max-width:46ch}
+.offer-card .eyebrow{color:var(--red)}
+.offer-right{display:flex;align-items:center;justify-content:flex-end;gap:22px;position:relative;z-index:1;flex-wrap:wrap}
+.seal{width:118px;height:118px;border-radius:50%;background:var(--red);display:grid;place-items:center;text-align:center;color:#fff;border:4px dashed rgba(255,255,255,.55);transform:rotate(-8deg);flex-shrink:0}
+.seal b{display:block;font-size:30px;line-height:1}
+.seal small{font-size:11px;font-weight:600;letter-spacing:.1em}
+@media (max-width:800px){.offer-card{grid-template-columns:1fr}.offer-right{justify-content:flex-start}}
+
+/* WHY */
+.why .wrap{position:relative}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.why-card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.why-card .ic{width:50px;height:50px;border-radius:50%}
+.why-card h3{font-size:16px;font-weight:600;margin-top:18px}
+.why-card p{color:var(--muted);font-size:13.5px;margin-top:6px}
+.why-note{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:-10px;color:var(--link-green);font-size:30px;transform:rotate(-8deg);text-align:right}
+@media (max-width:1000px){.why-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.why-grid{grid-template-columns:1fr}.why-note{display:none}}
+
+/* PROCESS (dark) */
+.process{background:var(--band);color:var(--band-fg)}
+.process .lead{color:var(--band-muted)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:40px;counter-reset:s}
+.step{background:var(--band-2);border:1px solid var(--band-line);border-radius:var(--r);padding:24px;position:relative}
+.step .num{font-family:var(--f-hand);font-size:44px;line-height:1;color:var(--yellow)}
+.step h3{font-size:16px;font-weight:600;margin-top:10px}
+.step p{color:var(--band-muted);font-size:13.5px;margin-top:6px}
+.step .when{display:inline-block;margin-top:14px;font-size:11.5px;font-weight:600;color:var(--band-fg);background:rgba(217,65,46,.22);border:1px solid rgba(217,65,46,.5);border-radius:999px;padding:3px 10px}
+@media (max-width:1000px){.steps{grid-template-columns:1fr 1fr}}
+@media (max-width:540px){.steps{grid-template-columns:1fr}}
+
+/* TESTIMONIALS */
+.tgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:14px}
+.stars{color:var(--yellow);letter-spacing:2px;font-size:15px}
+.tcard q{color:var(--fg);font-size:14px;quotes:"\201C" "\201D"}
+.who{display:flex;gap:12px;align-items:center;margin-top:auto}
+.avatar{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;font-size:14px;color:#fff;flex-shrink:0}
+.who b{display:block;font-size:13.5px}
+.who small{color:var(--muted);font-size:12px}
+.sample-note{font-size:12px;color:var(--muted);margin-top:18px;display:flex;gap:8px;align-items:center}
+.sample-note span{background:var(--yellow-soft);color:var(--fg);border-radius:6px;padding:2px 8px;font-weight:600;font-size:11px}
+@media (max-width:900px){.tgrid{grid-template-columns:1fr}}
+
+/* BOOKING */
+.booking{background:var(--band);color:var(--band-fg);position:relative;overflow:hidden}
+.booking::before{content:"";position:absolute;left:-200px;bottom:-200px;width:560px;height:560px;border-radius:50%;background:radial-gradient(circle,rgba(217,65,46,.22),transparent 65%)}
+.booking .wrap{display:grid;grid-template-columns:.8fr 1.4fr;gap:44px;position:relative}
+.booking .h2 .accent{color:var(--red);display:block}
+.booking .lead{color:var(--band-muted)}
+.book-info{display:grid;gap:14px;margin-top:28px}
+.bi{display:flex;gap:12px;align-items:flex-start;font-size:13.5px;color:var(--band-muted)}
+.bi b{color:var(--band-fg);display:block;font-size:14px}
+.bi .ic{width:38px;height:38px;border-radius:10px;background:var(--band-2);border:1px solid var(--band-line);color:var(--yellow)}
+.bi .ic svg{width:18px;height:18px}
+.hours{margin-top:24px;border:1px solid var(--band-line);border-radius:12px;overflow:hidden;font-size:13px}
+.hours div{display:flex;justify-content:space-between;gap:12px;padding:9px 14px;border-bottom:1px solid var(--band-line);font-variant-numeric:tabular-nums}
+.hours div:last-child{border-bottom:0}
+.hours span{color:var(--band-muted)}
+
+.book-card{background:var(--card);color:var(--fg);border-radius:20px;box-shadow:0 20px 50px rgba(0,0,0,.35);padding:26px;min-width:0}
+.bc-head{display:flex;align-items:center;gap:10px;justify-content:space-between;flex-wrap:wrap}
+.bc-head h3{font-size:18px;font-weight:700;display:flex;gap:10px;align-items:center}
+.bc-head h3 svg{color:var(--red);width:22px;height:22px}
+.tz{font-size:12px;color:var(--muted)}
+.modes{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:18px}
+.mode{border:1.5px solid var(--line);background:var(--card);color:var(--fg);border-radius:12px;padding:12px 14px;text-align:left;cursor:pointer;display:flex;gap:12px;align-items:center}
+.mode svg{width:22px;height:22px;flex-shrink:0}
+.mode b{display:block;font-size:14px}
+.mode small{color:var(--muted);font-size:12px}
+.mode[aria-pressed="true"]{border-color:var(--green);background:var(--green-soft)}
+.mode[aria-pressed="true"] svg{color:var(--link-green)}
+.bk-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:22px;margin-top:20px}
+.cal-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.cal-head b{font-size:15px}
+.cal-nav{display:flex;gap:6px}
+.cal-nav button{width:32px;height:32px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;display:grid;place-items:center}
+.cal-nav button[disabled]{opacity:.35;cursor:not-allowed}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal .dow{font-size:11px;font-weight:600;color:var(--muted);padding:4px 0;text-transform:uppercase;letter-spacing:.05em}
+.day{aspect-ratio:1;max-width:100%;border:0;border-radius:10px;background:transparent;color:var(--fg);cursor:pointer;font-size:13.5px;font-variant-numeric:tabular-nums;position:relative}
+.day:hover:not([disabled]){background:var(--surface)}
+.day[disabled]{color:var(--muted);opacity:.4;cursor:default}
+.day.avail::after{content:"";position:absolute;left:50%;bottom:5px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--green)}
+.day.full::after{content:"";position:absolute;left:50%;bottom:5px;width:5px;height:5px;margin-left:-2.5px;border-radius:50%;background:var(--red)}
+.day.sel{background:var(--red)!important;color:#fff;font-weight:700}
+.day.sel::after{background:#fff}
+.day.today{box-shadow:inset 0 0 0 1.5px var(--line)}
+.legend{display:flex;gap:14px;margin-top:10px;font-size:11.5px;color:var(--muted)}
+.legend i{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.slots-head{font-size:13px;font-weight:600;margin-bottom:10px}
+.slots-head small{display:block;font-weight:400;color:var(--muted);font-size:12px}
+.slots{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.slot{border:1.5px solid var(--line);background:var(--card);color:var(--fg);border-radius:10px;padding:9px 6px;cursor:pointer;font-size:13.5px;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.25}
+.slot small{display:block;font-weight:400;color:var(--muted);font-size:11px}
+.slot:hover:not([disabled]){border-color:var(--green)}
+.slot[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:#fff}
+.slot[aria-pressed="true"] small{color:#E3F1E8}
+.slot[disabled]{text-decoration:line-through;opacity:.45;cursor:not-allowed}
+.empty-slots{font-size:13px;color:var(--muted);padding:16px;border:1px dashed var(--line);border-radius:10px;text-align:center}
+form.bk-form{margin-top:22px;border-top:1px solid var(--line);padding-top:20px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.field{display:flex;flex-direction:column;gap:5px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-size:12px;font-weight:600;color:var(--muted)}
+.field input,.field select,.field textarea{border:1.5px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:10px 12px;font-size:14px;width:100%}
+.field textarea{min-height:76px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green)}
+.field.err input,.field.err select{border-color:var(--red)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);grid-column:1/-1}
+.check input{margin-top:3px;accent-color:var(--green)}
+.summary{grid-column:1/-1;background:var(--surface);border-radius:12px;padding:12px 14px;font-size:13px;display:flex;gap:12px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.summary b{font-size:14px}
+.summary .fee{font-weight:700;font-size:16px;font-variant-numeric:tabular-nums}
+.form-msg{grid-column:1/-1;font-size:13px;color:var(--red);min-height:0}
+.bk-form .btn{grid-column:1/-1;justify-content:center;border-radius:12px;padding:14px}
+.status-line{font-size:12px;color:var(--muted);margin-top:12px;display:flex;gap:6px;align-items:center}
+.status-line i{width:8px;height:8px;border-radius:50%;background:var(--muted);display:inline-block}
+.status-line.live i{background:var(--green)}
+@media (max-width:1000px){.booking .wrap{grid-template-columns:1fr}}
+@media (max-width:620px){.bk-grid{grid-template-columns:1fr}form.bk-form{grid-template-columns:1fr}.book-card{padding:18px}.modes{grid-template-columns:1fr}}
+
+.confirm{text-align:center;padding:12px 4px}
+.confirm .tick{width:64px;height:64px;border-radius:50%;background:var(--green-soft);color:var(--link-green);display:grid;place-items:center;margin:0 auto}
+.confirm .tick svg{width:32px;height:32px}
+.confirm h4{font-size:20px;margin-top:16px}
+.confirm p{color:var(--muted);font-size:14px;margin-top:6px;max-width:46ch;margin-inline:auto}
+.receipt{margin:20px auto 0;max-width:420px;text-align:left;border:1px dashed var(--line);border-radius:12px;padding:6px 16px;font-size:13.5px}
+.receipt div{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)}
+.receipt div:last-child{border-bottom:0}
+.receipt span{color:var(--muted)}
+.receipt b{text-align:right;font-variant-numeric:tabular-nums}
+.confirm-actions{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:20px}
+.btn-line{border:1.5px solid var(--line);color:var(--fg);background:var(--card)}
+.btn-line:hover{border-color:var(--green)}
+
+.mine{margin-top:18px;border-top:1px solid var(--line);padding-top:16px}
+.mine h4{font-size:14px}
+.appt{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:13px;flex-wrap:wrap}
+.appt:last-child{border-bottom:0}
+.appt b{display:block;font-size:13.5px}
+.appt small{color:var(--muted)}
+.pill{font-size:11px;font-weight:600;border-radius:999px;padding:2px 9px;display:inline-block}
+.pill.on{background:var(--green-soft);color:var(--link-green)}
+.pill.cl{background:var(--yellow-soft);color:var(--fg)}
+.linkbtn{background:none;border:0;color:var(--red);font-weight:600;font-size:12.5px;cursor:pointer;padding:4px}
+
+/* DOCTOR PANEL */
+.docpanel{background:var(--surface);padding-block:56px}
+.docpanel h2{font-size:24px}
+.doc-table{overflow-x:auto;margin-top:20px;background:var(--card);border:1px solid var(--line);border-radius:14px}
+.doc-table table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:720px}
+.doc-table th,.doc-table td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+.doc-table th{font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.doc-table td{font-variant-numeric:tabular-nums}
+.doc-table tr:last-child td{border-bottom:0}
+
+/* CONTACT / FOOTER */
+footer{background:var(--band);color:var(--band-fg);border-top:1px solid var(--band-line)}
+footer .wrap{padding-block:56px 28px}
+.fgrid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.3fr;gap:32px}
+footer h4{font-size:14px;font-weight:600;margin-bottom:14px}
+footer ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+footer li,footer p{font-size:13px;color:var(--band-muted)}
+footer a{text-decoration:none}
+footer a:hover{color:var(--band-fg)}
+.contact-row{display:flex;gap:10px;align-items:flex-start}
+.contact-row svg{width:16px;height:16px;color:var(--red);flex-shrink:0;margin-top:3px}
+.copy{background:none;border:1px solid var(--band-line);color:var(--band-muted);border-radius:6px;font-size:11px;padding:1px 7px;cursor:pointer;margin-left:4px}
+.socials{display:flex;gap:10px;margin-top:18px}
+.socials a{width:34px;height:34px;border-radius:50%;border:1px solid var(--band-line);display:grid;place-items:center;color:var(--band-fg)}
+.socials svg{width:15px;height:15px}
+.fbot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--band-line);margin-top:40px;padding-top:20px;font-size:12px;color:var(--band-muted)}
+.disclaimer{max-width:70ch}
+@media (max-width:900px){.fgrid{grid-template-columns:1fr 1fr}}
+@media (max-width:480px){.fgrid{grid-template-columns:1fr}}
+
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%) translateY(20px);background:var(--fg);color:var(--bg);padding:10px 18px;border-radius:999px;font-size:13px;opacity:0;pointer-events:none;transition:.25s;z-index:99}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h3v3H8z" fill="currentColor"/></g></symbol>
+    <symbol id="i-clinic" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V8l7-5 7 5v13"/><path d="M12 10v6M9 13h6"/></g></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3"/></g></symbol>
+    <symbol id="i-leaf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-9 6-14 15-14 0 9-5 15-14 15"/><path d="M5 19c3-4 6-7 10-9"/></g></symbol>
+    <symbol id="i-flask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6L4.5 18.5A2 2 0 0 0 6.2 21.5h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7 15h10"/></g></symbol>
+    <symbol id="i-heart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-8-4.6-8-10.4A4.6 4.6 0 0 1 12 7a4.6 4.6 0 0 1 8 2.6C20 15.4 12 20 12 20z"/><path d="M7 12h2.5l1.5-2.5 2 5 1.5-2.5H17"/></g></symbol>
+    <symbol id="i-user" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></g></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+    <symbol id="i-gut" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8v8c0 4 4 6 8 6h6c6 0 10 4 10 9s-4 9-10 9H26c-5 0-8 3-8 7s3 7 8 7h14c4 0 6 2 6 5"/><circle cx="46" cy="8" r="2.5" fill="currentColor"/></g></symbol>
+    <symbol id="i-hormone" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6l20 12v24L32 54 12 42V18z"/><circle cx="32" cy="30" r="8"/><path d="M32 6v16M32 38v16"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M44 40A20 20 0 0 1 24 12a20 20 0 1 0 20 28z"/><path d="M46 12v8M42 16h8M52 28v5M49.5 30.5h5"/></g></symbol>
+    <symbol id="i-herb" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 58V20"/><path d="M32 30c-10 0-16-6-16-16 10 0 16 6 16 16zM32 40c10 0 16-6 16-16-10 0-16 6-16 16zM32 20c-4-4-4-10 0-14 4 4 4 10 0 14z"/><path d="M22 58h20"/></g></symbol>
+  </defs>
+</svg>
+
+<header class="nav" id="top">
+  <div class="wrap">
+    <a class="logo" href="#home" aria-label="Dr. Dylan Thor P. Rullan, home">
+      <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#F2B630"/><path d="M12 28c3-5 7-9 12-12" stroke="#173D2D" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
+      <span class="logo-text">Dr. Dylan Thor P. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC MEDICINE</small></span>
+    </a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home" class="on">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#process">Your Visit</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="btn btn-red btn-sm btn-nav" href="#book">Book Now <svg><use href="#i-cal"/></svg></a>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <div class="wrap">
+    <div class="hero-copy">
+      <div class="eyebrow">Integrative &amp; Naturopathic Medicine</div>
+      <h1>Treat the Root,<span class="accent">Restore the Whole You</span></h1>
+      <p class="sub">Medical care that looks past the symptom to the cause. Dr. Dylan Thor P. Rullan combines conventional diagnostics with nutrition, botanical medicine and lifestyle therapy, in the clinic or online.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="#book">Book a Consultation <svg><use href="#i-arrow"/></svg></a>
+        <a class="play" href="#process"><span><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>How a first visit works</a>
+      </div>
+      <div class="creds"><span>Face-to-face consults</span><span>Online telehealth</span><span>Lab-guided care plans</span></div>
+    </div>
+    <div class="hero-photo">
+      <div class="arch" aria-hidden="true"></div>
+      <div class="ring" aria-hidden="true"></div>
+      <svg class="sprig s1" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <svg class="sprig s2" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg>
+      <img class="cutout" src="images/dr-rullan-hero.webp" alt="Dr. Dylan Thor P. Rullan in a dark suit and green tie" width="600" height="769">
+      <div class="hero-note hand">Root cause,<br>real care
+        <svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M54 6C44 26 28 32 10 30"/><path d="M18 22l-8 8 10 4"/></svg>
+      </div>
+      <div class="badge-float b1"><i><svg width="18" height="18"><use href="#i-video"/></svg></i><div><b>Online consults</b>Anywhere you are</div></div>
+      <div class="badge-float b2"><i class="y"><svg width="18" height="18"><use href="#i-clinic"/></svg></i><div><b>Clinic visits</b>Mon – Sat</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="wrap">
+    <div class="strip-card">
+      <div class="strip-item"><span class="ic r"><svg><use href="#i-clinic"/></svg></span><div><b>In-Clinic Visits</b><small>Full physical assessment</small></div></div>
+      <div class="strip-item"><span class="ic g"><svg><use href="#i-video"/></svg></span><div><b>Online Consults</b><small>Video call from home</small></div></div>
+      <div class="strip-item"><span class="ic y"><svg><use href="#i-flask"/></svg></span><div><b>Lab-Guided</b><small>Testing that informs the plan</small></div></div>
+      <div class="strip-item"><span class="ic k"><svg><use href="#i-leaf"/></svg></span><div><b>Whole-Person Care</b><small>Body, mind and lifestyle</small></div></div>
+    </div>
+  </div>
+</div>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Areas of Care</div>
+        <h2 class="h2">How Dr. Rullan Can Help</h2>
+        <p class="lead">Many patients arrive after years of being told their labs are "normal." Each programme starts with a full history and targeted testing, then a plan you can follow at home.</p>
+      </div>
+      <a class="link-arrow" href="#book">See available times <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
+    </div>
+    <div class="services">
+      <article class="svc t1"><div class="svc-top"><span class="tag">Most booked</span><svg><use href="#i-gut"/></svg></div>
+        <div class="svc-body"><h3>Gut Health &amp; Digestion</h3><p>Bloating, reflux, IBS and food sensitivities. Microbiome-focused testing, elimination diets and gut repair protocols.</p>
+        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Gut health &amp; digestion">Book</a></div></div></article>
+      <article class="svc t2"><div class="svc-top"><svg><use href="#i-hormone"/></svg></div>
+        <div class="svc-body"><h3>Hormone &amp; Thyroid Balance</h3><p>Fatigue, weight changes, irregular cycles and low thyroid function, assessed with full panels rather than a single marker.</p>
+        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Hormones &amp; thyroid">Book</a></div></div></article>
+      <article class="svc t3"><div class="svc-top"><svg><use href="#i-moon"/></svg></div>
+        <div class="svc-body"><h3>Stress, Sleep &amp; Fatigue</h3><p>Burnout, poor sleep and low energy. Adrenal and nervous-system support with practical routines that fit a working life.</p>
+        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Stress, sleep &amp; fatigue">Book</a></div></div></article>
+      <article class="svc t4"><div class="svc-top"><svg><use href="#i-herb"/></svg></div>
+        <div class="svc-body"><h3>Metabolic &amp; Chronic Care</h3><p>Blood sugar, blood pressure, cholesterol and inflammation, managed alongside your existing medication, not against it.</p>
+        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Metabolic &amp; chronic conditions">Book</a></div></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <img src="images/dr-rullan-about.jpg" alt="Portrait of Dr. Dylan Thor P. Rullan" width="560" height="574" loading="lazy">
+      <div class="hand">Listens first,<br>prescribes second</div>
+      <div class="stamp"><b>MD + ND</b>Integrative approach</div>
+    </div>
+    <div class="about-text">
+      <div class="eyebrow">About the Doctor</div>
+      <h2 class="h2">More Than a Prescription</h2>
+      <p style="margin-top:14px">Dr. Dylan Thor P. Rullan practises integrative and naturopathic medicine: evidence-based conventional care, combined with nutrition, botanical medicine and lifestyle therapy. The aim is simple. Find out why you feel unwell, then treat that.</p>
+      <p>A first consultation runs a full hour. Your history, your diet, your sleep and your stress all count as clinical information, and you leave with a written plan rather than a rushed note.</p>
+      <div class="about-list"><ul>
+        <li><span class="ic r"><svg><use href="#i-heart"/></svg></span><div><b>Root-Cause Assessment</b><small>Detailed history, physical exam and targeted labs</small></div></li>
+        <li><span class="ic g"><svg><use href="#i-leaf"/></svg></span><div><b>Natural &amp; Conventional Together</b><small>Botanicals and nutrition that respect your current medication</small></div></li>
+        <li><span class="ic y"><svg><use href="#i-shield"/></svg></span><div><b>Follow-Up You Can Reach</b><small>Scheduled reviews to adjust the plan as you improve</small></div></li>
+      </ul></div>
+      <a class="btn btn-ghost btn-sm" href="#process">How a visit works <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="offer">
+  <div class="wrap">
+    <div class="offer-card">
+      <div>
+        <div class="eyebrow">New Patients</div>
+        <h3>Not sure where to start? <span>Talk to Dr. Rullan first.</span></h3>
+        <p>Book a free 15-minute online discovery call. Describe what you are dealing with and find out whether integrative care is the right fit before you commit to a full consultation.</p>
+        <a class="btn btn-red" style="margin-top:22px" href="#book" id="discoveryBtn">Book a Discovery Call <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="offer-right">
+        <div class="seal"><div><b>FREE</b><small>15 MIN CALL</small></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="why">
+  <div class="wrap">
+    <div class="why-note hand">Care that fits<br>your life</div>
+    <div class="eyebrow">Why Patients Choose Us</div>
+    <h2 class="h2">Unhurried, Personal Medicine</h2>
+    <p class="lead">An integrative practice should feel different from a five-minute clinic visit. Here is what you can expect.</p>
+    <div class="why-grid">
+      <div class="why-card"><span class="ic r"><svg><use href="#i-clock"/></svg></span><h3>Time to Be Heard</h3><p>Hour-long first visits so nothing in your history gets skipped.</p></div>
+      <div class="why-card"><span class="ic g"><svg><use href="#i-flask"/></svg></span><h3>Evidence-Informed</h3><p>Natural therapies chosen on research and your lab results, not trends.</p></div>
+      <div class="why-card"><span class="ic y"><svg><use href="#i-video"/></svg></span><h3>Clinic or Online</h3><p>See the doctor in person, or by video call from wherever you live.</p></div>
+      <div class="why-card"><span class="ic k"><svg><use href="#i-user"/></svg></span><h3>A Plan Made for You</h3><p>Written protocols for diet, supplements and habits, reviewed at follow-up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="eyebrow">Your First Visit</div>
+    <h2 class="h2">What Happens After You Book</h2>
+    <p class="lead">The same four steps apply whether you come to the clinic or join online.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Book &amp; Intake Form</h3><p>Choose a time below. You receive a health questionnaire to complete before the visit.</p><span class="when">Today</span></div>
+      <div class="step"><div class="num">2</div><h3>60-Minute Consultation</h3><p>Full history, symptom review and, in the clinic, a physical exam. Bring any recent lab results.</p><span class="when">Visit day</span></div>
+      <div class="step"><div class="num">3</div><h3>Testing If Needed</h3><p>Targeted labs only where they will change the plan, such as thyroid, gut or metabolic panels.</p><span class="when">Week 1–2</span></div>
+      <div class="step"><div class="num">4</div><h3>Your Care Plan</h3><p>A written protocol covering nutrition, supplements and lifestyle, then a follow-up to review progress.</p><span class="when">Week 3–6</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="wrap">
+    <div class="eyebrow">Patient Stories</div>
+    <h2 class="h2">What Patients Say</h2>
+    <p class="lead">Feedback shared by patients after their care plans.</p>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>For the first time a doctor asked about my sleep, my food and my stress before writing anything. Three months later my digestion is finally settled.</q><div class="who"><span class="avatar" style="background:#2F7A55">MA</span><div><b>Maria A.</b><small>Gut health programme</small></div></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>I did all my consultations online from abroad. The video calls were on time, and the written plan was easy to follow.</q><div class="who"><span class="avatar" style="background:#D9412E">JR</span><div><b>Jun R.</b><small>Online patient</small></div></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>He worked with my existing thyroid medication instead of telling me to stop it. My energy is back and my labs show it.</q><div class="who"><span class="avatar" style="background:#C08A10">LC</span><div><b>Liza C.</b><small>Hormone &amp; thyroid care</small></div></div></div>
+    </div>
+    <p class="sample-note"><span>Sample</span>Placeholder reviews. Replace with real, consented patient testimonials before launch.</p>
+  </div>
+</section>
+
+<section class="booking" id="book">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow" style="color:var(--yellow)">Book an Appointment</div>
+      <h2 class="h2">Schedule Your<span class="accent">Consultation</span></h2>
+      <p class="lead">Pick face-to-face or online, choose a date and time, and confirm. Your slot is held for you as soon as you book.</p>
+      <div class="book-info">
+        <div class="bi"><span class="ic"><svg><use href="#i-clinic"/></svg></span><div><b>Face-to-face</b>Weekday mornings and afternoons, Saturday mornings at the clinic.</div></div>
+        <div class="bi"><span class="ic"><svg><use href="#i-video"/></svg></span><div><b>Online</b>Lunch-hour and evening video calls. The link is sent with your confirmation.</div></div>
+        <div class="bi"><span class="ic"><svg><use href="#i-clock"/></svg></span><div><b>Times shown in Philippine Time (PHT, UTC+8)</b>Your own local time appears under each slot.</div></div>
+      </div>
+      <div class="hours" aria-label="Consultation hours">
+        <div><span>Mon – Fri</span><b>9:00 AM – 5:00 PM clinic</b></div>
+        <div><span>Mon – Fri</span><b>1:00 PM, 5:00 – 8:00 PM online</b></div>
+        <div><span>Saturday</span><b>9:00 AM – 12:00 PM clinic</b></div>
+        <div><span>Sunday</span><b>Closed</b></div>
+      </div>
+    </div>
+
+    <div class="book-card" id="bookCard">
+      <div id="bookerView">
+        <div class="bc-head">
+          <h3><svg><use href="#i-cal"/></svg>Book a Consultation</h3>
+          <span class="tz" id="tzNote">Philippine Time (UTC+8)</span>
+        </div>
+        <div class="modes" role="group" aria-label="Consultation type">
+          <button class="mode" type="button" data-mode="clinic" aria-pressed="true" id="mode-clinic"><svg><use href="#i-clinic"/></svg><div><b>Face-to-face</b><small>At the clinic</small></div></button>
+          <button class="mode" type="button" data-mode="online" aria-pressed="false" id="mode-online"><svg><use href="#i-video"/></svg><div><b>Online</b><small>Video consultation</small></div></button>
+        </div>
+        <div class="bk-grid">
+          <div>
+            <div class="cal-head"><b id="calTitle">Month</b><div class="cal-nav"><button type="button" id="prevM" aria-label="Previous month"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button><button type="button" id="nextM" aria-label="Next month"><svg width="14" height="14" viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg></button></div></div>
+            <div class="cal" id="cal" role="grid" aria-label="Choose a date"></div>
+            <div class="legend"><span><i style="background:var(--green)"></i>Times available</span><span><i style="background:var(--red)"></i>Fully booked</span></div>
+          </div>
+          <div>
+            <div class="slots-head" id="slotsHead">Select a date</div>
+            <div class="slots" id="slots"></div>
+          </div>
+        </div>
+
+        <form class="bk-form" id="bkForm" novalidate>
+          <div class="field"><label for="f-type">Appointment type</label>
+            <select id="f-type">
+              <option value="initial">Initial consultation · 60 min</option>
+              <option value="followup">Follow-up · 30 min</option>
+              <option value="discovery">Discovery call · 15 min (online)</option>
+            </select></div>
+          <div class="field"><label for="f-concern">Main concern</label>
+            <select id="f-concern">
+              <option>Gut health &amp; digestion</option>
+              <option>Hormones &amp; thyroid</option>
+              <option>Stress, sleep &amp; fatigue</option>
+              <option>Metabolic &amp; chronic conditions</option>
+              <option>General wellness check</option>
+              <option>Other</option>
+            </select></div>
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" autocomplete="name" placeholder="Juan Dela Cruz"></div>
+          <div class="field"><label for="f-dob">Date of birth</label><input id="f-dob" type="date"></div>
+          <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" autocomplete="email" placeholder="you@example.com"></div>
+          <div class="field"><label for="f-phone">Mobile / WhatsApp</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="+63 9XX XXX XXXX"></div>
+          <div class="field full" id="platformField" hidden><label for="f-platform">Preferred video platform</label>
+            <select id="f-platform"><option>Google Meet</option><option>Zoom</option><option>Messenger video</option><option>WhatsApp video</option></select></div>
+          <div class="field full"><label for="f-notes">Anything the doctor should know? (optional)</label><textarea id="f-notes" placeholder="Symptoms, current medication, recent lab tests…"></textarea></div>
+          <label class="check"><input type="checkbox" id="f-consent"> I agree that my details are used to arrange this appointment, and I understand online consultations do not replace emergency care.</label>
+          <div class="summary" id="summary"><div><small style="color:var(--muted)">Your selection</small><br><b id="sumText">Choose a date and time</b></div><div class="fee" id="sumFee">₱2,500</div></div>
+          <div class="form-msg" id="formMsg" role="alert"></div>
+          <button class="btn btn-red" type="submit" id="submitBtn">Confirm Booking <svg><use href="#i-arrow"/></svg></button>
+        </form>
+        <div class="status-line" id="statusLine"><i></i><span>Checking live availability…</span></div>
+        <div class="mine" id="mine" hidden><h4>Your upcoming appointments</h4><div id="mineList"></div></div>
+      </div>
+      <div id="confirmView" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="docpanel" id="doctor" hidden>
+  <div class="wrap">
+    <div class="eyebrow">Doctor's View · only you can see this</div>
+    <h2>Upcoming Appointments</h2>
+    <p class="lead" id="docCount">Loading…</p>
+    <div class="doc-table"><table><thead><tr><th>Date &amp; time (PHT)</th><th>Type</th><th>Patient</th><th>Contact</th><th>Concern &amp; notes</th><th></th></tr></thead><tbody id="docRows"></tbody></table></div>
+  </div>
+</section>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="fgrid">
+      <div>
+        <a class="logo" href="#home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#F2B630"/><path d="M12 28c3-5 7-9 12-12" stroke="#173D2D" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg><span class="logo-text">Dr. Dylan Thor P. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC</small></span></a>
+        <p style="margin-top:14px;max-width:34ch">Root-cause medicine, in the clinic and online.</p>
+        <div class="socials">
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z" fill="currentColor"/></svg></a>
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg></a>
+          <a href="https://www.youtube.com/" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M22 8s-.2-2-1-2.8c-.9-1-2-1-2.5-1C15.6 4 12 4 12 4s-3.6 0-6.5.2c-.5 0-1.6 0-2.5 1C2.2 6 2 8 2 8s-.2 2.2-.2 4.3v2c0 2.2.2 4.3.2 4.3s.2 2 1 2.8c1 1 2.2.9 2.8 1C7.4 22.6 12 22.6 12 22.6" fill="none"/><path d="M2.6 6.3C3.4 5.4 4.5 5.3 5 5.3 8 5 12 5 12 5s4 0 7 .3c.5 0 1.6.1 2.4 1 .8.8 1 2.7 1 2.7s.2 1.9.2 3.6v1.6c0 1.8-.2 3.6-.2 3.6s-.2 1.9-1 2.7c-.8.9-2 .9-2.5 1-2.8.2-6.9.2-6.9.2s-4.6 0-6.4-.2c-.6-.1-1.9-.1-2.9-1-.8-.8-1-2.7-1-2.7S1.5 16 1.5 14.2v-1.6C1.5 10.9 1.7 9 1.7 9s.1-1.9.9-2.7zM10 9v6l5-3z" fill="currentColor"/></svg></a>
+        </div>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#process">Your Visit</a></li><li><a href="#book">Book Online</a></li></ul></div>
+      <div><h4>Consultations</h4><ul><li>Face-to-face</li><li>Online telehealth</li><li>Follow-up reviews</li><li>Free discovery call</li><li>Lab interpretation</li></ul></div>
+      <div><h4>Contact</h4><ul>
+        <li class="contact-row"><svg><use href="#i-pin"/></svg><span id="c-addr"></span></li>
+        <li class="contact-row"><svg><use href="#i-phone"/></svg><span><span id="c-phone"></span><button class="copy" data-copy="phone" type="button">Copy</button></span></li>
+        <li class="contact-row"><svg><use href="#i-mail"/></svg><span><span id="c-email"></span><button class="copy" data-copy="email" type="button">Copy</button></span></li>
+      </ul></div>
+    </div>
+    <div class="fbot">
+      <span>© 2026 Dr. Dylan Thor P. Rullan · Integrative &amp; Naturopathic Medicine</span>
+      <span class="disclaimer">Information on this site is general and not a substitute for an individual consultation. In an emergency, go to the nearest hospital.</span>
+    </div>
+  </div>
+</footer>
+<div class="toast" id="toast" role="status"></div>
+
+<script>
+/* ---- Practice details: edit these ---- */
+const PRACTICE = {
+  address: "Clinic address, City, Philippines",
+  phone: "+63 917 000 0000",
+  email: "appointments@drdylanrullan.com",
+  tz: "Asia/Manila", tzOffset: 8,
+  bookAheadDays: 45,
+  fees: { initial: 2500, followup: 1500, discovery: 0 },
+  durations: { initial: 60, followup: 30, discovery: 15 },
+  typeNames: { initial: "Initial consultation", followup: "Follow-up", discovery: "Discovery call" },
+  // Slot start times (PHT). Index = weekday, 0 = Sunday.
+  hours: {
+    clinic: { 1:["09:00","10:00","11:00","14:00","15:00","16:00"], 2:["09:00","10:00","11:00","14:00","15:00","16:00"], 3:["09:00","10:00","11:00","14:00","15:00","16:00"], 4:["09:00","10:00","11:00","14:00","15:00","16:00"], 5:["09:00","10:00","11:00","14:00","15:00","16:00"], 6:["09:00","10:00","11:00"] },
+    online: { 1:["13:00","17:00","18:00","19:00"], 2:["13:00","17:00","18:00","19:00"], 3:["13:00","17:00","18:00","19:00"], 4:["13:00","17:00","18:00","19:00"], 5:["13:00","17:00","18:00","19:00"], 6:["13:00","14:00"] }
+  }
+};
+
+const $ = s => document.querySelector(s);
+const pad = n => String(n).padStart(2,"0");
+const peso = n => n === 0 ? "Free" : "₱" + n.toLocaleString("en-PH");
+const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+
+$("#c-addr").textContent = PRACTICE.address;
+$("#c-phone").textContent = PRACTICE.phone;
+$("#c-email").textContent = PRACTICE.email;
+
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove("show"),2600)}
+async function copyText(txt){try{await navigator.clipboard.writeText(txt);toast("Copied")}catch(e){toast(txt)}}
+document.querySelectorAll("[data-copy]").forEach(b=>b.addEventListener("click",()=>copyText(PRACTICE[b.dataset.copy])));
+
+// nav
+$("#menuBtn").addEventListener("click",()=>{const o=$("#navLinks").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",o)});
+document.querySelectorAll("#navLinks a").forEach(a=>a.addEventListener("click",()=>{$("#navLinks").classList.remove("open");document.querySelectorAll("#navLinks a").forEach(x=>x.classList.toggle("on",x===a))}));
+
+/* ---- Dates in clinic time ---- */
+function manilaToday(){
+  const p = new Intl.DateTimeFormat("en-CA",{timeZone:PRACTICE.tz,year:"numeric",month:"2-digit",day:"2-digit"}).format(new Date());
+  return p; // YYYY-MM-DD
+}
+const parse = s => { const [y,m,d]=s.split("-").map(Number); return {y,m,d}; };
+const fmt = (y,m,d) => `${y}-${pad(m)}-${pad(d)}`;
+const dowOf = s => { const {y,m,d}=parse(s); return new Date(Date.UTC(y,m-1,d)).getUTCDay(); };
+function addDays(s,n){const {y,m,d}=parse(s);const t=new Date(Date.UTC(y,m-1,d+n));return fmt(t.getUTCFullYear(),t.getUTCMonth()+1,t.getUTCDate())}
+function slotInstant(date,time){const {y,m,d}=parse(date);const [h,mi]=time.split(":").map(Number);return new Date(Date.UTC(y,m-1,d,h-PRACTICE.tzOffset,mi))}
+const t12 = time => { let [h,m]=time.split(":").map(Number); const ap=h>=12?"PM":"AM"; h=h%12||12; return `${h}:${pad(m)} ${ap}`; };
+const longDate = s => { const {y,m,d}=parse(s); return `${DOW[dowOf(s)]}, ${MONTHS[m-1].slice(0,3)} ${d}, ${y}`; };
+const localTz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+const sameTz = new Date().toLocaleString("en-US",{timeZone:localTz}) === new Date().toLocaleString("en-US",{timeZone:PRACTICE.tz});
+function localLabel(date,time){
+  if (sameTz) return "";
+  return new Intl.DateTimeFormat(undefined,{timeZone:localTz,hour:"numeric",minute:"2-digit",weekday:"short"}).format(slotInstant(date,time)) + " your time";
+}
+if (!sameTz) $("#tzNote").textContent = "Times in PHT · your zone: " + localTz.replace(/_/g," ");
+
+const TODAY = manilaToday();
+const FIRST = addDays(TODAY,1);
+const LAST = addDays(TODAY,PRACTICE.bookAheadDays);
+
+/* ---- State ---- */
+const state = { mode:"clinic", date:null, time:null, view:parse(FIRST), taken:new Map(), db:null, uid:null, live:false, mine:[] };
+const slotId = (date,time) => `${date}_${time.replace(":","")}`;
+function slotsFor(date,mode){ return (PRACTICE.hours[mode][dowOf(date)]||[]); }
+function isTaken(date,time){ return state.taken.has(slotId(date,time)); }
+function freeCount(date,mode){ return slotsFor(date,mode).filter(t=>!isTaken(date,t)).length; }
+
+/* ---- Calendar ---- */
+function renderCal(){
+  const {y,m} = state.view;
+  $("#calTitle").textContent = `${MONTHS[m-1]} ${y}`;
+  const cal = $("#cal"); cal.innerHTML = "";
+  DOW.forEach(d=>{const e=document.createElement("div");e.className="dow";e.textContent=d.slice(0,2);cal.appendChild(e)});
+  const firstDow = new Date(Date.UTC(y,m-1,1)).getUTCDay();
+  const nDays = new Date(Date.UTC(y,m,0)).getUTCDate();
+  for(let i=0;i<firstDow;i++) cal.appendChild(document.createElement("div"));
+  for(let d=1; d<=nDays; d++){
+    const s = fmt(y,m,d);
+    const b = document.createElement("button"); b.type="button"; b.className="day"; b.textContent=d;
+    const inRange = s>=FIRST && s<=LAST;
+    const total = slotsFor(s,state.mode).length;
+    if (s===TODAY) b.classList.add("today");
+    if (!inRange || total===0){ b.disabled=true; }
+    else { const free=freeCount(s,state.mode); b.classList.add(free?"avail":"full"); if(!free) b.disabled=true;
+      b.setAttribute("aria-label",`${longDate(s)}, ${free} times available`); }
+    if (state.date===s) b.classList.add("sel");
+    b.addEventListener("click",()=>{state.date=s;state.time=null;renderCal();renderSlots();renderSummary()});
+    cal.appendChild(b);
+  }
+  const first=parse(FIRST), last=parse(LAST);
+  $("#prevM").disabled = (y<first.y)||(y===first.y&&m<=first.m);
+  $("#nextM").disabled = (y>last.y)||(y===last.y&&m>=last.m);
+}
+$("#prevM").addEventListener("click",()=>{let {y,m}=state.view;m--;if(m<1){m=12;y--}state.view={y,m};renderCal()});
+$("#nextM").addEventListener("click",()=>{let {y,m}=state.view;m++;if(m>12){m=1;y++}state.view={y,m};renderCal()});
+
+function renderSlots(){
+  const box=$("#slots"); box.innerHTML="";
+  if(!state.date){ $("#slotsHead").innerHTML="Select a date<small>Green dots mark days with open times</small>"; box.innerHTML='<div class="empty-slots" style="grid-column:1/-1">Pick a day on the calendar to see times.</div>'; return; }
+  $("#slotsHead").innerHTML = `${longDate(state.date)}<small>${state.mode==="clinic"?"Face-to-face at the clinic":"Online video consultation"}</small>`;
+  const times = slotsFor(state.date,state.mode);
+  if(!times.length){ box.innerHTML='<div class="empty-slots" style="grid-column:1/-1">No times on this day.</div>'; return; }
+  times.forEach(t=>{
+    const b=document.createElement("button"); b.type="button"; b.className="slot";
+    const taken=isTaken(state.date,t);
+    const loc=localLabel(state.date,t);
+    b.innerHTML = `${t12(t)}${loc?`<small>${loc}</small>`:""}`;
+    b.setAttribute("aria-pressed", state.time===t ? "true":"false");
+    if(taken){ b.disabled=true; b.title="Already booked"; }
+    b.addEventListener("click",()=>{state.time=t;renderSlots();renderSummary()});
+    box.appendChild(b);
+  });
+}
+
+function renderSummary(){
+  const type=$("#f-type").value;
+  $("#sumFee").textContent = peso(PRACTICE.fees[type]);
+  $("#platformField").hidden = state.mode!=="online";
+  if(state.date && state.time){
+    $("#sumText").textContent = `${PRACTICE.typeNames[type]} · ${state.mode==="clinic"?"Face-to-face":"Online"} · ${longDate(state.date)}, ${t12(state.time)} PHT`;
+  } else $("#sumText").textContent = "Choose a date and time";
+}
+
+function setMode(mode){
+  state.mode=mode;
+  document.querySelectorAll(".mode").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mode===mode?"true":"false"));
+  if(mode==="clinic" && $("#f-type").value==="discovery") $("#f-type").value="initial";
+  if(state.time && !slotsFor(state.date,mode).includes(state.time)) state.time=null;
+  renderCal();renderSlots();renderSummary();
+}
+document.querySelectorAll(".mode").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
+$("#f-type").addEventListener("change",()=>{ if($("#f-type").value==="discovery" && state.mode!=="online") setMode("online"); else renderSummary(); });
+document.querySelectorAll("[data-concern]").forEach(a=>a.addEventListener("click",()=>{ $("#f-concern").value=a.dataset.concern.replace("&amp;","&"); }));
+$("#discoveryBtn").addEventListener("click",()=>{ $("#f-type").value="discovery"; setMode("online"); });
+
+/* ---- Submit ---- */
+function fieldErr(id,bad){ $(id).closest(".field").classList.toggle("err",bad); return bad; }
+$("#bkForm").addEventListener("submit", async e=>{
+  e.preventDefault();
+  const msg=$("#formMsg"); msg.textContent="";
+  const name=$("#f-name").value.trim(), email=$("#f-email").value.trim(), phone=$("#f-phone").value.trim();
+  let bad=false;
+  bad = fieldErr("#f-name", name.length<2) || bad;
+  bad = fieldErr("#f-email", !/^\S+@\S+\.\S+$/.test(email)) || bad;
+  bad = fieldErr("#f-phone", phone.replace(/\D/g,"").length<7) || bad;
+  if(!state.date||!state.time){ msg.textContent="Choose a date and a time on the calendar first."; return; }
+  if(bad){ msg.textContent="Check the highlighted fields: name, a valid email and a phone number are needed."; return; }
+  if(!$("#f-consent").checked){ msg.textContent="Tick the consent box to confirm the booking."; return; }
+  const type=$("#f-type").value;
+  const booking = {
+    id: slotId(state.date,state.time), date:state.date, time:state.time, mode:state.mode, type,
+    concern:$("#f-concern").value, name, email, phone, dob:$("#f-dob").value,
+    platform: state.mode==="online" ? $("#f-platform").value : "", notes:$("#f-notes").value.trim(),
+    fee: PRACTICE.fees[type], createdAt: new Date().toISOString()
+  };
+  const btn=$("#submitBtn"); btn.disabled=true; btn.firstChild.textContent="Booking… ";
+  try{
+    if(state.db && state.uid){
+      const ref = state.db.doc("slots/"+booking.id);
+      const lease = await ref.acquire({holder:state.uid, ttlMs:8000});
+      if(!lease.acquired) throw {userMsg:"Someone is booking this time right now. Pick another slot."};
+      const cur = await ref.get();
+      if(cur.exists && cur.data().uid) throw {userMsg:"That time was just taken. Please pick another slot."};
+      await ref.set({date:booking.date,time:booking.time,mode:booking.mode,uid:state.uid,createdAt:booking.createdAt});
+      await state.db.doc(`requests/${state.uid}/bookings/${booking.id}`).set(booking);
+      showConfirm(booking,true);
+    } else {
+      showConfirm(booking,false);
+    }
+  } catch(err){
+    if(err && err.userMsg){ msg.textContent=err.userMsg; }
+    else if(err && err.code==="invalid_argument"){ showConfirm(booking,false); }
+    else { msg.textContent="The booking could not be saved. Check your connection and try again."; }
+  } finally { btn.disabled=false; btn.firstChild.textContent="Confirm Booking "; }
+});
+
+function gcalLink(b){
+  const s=slotInstant(b.date,b.time), e=new Date(s.getTime()+PRACTICE.durations[b.type]*60000);
+  const z=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  const p=new URLSearchParams({action:"TEMPLATE",text:`${PRACTICE.typeNames[b.type]} with Dr. Dylan Thor P. Rullan`,dates:`${z(s)}/${z(e)}`,
+    details:`${b.mode==="online"?"Online consultation via "+b.platform+". The video link will be emailed to you.":"Face-to-face consultation."} Concern: ${b.concern}.`,
+    location: b.mode==="online" ? "Online" : PRACTICE.address});
+  return "https://calendar.google.com/calendar/render?"+p.toString();
+}
+function summaryText(b){
+  return `Appointment request – Dr. Dylan Thor P. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.notes?"\nNotes: "+b.notes:""}`;
+}
+function showConfirm(b,saved){
+  const v=$("#confirmView");
+  const ref = "DR-" + b.date.replace(/-/g,"").slice(2) + "-" + b.time.replace(":","");
+  v.innerHTML = `<div class="confirm">
+    <div class="tick"><svg><use href="#i-check"/></svg></div>
+    <h4>${saved?"You're booked!":"Your request is ready to send"}</h4>
+    <p>${saved?`Your ${b.mode==="online"?"online":"face-to-face"} consultation is reserved. A confirmation${b.mode==="online"?" with your video link":""} and intake form will be sent to <b></b>.`:`This preview could not reserve the slot automatically. Copy the details below and send them to the clinic at ${PRACTICE.email} or ${PRACTICE.phone} to confirm.`}</p>
+    <div class="receipt">
+      <div><span>Reference</span><b>${ref}</b></div>
+      <div><span>Appointment</span><b>${PRACTICE.typeNames[b.type]} · ${PRACTICE.durations[b.type]} min</b></div>
+      <div><span>Format</span><b>${b.mode==="clinic"?"Face-to-face":"Online · "+b.platform}</b></div>
+      <div><span>Date &amp; time</span><b>${longDate(b.date)}<br>${t12(b.time)} PHT${localLabel(b.date,b.time)?"<br><small style='color:var(--muted);font-weight:400'>"+localLabel(b.date,b.time)+"</small>":""}</b></div>
+      <div><span>Fee</span><b>${peso(b.fee)}</b></div>
+    </div>
+    <div class="confirm-actions">
+      <a class="btn btn-red btn-sm" href="${gcalLink(b)}" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <button class="btn btn-line btn-sm" type="button" id="copySum">Copy details</button>
+      <button class="btn btn-line btn-sm" type="button" id="again">Book another</button>
+    </div></div>`;
+  const em=v.querySelector("p b"); if(em) em.textContent=b.email;
+  v.querySelector("#copySum").addEventListener("click",()=>copyText(summaryText(b)));
+  v.querySelector("#again").addEventListener("click",()=>{v.hidden=true;$("#bookerView").hidden=false;state.time=null;renderSlots();renderSummary()});
+  $("#bookerView").hidden=true; v.hidden=false;
+  $("#bookCard").scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+/* ---- Patient's own bookings ---- */
+function renderMine(){
+  const list=state.mine.filter(b=>b.date>=TODAY).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  $("#mine").hidden=!list.length;
+  const box=$("#mineList"); box.innerHTML="";
+  list.forEach(b=>{
+    const row=document.createElement("div"); row.className="appt";
+    row.innerHTML=`<div><b></b><small></small></div><div style="display:flex;gap:8px;align-items:center"><span class="pill ${b.mode==="online"?"on":"cl"}">${b.mode==="online"?"Online":"Clinic"}</span><button class="linkbtn" type="button">Cancel</button></div>`;
+    row.querySelector("b").textContent=`${longDate(b.date)} · ${t12(b.time)} PHT`;
+    row.querySelector("small").textContent=`${PRACTICE.typeNames[b.type]} · ${b.concern}`;
+    const cb=row.querySelector(".linkbtn");
+    cb.addEventListener("click",async()=>{
+      if(cb.dataset.arm!=="1"){cb.dataset.arm="1";cb.textContent="Tap again to cancel";setTimeout(()=>{cb.dataset.arm="";cb.textContent="Cancel"},4000);return}
+      cb.disabled=true;
+      try{ await state.db.doc(`requests/${state.uid}/bookings/${b.id}`).delete(); await state.db.doc("slots/"+b.id).delete(); toast("Appointment cancelled"); }
+      catch(e){ toast("Could not cancel. Contact the clinic."); cb.disabled=false; }
+    });
+    box.appendChild(row);
+  });
+}
+
+/* ---- Doctor view ---- */
+async function loadDoctor(slots){
+  $("#doctor").hidden=false;
+  const upcoming=slots.filter(s=>s.date>=TODAY && s.uid).sort((a,b)=>(a.date+a.time).localeCompare(b.date+b.time));
+  $("#docCount").textContent = upcoming.length ? `${upcoming.length} booked from today onward. Patient details are visible only to you.` : "No upcoming bookings yet. New bookings appear here as patients confirm them.";
+  const rows=await Promise.all(upcoming.map(async s=>{
+    try{ const d=await state.db.doc(`requests/${s.uid}/bookings/${s.id}`).get(); return {s, b:d.exists?d.data():null}; }catch(e){ return {s,b:null}; }
+  }));
+  const tb=$("#docRows"); tb.innerHTML="";
+  rows.forEach(({s,b})=>{
+    const tr=document.createElement("tr");
+    const cells=[`${longDate(s.date)}\n${t12(s.time)}`, b?`${PRACTICE.typeNames[b.type]||""}\n${s.mode==="online"?"Online · "+(b.platform||""):"Face-to-face"}`:(s.mode==="online"?"Online":"Face-to-face"),
+      b?`${b.name}${b.dob?"\nDOB "+b.dob:""}`:"(details unavailable)", b?`${b.email}\n${b.phone}`:"", b?`${b.concern}${b.notes?"\n"+b.notes:""}`:""];
+    cells.forEach(c=>{const td=document.createElement("td");td.style.whiteSpace="pre-line";td.textContent=c;tr.appendChild(td)});
+    const td=document.createElement("td"); const btn=document.createElement("button"); btn.className="linkbtn"; btn.type="button"; btn.textContent="Release slot";
+    btn.addEventListener("click",async()=>{
+      if(btn.dataset.arm!=="1"){btn.dataset.arm="1";btn.textContent="Confirm release";return}
+      btn.disabled=true;
+      try{ await state.db.doc("slots/"+s.id).delete(); if(b) await state.db.doc(`requests/${s.uid}/bookings/${s.id}`).delete(); toast("Slot released"); }catch(e){ toast("Could not release the slot"); btn.disabled=false; }
+    });
+    td.appendChild(btn); tr.appendChild(td); tb.appendChild(tr);
+  });
+}
+
+function setStatus(live,text){ const s=$("#statusLine"); s.classList.toggle("live",live); s.querySelector("span").textContent=text; }
+
+/* ---- Init ---- */
+renderCal(); renderSlots(); renderSummary();
+(async()=>{
+  const c = window.claude;
+  if(!c || !c.use){ setStatus(false,"Preview mode: bookings produce a request to send to the clinic."); return; }
+  const [db,user] = await Promise.all([c.use("db"), c.use("user")]);
+  if(!db){ setStatus(false,"Sign in to reserve a slot instantly. Otherwise your request is prepared for the clinic to confirm."); return; }
+  state.db=db;
+  try{ state.uid = user ? await user.id() : null; }catch(e){ state.uid=null; }
+  const isOwner = user ? await user.isOwner() : false;
+  setStatus(true,"Live availability · booked times update instantly");
+  let docTimer=null;
+  db.collection("slots").where("date",">=",TODAY).onSnapshot(snap=>{
+    state.taken=new Map(); const all=[];
+    snap.docs.forEach(d=>{const v=d.data(); if(v && v.uid){ state.taken.set(d.id,v); all.push({id:d.id,...v}); }});
+    if(state.time && state.date && isTaken(state.date,state.time) && !state.mine.some(b=>b.id===slotId(state.date,state.time))) state.time=null;
+    renderCal(); renderSlots(); renderSummary();
+    if(isOwner){ clearTimeout(docTimer); docTimer=setTimeout(()=>loadDoctor(all),200); }
+  }, ()=>setStatus(false,"Live availability paused. Reload the page to reconnect."));
+  if(state.uid){
+    db.collection(`requests/${state.uid}/bookings`).onSnapshot(snap=>{ state.mine=snap.docs.map(d=>d.data()); renderMine(); }, ()=>{});
+  }
+})();
+</script>
+
+</body>
+</html>
