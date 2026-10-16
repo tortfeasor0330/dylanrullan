@@ -854,8 +854,8 @@ function showConfirm(b,saved){
   const ref = "DR-" + b.date.replace(/-/g,"").slice(2) + "-" + b.time.replace(":","");
   v.innerHTML = `<div class="confirm">
     <div class="tick"><svg><use href="#i-check"/></svg></div>
-    <h4>${saved?"You're booked!":"Your request is ready to send"}</h4>
-    <p>${saved?`Your ${b.mode==="online"?"online":"face-to-face"} consultation is reserved. A confirmation${b.mode==="online"?" with your video link":""} and intake form will be sent to <b></b>.`:`This preview could not reserve the slot automatically. Copy the details below and send them to the clinic at ${PRACTICE.email} or ${PRACTICE.phone} to confirm.`}</p>
+    <h4>${saved?"You're booked!":"Your request is ready"}</h4>
+    <p>${saved?`Your ${b.mode==="online"?"online":"face-to-face"} consultation is reserved. A confirmation${b.mode==="online"?" with your video link":""} and intake form will be sent to <b></b>.`:`Copy the details below and send them to the clinic at ${PRACTICE.email} or ${PRACTICE.phone} so the clinic can confirm your slot.`}</p>
     <div class="receipt">
       <div><span>Reference</span><b>${ref}</b></div>
       <div><span>Appointment</span><b>${PRACTICE.typeNames[b.type]} · ${PRACTICE.durations[b.type]} min</b></div>
@@ -926,7 +926,7 @@ function setStatus(live,text){ const s=$("#statusLine"); s.classList.toggle("liv
 renderCal(); renderSlots(); renderSummary();
 (async()=>{
   const c = window.claude;
-  if(!c || !c.use){ setStatus(false,"Preview mode: bookings produce a request to send to the clinic."); return; }
+  if(!c || !c.use){ setStatus(false,"Choose a time and send your request. The clinic confirms every booking by email or phone."); return; }
   const [db,user] = await Promise.all([c.use("db"), c.use("user")]);
   if(!db){ setStatus(false,"Sign in to reserve a slot instantly. Otherwise your request is prepared for the clinic to confirm."); return; }
   state.db=db;
