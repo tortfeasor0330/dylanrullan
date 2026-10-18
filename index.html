@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Dr. Dylan Thor P. Rullan — integrative and naturopathic medicine. Book a face-to-face or online consultation.">
-<meta property="og:title" content="Dr. Dylan Thor P. Rullan | Integrative &amp; Naturopathic Medicine">
+<meta name="description" content="Dr. Dylan Thor R. Rullan — integrative and naturopathic medicine. Book a face-to-face or online consultation.">
+<meta property="og:title" content="Dr. Dylan Thor R. Rullan | Integrative &amp; Naturopathic Medicine">
 <meta property="og:description" content="Root-cause medicine, in the clinic and online. Book your consultation.">
 <meta property="og:image" content="images/dr-rullan-hero.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%232F7A55'/%3E%3Cpath d='M11 29c0-11 6-17 18-18 0 11-6 18-17 18' fill='%23C6A96B'/%3E%3Ccircle cx='29' cy='29' r='5' fill='%23D9412E'/%3E%3C/svg%3E">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
-<title>Dr. Dylan Thor P. Rullan | Integrative &amp; Naturopathic Medicine</title>
+<title>Dr. Dylan Thor R. Rullan | Integrative &amp; Naturopathic Medicine</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
@@ -135,7 +135,19 @@ section{padding-block:88px}
 /* SERVICES */
 .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
 .link-arrow{color:var(--red);font-weight:600;font-size:14px;text-decoration:none;display:inline-flex;gap:6px;align-items:center}
-.services{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:40px}
+.services{display:flex;gap:20px;margin-top:40px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:8px;scrollbar-width:none}
+.services::-webkit-scrollbar{display:none}
+.services .svc{flex:0 0 calc((100% - 60px)/3.4);scroll-snap-align:start;min-width:240px}
+@media (max-width:1000px){.services .svc{flex-basis:calc((100% - 20px)/2.2)}}
+@media (max-width:540px){.services .svc{flex-basis:82%}}
+.svc-nav{display:flex;gap:8px}
+.svc-arrow{width:42px;height:42px;border-radius:50%;border:1.5px solid var(--line);background:var(--card);color:var(--fg);cursor:pointer;display:grid;place-items:center}
+.svc-arrow:hover:not([disabled]){border-color:var(--green);color:var(--link-green)}
+.svc-arrow[disabled]{opacity:.35;cursor:default}
+.svc-arrow svg{width:18px;height:18px}
+.svc-dots{display:flex;gap:6px;justify-content:center;margin-top:16px}
+.svc-dots i{width:8px;height:8px;border-radius:50%;background:var(--line);transition:width .2s}
+.svc-dots i.on{background:var(--green);width:22px;border-radius:6px}
 .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column}
 .svc-top{height:140px;display:grid;place-items:center;position:relative}
 .svc-top svg{width:72px;height:72px}
@@ -150,8 +162,6 @@ section{padding-block:88px}
 .svc-foot{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;padding-top:12px;border-top:1px dashed var(--line)}
 .svc-foot b{font-size:15px;font-variant-numeric:tabular-nums}
 .svc-foot small{display:block;color:var(--muted);font-size:11.5px;font-weight:400}
-@media (max-width:1000px){.services{grid-template-columns:1fr 1fr}}
-@media (max-width:540px){.services{grid-template-columns:1fr}}
 
 /* ABOUT */
 .about{background:var(--surface)}
@@ -375,6 +385,12 @@ footer a:hover{color:var(--band-fg)}
     <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></g></symbol>
     <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="i-bp" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 54S10 41 10 25a11 11 0 0 1 22-3 11 11 0 0 1 22 3c0 16-22 29-22 29z"/><path d="M20 30h7l3-6 4 12 3-6h7"/></g></symbol>
+    <symbol id="i-glucose" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8s14 15 14 27a14 14 0 0 1-28 0C18 23 32 8 32 8z"/><path d="M26 36h12M32 30v12"/></g></symbol>
+    <symbol id="i-ribbon" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 8c-6 0-10 5-10 11 0 7 6 13 16 25l6 10"/><path d="M32 8c6 0 10 5 10 11 0 7-6 13-16 25l-6 10"/></g></symbol>
+    <symbol id="i-kidney" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M26 10c-9 0-15 9-15 22s6 22 15 22c6 0 8-5 6-10-1.5-4-4-6-4-12s2.5-8 4-12c2-5 0-10-6-10z"/><path d="M38 10c9 0 15 9 15 22s-6 22-15 22c-6 0-8-5-6-10 1.5-4 4-6 4-12s-2.5-8-4-12c-2-5 0-10 6-10z"/></g></symbol>
+    <symbol id="i-cardio" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 32h12l5-12 8 24 6-16 4 4h17"/><circle cx="58" cy="32" r="2" fill="currentColor"/></g></symbol>
+    <symbol id="i-spine" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="6" width="16" height="8" rx="3"/><rect x="23" y="18" width="18" height="8" rx="3"/><rect x="22" y="30" width="20" height="8" rx="3"/><rect x="21" y="42" width="22" height="8" rx="3"/><path d="M32 54v4"/></g></symbol>
     <symbol id="i-gut" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8v8c0 4 4 6 8 6h6c6 0 10 4 10 9s-4 9-10 9H26c-5 0-8 3-8 7s3 7 8 7h14c4 0 6 2 6 5"/><circle cx="46" cy="8" r="2.5" fill="currentColor"/></g></symbol>
     <symbol id="i-hormone" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M32 6l20 12v24L32 54 12 42V18z"/><circle cx="32" cy="30" r="8"/><path d="M32 6v16M32 38v16"/></g></symbol>
     <symbol id="i-moon" viewBox="0 0 64 64"><g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M44 40A20 20 0 0 1 24 12a20 20 0 1 0 20 28z"/><path d="M46 12v8M42 16h8M52 28v5M49.5 30.5h5"/></g></symbol>
@@ -384,9 +400,9 @@ footer a:hover{color:var(--band-fg)}
 
 <header class="nav" id="top">
   <div class="wrap">
-    <a class="logo" href="#home" aria-label="Dr. Dylan Thor P. Rullan, home">
+    <a class="logo" href="#home" aria-label="Dr. Dylan Thor R. Rullan, home">
       <svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#C6A96B"/><path d="M12 28c3-5 7-9 12-12" stroke="#244B3A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg>
-      <span class="logo-text">Dr. Dylan Thor P. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC MEDICINE</small></span>
+      <span class="logo-text">Dr. Dylan Thor R. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC MEDICINE</small></span>
     </a>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="navLinks">Menu</button>
     <ul class="nav-links" id="navLinks">
@@ -407,7 +423,7 @@ footer a:hover{color:var(--band-fg)}
     <div class="hero-copy">
       <div class="eyebrow">Integrative &amp; Naturopathic Medicine</div>
       <h1>Treat the Root,<span class="accent">Restore the Whole You</span></h1>
-      <p class="sub">Medical care that looks past the symptom to the cause. Dr. Dylan Thor P. Rullan combines conventional diagnostics with nutrition, botanical medicine and lifestyle therapy, in the clinic or online.</p>
+      <p class="sub">Medical care that looks past the symptom to the cause. Dr. Dylan Thor R. Rullan combines conventional diagnostics with nutrition, botanical medicine and lifestyle therapy, in the clinic or online.</p>
       <div class="hero-ctas">
         <a class="btn btn-red" href="#book">Book a Consultation <svg><use href="#i-arrow"/></svg></a>
         <a class="play" href="#process"><span><svg width="14" height="14" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" fill="currentColor"/></svg></span>How a first visit works</a>
@@ -419,7 +435,7 @@ footer a:hover{color:var(--band-fg)}
       <div class="ring" aria-hidden="true"></div>
       <svg class="sprig s1" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg>
       <svg class="sprig s2" viewBox="0 0 24 24" aria-hidden="true"><use href="#i-leaf"/></svg>
-      <img class="cutout" src="images/dr-rullan-hero.webp" alt="Dr. Dylan Thor P. Rullan in a dark suit and green tie" width="600" height="769">
+      <img class="cutout" src="images/dr-rullan-hero.webp" alt="Dr. Dylan Thor R. Rullan in a dark suit and green tie" width="600" height="769">
       <div class="hero-note hand">Root cause,<br>real care
         <svg viewBox="0 0 60 40" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M54 6C44 26 28 32 10 30"/><path d="M18 22l-8 8 10 4"/></svg>
       </div>
@@ -439,114 +455,6 @@ footer a:hover{color:var(--band-fg)}
     </div>
   </div>
 </div>
-
-<section id="services">
-  <div class="wrap">
-    <div class="sec-head">
-      <div>
-        <div class="eyebrow">Areas of Care</div>
-        <h2 class="h2">How Dr. Rullan Can Help</h2>
-        <p class="lead">Many patients arrive after years of being told their labs are "normal." Each programme starts with a full history and targeted testing, then a plan you can follow at home.</p>
-      </div>
-      <a class="link-arrow" href="#book">See available times <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
-    </div>
-    <div class="services">
-      <article class="svc t1"><div class="svc-top"><span class="tag">Most booked</span><svg><use href="#i-gut"/></svg></div>
-        <div class="svc-body"><h3>Gut Health &amp; Digestion</h3><p>Bloating, reflux, IBS and food sensitivities. Microbiome-focused testing, elimination diets and gut repair protocols.</p>
-        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Gut health &amp; digestion">Book</a></div></div></article>
-      <article class="svc t2"><div class="svc-top"><svg><use href="#i-hormone"/></svg></div>
-        <div class="svc-body"><h3>Hormone &amp; Thyroid Balance</h3><p>Fatigue, weight changes, irregular cycles and low thyroid function, assessed with full panels rather than a single marker.</p>
-        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Hormones &amp; thyroid">Book</a></div></div></article>
-      <article class="svc t3"><div class="svc-top"><svg><use href="#i-moon"/></svg></div>
-        <div class="svc-body"><h3>Stress, Sleep &amp; Fatigue</h3><p>Burnout, poor sleep and low energy. Adrenal and nervous-system support with practical routines that fit a working life.</p>
-        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Stress, sleep &amp; fatigue">Book</a></div></div></article>
-      <article class="svc t4"><div class="svc-top"><svg><use href="#i-herb"/></svg></div>
-        <div class="svc-body"><h3>Metabolic &amp; Chronic Care</h3><p>Blood sugar, blood pressure, cholesterol and inflammation, managed alongside your existing medication, not against it.</p>
-        <div class="svc-foot"><b>60 min<small>Initial consult</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Metabolic &amp; chronic conditions">Book</a></div></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="wrap">
-    <div class="about-photo">
-      <img src="images/dr-rullan-about.jpg" alt="Portrait of Dr. Dylan Thor P. Rullan" width="560" height="574" loading="lazy">
-      <div class="hand">Listens first,<br>prescribes second</div>
-      <div class="stamp"><b>MD + ND</b>Integrative approach</div>
-    </div>
-    <div class="about-text">
-      <div class="eyebrow">About the Doctor</div>
-      <h2 class="h2">More Than a Prescription</h2>
-      <p style="margin-top:14px">Dr. Dylan Thor P. Rullan practises integrative and naturopathic medicine: evidence-based conventional care, combined with nutrition, botanical medicine and lifestyle therapy. The aim is simple. Find out why you feel unwell, then treat that.</p>
-      <p>A first consultation runs a full hour. Your history, your diet, your sleep and your stress all count as clinical information, and you leave with a written plan rather than a rushed note.</p>
-      <div class="about-list"><ul>
-        <li><span class="ic r"><svg><use href="#i-heart"/></svg></span><div><b>Root-Cause Assessment</b><small>Detailed history, physical exam and targeted labs</small></div></li>
-        <li><span class="ic g"><svg><use href="#i-leaf"/></svg></span><div><b>Natural &amp; Conventional Together</b><small>Botanicals and nutrition that respect your current medication</small></div></li>
-        <li><span class="ic y"><svg><use href="#i-shield"/></svg></span><div><b>Follow-Up You Can Reach</b><small>Scheduled reviews to adjust the plan as you improve</small></div></li>
-      </ul></div>
-      <a class="btn btn-ghost btn-sm" href="#process">How a visit works <svg><use href="#i-arrow"/></svg></a>
-    </div>
-  </div>
-</section>
-
-<div class="offer">
-  <div class="wrap">
-    <div class="offer-card">
-      <div>
-        <div class="eyebrow">New Patients</div>
-        <h3>Not sure where to start? <span>Talk to Dr. Rullan first.</span></h3>
-        <p>Book a free 15-minute online discovery call. Describe what you are dealing with and find out whether integrative care is the right fit before you commit to a full consultation.</p>
-        <a class="btn btn-red" style="margin-top:22px" href="#book" id="discoveryBtn">Book a Discovery Call <svg><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="offer-right">
-        <div class="seal"><div><b>FREE</b><small>15 MIN CALL</small></div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<section class="why">
-  <div class="wrap">
-    <div class="why-note hand">Care that fits<br>your life</div>
-    <div class="eyebrow">Why Patients Choose Us</div>
-    <h2 class="h2">Unhurried, Personal Medicine</h2>
-    <p class="lead">An integrative practice should feel different from a five-minute clinic visit. Here is what you can expect.</p>
-    <div class="why-grid">
-      <div class="why-card"><span class="ic r"><svg><use href="#i-clock"/></svg></span><h3>Time to Be Heard</h3><p>Hour-long first visits so nothing in your history gets skipped.</p></div>
-      <div class="why-card"><span class="ic g"><svg><use href="#i-flask"/></svg></span><h3>Evidence-Informed</h3><p>Natural therapies chosen on research and your lab results, not trends.</p></div>
-      <div class="why-card"><span class="ic y"><svg><use href="#i-video"/></svg></span><h3>Clinic or Online</h3><p>See the doctor in person, or by video call from wherever you live.</p></div>
-      <div class="why-card"><span class="ic k"><svg><use href="#i-user"/></svg></span><h3>A Plan Made for You</h3><p>Written protocols for diet, supplements and habits, reviewed at follow-up.</p></div>
-    </div>
-  </div>
-</section>
-
-<section class="process" id="process">
-  <div class="wrap">
-    <div class="eyebrow">Your First Visit</div>
-    <h2 class="h2">What Happens After You Book</h2>
-    <p class="lead">The same four steps apply whether you come to the clinic or join online.</p>
-    <div class="steps">
-      <div class="step"><div class="num">1</div><h3>Book &amp; Intake Form</h3><p>Choose a time below. You receive a health questionnaire to complete before the visit.</p><span class="when">Today</span></div>
-      <div class="step"><div class="num">2</div><h3>60-Minute Consultation</h3><p>Full history, symptom review and, in the clinic, a physical exam. Bring any recent lab results.</p><span class="when">Visit day</span></div>
-      <div class="step"><div class="num">3</div><h3>Testing If Needed</h3><p>Targeted labs only where they will change the plan, such as thyroid, gut or metabolic panels.</p><span class="when">Week 1–2</span></div>
-      <div class="step"><div class="num">4</div><h3>Your Care Plan</h3><p>A written protocol covering nutrition, supplements and lifestyle, then a follow-up to review progress.</p><span class="when">Week 3–6</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="testimonials">
-  <div class="wrap">
-    <div class="eyebrow">Patient Stories</div>
-    <h2 class="h2">What Patients Say</h2>
-    <p class="lead">Feedback shared by patients after their care plans.</p>
-    <div class="tgrid">
-      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>For the first time a doctor asked about my sleep, my food and my stress before writing anything. Three months later my digestion is finally settled.</q><div class="who"><span class="avatar" style="background:#2F7A55">MA</span><div><b>Maria A.</b><small>Gut health programme</small></div></div></div>
-      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>I did all my consultations online from abroad. The video calls were on time, and the written plan was easy to follow.</q><div class="who"><span class="avatar" style="background:#D9412E">JR</span><div><b>Jun R.</b><small>Online patient</small></div></div></div>
-      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>He worked with my existing thyroid medication instead of telling me to stop it. My energy is back and my labs show it.</q><div class="who"><span class="avatar" style="background:#A88D52">LC</span><div><b>Liza C.</b><small>Hormone &amp; thyroid care</small></div></div></div>
-    </div>
-    <p class="sample-note"><span>Sample</span>Placeholder reviews. Replace with real, consented patient testimonials before launch.</p>
-  </div>
-</section>
 
 <section class="booking" id="book">
   <div class="wrap">
@@ -592,16 +500,18 @@ footer a:hover{color:var(--band-fg)}
         <form class="bk-form" id="bkForm" novalidate>
           <div class="field"><label for="f-type">Appointment type</label>
             <select id="f-type">
-              <option value="initial">Initial consultation · 60 min</option>
+              <option value="initial">Initial consultation · 30 min</option>
               <option value="followup">Follow-up · 30 min</option>
               <option value="discovery">Discovery call · 15 min (online)</option>
             </select></div>
           <div class="field"><label for="f-concern">Main concern</label>
             <select id="f-concern">
-              <option>Gut health &amp; digestion</option>
-              <option>Hormones &amp; thyroid</option>
-              <option>Stress, sleep &amp; fatigue</option>
-              <option>Metabolic &amp; chronic conditions</option>
+              <option>Hypertension</option>
+              <option>Diabetes</option>
+              <option>Cancer (integrative support)</option>
+              <option>Chronic kidney disease (CKD)</option>
+              <option>Cardiovascular health</option>
+              <option>Bone &amp; posture screening</option>
               <option>General wellness check</option>
               <option>Other</option>
             </select></div>
@@ -625,6 +535,119 @@ footer a:hover{color:var(--band-fg)}
   </div>
 </section>
 
+<section class="testimonials">
+  <div class="wrap">
+    <div class="eyebrow">Patient Stories</div>
+    <h2 class="h2">What Patients Say</h2>
+    <p class="lead">Feedback shared by patients after their care plans.</p>
+    <div class="tgrid">
+      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>For the first time a doctor asked about my sleep, my food and my stress before writing anything. Three months on, my blood pressure readings are steadier.</q><div class="who"><span class="avatar" style="background:#2F7A55">MA</span><div><b>Maria A.</b><small>Hypertension care</small></div></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>I did all my consultations online from abroad. The video calls were on time, and the written plan was easy to follow.</q><div class="who"><span class="avatar" style="background:#D9412E">JR</span><div><b>Jun R.</b><small>Online patient</small></div></div></div>
+      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>He worked with my existing diabetes medication instead of telling me to stop it. My energy is back and my sugar readings are more stable.</q><div class="who"><span class="avatar" style="background:#A88D52">LC</span><div><b>Liza C.</b><small>Diabetes care</small></div></div></div>
+    </div>
+    <p class="sample-note"><span>Sample</span>Placeholder reviews. Replace with real, consented patient testimonials before launch.</p>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Areas of Care</div>
+        <h2 class="h2">How Dr. Rullan Can Help</h2>
+        <p class="lead">Integrative care for long-term conditions, always coordinated with your specialists and current medication. Each consultation starts with your history and labs, then a plan you can follow at home.</p>
+      </div>
+      <div class="svc-nav"><button class="svc-arrow" type="button" id="svcPrev" aria-label="Previous conditions"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="svc-arrow" type="button" id="svcNext" aria-label="Next conditions"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    </div>
+    <div class="services" id="svcTrack">
+      <article class="svc t1"><div class="svc-top"><span class="tag">Most booked</span><svg><use href="#i-bp"/></svg></div>
+        <div class="svc-body"><h3>Hypertension</h3><p>High blood pressure managed with nutrition, stress care and lifestyle changes, coordinated with your current medication.</p>
+        <div class="svc-foot"><b>30 min<small>Consultation</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Hypertension">Book</a></div></div></article>
+      <article class="svc t2"><div class="svc-top"><svg><use href="#i-glucose"/></svg></div>
+        <div class="svc-body"><h3>Diabetes</h3><p>Type 2 diabetes and prediabetes: blood-sugar-friendly nutrition, weight and activity plans, with regular lab reviews.</p>
+        <div class="svc-foot"><b>30 min<small>Consultation</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Diabetes">Book</a></div></div></article>
+      <article class="svc t3"><div class="svc-top"><svg><use href="#i-ribbon"/></svg></div>
+        <div class="svc-body"><h3>Cancer</h3><p>Integrative supportive care alongside your oncology team: nutrition, energy, sleep and side-effect support during and after treatment.</p>
+        <div class="svc-foot"><b>30 min<small>Consultation</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Cancer (integrative support)">Book</a></div></div></article>
+      <article class="svc t4"><div class="svc-top"><svg><use href="#i-kidney"/></svg></div>
+        <div class="svc-body"><h3>CKD – Chronic Kidney Disease</h3><p>Kidney-friendly nutrition, blood pressure and blood sugar control, and a medication review to help protect kidney function.</p>
+        <div class="svc-foot"><b>30 min<small>Consultation</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Chronic kidney disease (CKD)">Book</a></div></div></article>
+      <article class="svc t1"><div class="svc-top"><svg><use href="#i-cardio"/></svg></div>
+        <div class="svc-body"><h3>Cardiovascular</h3><p>Cholesterol, circulation and heart-health risk factors, checked with full panels and addressed with nutrition and lifestyle.</p>
+        <div class="svc-foot"><b>30 min<small>Consultation</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Cardiovascular health">Book</a></div></div></article>
+      <article class="svc t2"><div class="svc-top"><svg><use href="#i-spine"/></svg></div>
+        <div class="svc-body"><h3>Bone and Posture Screening</h3><p>Posture assessment and bone-health screening, with referral for bone density testing when needed, plus exercise and nutrition guidance.</p>
+        <div class="svc-foot"><b>30 min<small>Consultation</small></b><a class="btn btn-red btn-sm" href="#book" data-concern="Bone &amp; posture screening">Book</a></div></div></article>
+    </div>
+  </div>
+</section>
+<section class="about" id="about">
+  <div class="wrap">
+    <div class="about-photo">
+      <img src="images/dr-rullan-about.jpg" alt="Portrait of Dr. Dylan Thor R. Rullan" width="560" height="574" loading="lazy">
+      <div class="hand">Listens first,<br>prescribes second</div>
+      <div class="stamp"><b>MD + ND</b>Integrative approach</div>
+    </div>
+    <div class="about-text">
+      <div class="eyebrow">About the Doctor</div>
+      <h2 class="h2">More Than a Prescription</h2>
+      <p style="margin-top:14px">Dr. Dylan Thor R. Rullan practises integrative and naturopathic medicine: evidence-based conventional care, combined with nutrition, botanical medicine and lifestyle therapy. The aim is simple. Find out why you feel unwell, then treat that.</p>
+      <p>Each consultation is a focused 30 minutes. Your history, your diet, your sleep and your stress all count as clinical information, and you leave with a written plan rather than a rushed note.</p>
+      <div class="about-list"><ul>
+        <li><span class="ic r"><svg><use href="#i-heart"/></svg></span><div><b>Root-Cause Assessment</b><small>Detailed history, physical exam and targeted labs</small></div></li>
+        <li><span class="ic g"><svg><use href="#i-leaf"/></svg></span><div><b>Natural &amp; Conventional Together</b><small>Botanicals and nutrition that respect your current medication</small></div></li>
+        <li><span class="ic y"><svg><use href="#i-shield"/></svg></span><div><b>Follow-Up You Can Reach</b><small>Scheduled reviews to adjust the plan as you improve</small></div></li>
+      </ul></div>
+      <a class="btn btn-ghost btn-sm" href="#process">How a visit works <svg><use href="#i-arrow"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<div class="offer">
+  <div class="wrap">
+    <div class="offer-card">
+      <div>
+        <div class="eyebrow">New Patients</div>
+        <h3>Not sure where to start? <span>Talk to Dr. Rullan first.</span></h3>
+        <p>Book a free 15-minute online discovery call. Describe what you are dealing with and find out whether integrative care is the right fit before you commit to a full consultation.</p>
+        <a class="btn btn-red" style="margin-top:22px" href="#book" id="discoveryBtn">Book a Discovery Call <svg><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="offer-right">
+        <div class="seal"><div><b>FREE</b><small>15 MIN CALL</small></div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="why">
+  <div class="wrap">
+    <div class="why-note hand">Care that fits<br>your life</div>
+    <div class="eyebrow">Why Patients Choose Us</div>
+    <h2 class="h2">Unhurried, Personal Medicine</h2>
+    <p class="lead">An integrative practice should feel different from a five-minute clinic visit. Here is what you can expect.</p>
+    <div class="why-grid">
+      <div class="why-card"><span class="ic r"><svg><use href="#i-clock"/></svg></span><h3>Time to Be Heard</h3><p>Focused 30-minute consultations, prepared from your intake form so nothing gets skipped.</p></div>
+      <div class="why-card"><span class="ic g"><svg><use href="#i-flask"/></svg></span><h3>Evidence-Informed</h3><p>Natural therapies chosen on research and your lab results, not trends.</p></div>
+      <div class="why-card"><span class="ic y"><svg><use href="#i-video"/></svg></span><h3>Clinic or Online</h3><p>See the doctor in person, or by video call from wherever you live.</p></div>
+      <div class="why-card"><span class="ic k"><svg><use href="#i-user"/></svg></span><h3>A Plan Made for You</h3><p>Written protocols for diet, supplements and habits, reviewed at follow-up.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="eyebrow">Your First Visit</div>
+    <h2 class="h2">What Happens After You Book</h2>
+    <p class="lead">The same four steps apply whether you come to the clinic or join online.</p>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Book &amp; Intake Form</h3><p>Choose a time above. You receive a health questionnaire to complete before the visit.</p><span class="when">Today</span></div>
+      <div class="step"><div class="num">2</div><h3>30-Minute Consultation</h3><p>Full history, symptom review and, in the clinic, a physical exam. Bring any recent lab results.</p><span class="when">Visit day</span></div>
+      <div class="step"><div class="num">3</div><h3>Testing If Needed</h3><p>Targeted labs only where they will change the plan, such as thyroid, gut or metabolic panels.</p><span class="when">Week 1–2</span></div>
+      <div class="step"><div class="num">4</div><h3>Your Care Plan</h3><p>A written protocol covering nutrition, supplements and lifestyle, then a follow-up to review progress.</p><span class="when">Week 3–6</span></div>
+    </div>
+  </div>
+</section>
+
 <section class="docpanel" id="doctor" hidden>
   <div class="wrap">
     <div class="eyebrow">Doctor's View · only you can see this</div>
@@ -639,7 +662,7 @@ footer a:hover{color:var(--band-fg)}
   <div class="wrap">
     <div class="fgrid">
       <div>
-        <a class="logo" href="#home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#C6A96B"/><path d="M12 28c3-5 7-9 12-12" stroke="#244B3A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg><span class="logo-text">Dr. Dylan Thor P. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC</small></span></a>
+        <a class="logo" href="#home"><svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="11" fill="#2F7A55"/><path d="M11 29c0-11 6-17 18-18 0 11-6 18-17 18" fill="#C6A96B"/><path d="M12 28c3-5 7-9 12-12" stroke="#244B3A" stroke-width="2" fill="none" stroke-linecap="round"/><circle cx="29" cy="29" r="5" fill="#D9412E"/><path d="M29 26.5v5M26.5 29h5" stroke="#fff" stroke-width="1.6" stroke-linecap="round"/></svg><span class="logo-text">Dr. Dylan Thor R. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC</small></span></a>
         <p style="margin-top:14px;max-width:34ch">Root-cause medicine, in the clinic and online.</p>
         <div class="socials">
           <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v2H7v4h3v8h4v-8h3l1-4h-4V8z" fill="currentColor"/></svg></a>
@@ -656,7 +679,7 @@ footer a:hover{color:var(--band-fg)}
       </ul></div>
     </div>
     <div class="fbot">
-      <span>© 2026 Dr. Dylan Thor P. Rullan · Integrative &amp; Naturopathic Medicine</span>
+      <span>© 2026 Dr. Dylan Thor R. Rullan · Integrative &amp; Naturopathic Medicine</span>
       <span class="disclaimer">Information on this site is general and not a substitute for an individual consultation. In an emergency, go to the nearest hospital.</span>
     </div>
   </div>
@@ -672,12 +695,12 @@ const PRACTICE = {
   tz: "Asia/Manila", tzOffset: 8,
   bookAheadDays: 45,
   fees: { initial: 2500, followup: 1500, discovery: 0 },
-  durations: { initial: 60, followup: 30, discovery: 15 },
+  durations: { initial: 30, followup: 30, discovery: 15 },
   typeNames: { initial: "Initial consultation", followup: "Follow-up", discovery: "Discovery call" },
   // Slot start times (PHT). Index = weekday, 0 = Sunday.
   hours: {
-    clinic: { 1:["09:00","10:00","11:00","14:00","15:00","16:00"], 2:["09:00","10:00","11:00","14:00","15:00","16:00"], 3:["09:00","10:00","11:00","14:00","15:00","16:00"], 4:["09:00","10:00","11:00","14:00","15:00","16:00"], 5:["09:00","10:00","11:00","14:00","15:00","16:00"], 6:["09:00","10:00","11:00"] },
-    online: { 1:["13:00","17:00","18:00","19:00"], 2:["13:00","17:00","18:00","19:00"], 3:["13:00","17:00","18:00","19:00"], 4:["13:00","17:00","18:00","19:00"], 5:["13:00","17:00","18:00","19:00"], 6:["13:00","14:00"] }
+    clinic: { 1:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 2:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 3:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 4:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 5:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 6:["09:00","09:30","10:00","10:30","11:00","11:30"] },
+    online: { 1:["13:00","13:30","17:00","17:30","18:00","18:30","19:00","19:30"], 2:["13:00","13:30","17:00","17:30","18:00","18:30","19:00","19:30"], 3:["13:00","13:30","17:00","17:30","18:00","18:30","19:00","19:30"], 4:["13:00","13:30","17:00","17:30","18:00","18:30","19:00","19:30"], 5:["13:00","13:30","17:00","17:30","18:00","18:30","19:00","19:30"], 6:["13:00","13:30","14:00","14:30"] }
   }
 };
 
@@ -795,7 +818,7 @@ function setMode(mode){
 }
 document.querySelectorAll(".mode").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
 $("#f-type").addEventListener("change",()=>{ if($("#f-type").value==="discovery" && state.mode!=="online") setMode("online"); else renderSummary(); });
-document.querySelectorAll("[data-concern]").forEach(a=>a.addEventListener("click",()=>{ $("#f-concern").value=a.dataset.concern.replace("&amp;","&"); }));
+document.querySelectorAll("[data-concern]").forEach(a=>a.addEventListener("click",()=>{ $("#f-concern").value=a.dataset.concern; }));
 $("#discoveryBtn").addEventListener("click",()=>{ $("#f-type").value="discovery"; setMode("online"); });
 
 /* ---- Submit ---- */
@@ -842,13 +865,13 @@ $("#bkForm").addEventListener("submit", async e=>{
 function gcalLink(b){
   const s=slotInstant(b.date,b.time), e=new Date(s.getTime()+PRACTICE.durations[b.type]*60000);
   const z=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
-  const p=new URLSearchParams({action:"TEMPLATE",text:`${PRACTICE.typeNames[b.type]} with Dr. Dylan Thor P. Rullan`,dates:`${z(s)}/${z(e)}`,
+  const p=new URLSearchParams({action:"TEMPLATE",text:`${PRACTICE.typeNames[b.type]} with Dr. Dylan Thor R. Rullan`,dates:`${z(s)}/${z(e)}`,
     details:`${b.mode==="online"?"Online consultation via "+b.platform+". The video link will be emailed to you.":"Face-to-face consultation."} Concern: ${b.concern}.`,
     location: b.mode==="online" ? "Online" : PRACTICE.address});
   return "https://calendar.google.com/calendar/render?"+p.toString();
 }
 function summaryText(b){
-  return `Appointment request – Dr. Dylan Thor P. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.notes?"\nNotes: "+b.notes:""}`;
+  return `Appointment request – Dr. Dylan Thor R. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.notes?"\nNotes: "+b.notes:""}`;
 }
 function showConfirm(b,saved){
   const v=$("#confirmView");
@@ -922,6 +945,14 @@ async function loadDoctor(slots){
 }
 
 function setStatus(live,text){ const s=$("#statusLine"); s.classList.toggle("live",live); s.querySelector("span").textContent=text; }
+
+
+/* ---- Areas of Care carousel ---- */
+(()=>{const t=document.getElementById("svcTrack"),p=document.getElementById("svcPrev"),n=document.getElementById("svcNext");if(!t)return;
+  const step=()=>{const c=t.querySelector(".svc");return c?c.getBoundingClientRect().width+20:280};
+  const upd=()=>{p.disabled=t.scrollLeft<4;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4};
+  p.addEventListener("click",()=>t.scrollBy({left:-step(),behavior:"smooth"}));n.addEventListener("click",()=>t.scrollBy({left:step(),behavior:"smooth"}));
+  t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);setTimeout(upd,60);})();
 
 /* ---- Init ---- */
 renderCal(); renderSlots(); renderSummary();
