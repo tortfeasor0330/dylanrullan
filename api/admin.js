@@ -1,5 +1,6 @@
 import { timingSafeEqual } from "node:crypto";
 import { store, configured, send } from "./_store.js";
+import { notify, bookingPayload } from "./_ghl.js";
 // Clinic-only endpoint. Header "x-admin-key" must equal the ADMIN_KEY environment variable.
 function authed(req) {
   const want = process.env.ADMIN_KEY || "", got = String(req.headers["x-admin-key"] || "");
@@ -37,6 +38,8 @@ export default async function handler(req, res) {
       else return send(res, 400, { error: "Unknown action." });
       rec.updatedAt = new Date().toISOString();
       await store.putJSON(path, rec, { overwrite: true });
+      const ev = { verify: "booking.confirmed", reject: "booking.payment_issue", cancel: "booking.cancelled" }[action];
+      await notify(process.env.GHL_BOOKING_WEBHOOK_URL, bookingPayload(ev, rec, req));
       return send(res, 200, { ok: true, status: rec.status });
     }
     send(res, 405, { error: "Method not allowed." });

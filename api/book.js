@@ -1,4 +1,5 @@
 import { store, configured, send } from "./_store.js";
+import { notify, bookingPayload } from "./_ghl.js";
 const TYPES = { initial: 500, followup: 500, discovery: 0 };
 const s = (v, n = 200) => String(v ?? "").trim().slice(0, n);
 // POST /api/book  { booking:{...}, payment:{ method, refNo, screenshot:"data:image/jpeg;base64,..." } }
@@ -43,6 +44,7 @@ export default async function handler(req, res) {
       payment: fee > 0 ? { method: p.method, refNo: s(p.refNo, 60), screenshot } : null, createdAt
     };
     await store.putJSON(`bookings/${ref}.json`, record);
+    await notify(process.env.GHL_BOOKING_WEBHOOK_URL, bookingPayload("booking.created", record, req));
     send(res, 200, { ok: true, ref, status: record.status });
   } catch (e) {
     try { await store.del(slotPath); } catch {}

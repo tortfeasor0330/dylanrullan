@@ -802,23 +802,32 @@ function renderCheckout(){
   $("#backCart").addEventListener("click",()=>{view="cart";renderCart()});
   $("#placeOrder").addEventListener("click",placeOrder);
 }
-function placeOrder(){
+async function placeOrder(){
   const v=k=>($("#co-"+k).value||"").trim();
   const bad=(k,c)=>{$("#co-"+k).closest(".field").classList.toggle("err",c);return c};
   let b=false;b=bad("name",v("name").length<2)||b;b=bad("phone",v("phone").replace(/\D/g,"").length<7)||b;b=bad("addr",v("addr").length<5)||b;b=bad("city",!v("city"))||b;
   if(v("email"))b=bad("email",!/^\S+@\S+\.\S+$/.test(v("email")))||b;
   if(b){$("#coMsg").textContent="Fill in the highlighted fields: name, mobile, address and city are needed for delivery.";return}
   const d=new Date(),ref="TOH-"+String(d.getFullYear()).slice(2)+String(d.getMonth()+1).padStart(2,"0")+String(d.getDate()).padStart(2,"0")+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
-  lastOrder={ref,items:cart.map(l=>({...l,name:find(l.id).name,price:find(l.id).price})),subtotal:subtotal(),shipping:shipping(),name:v("name"),phone:v("phone"),email:v("email"),addr:`${v("addr")}, ${v("city")}${v("prov")?", "+v("prov"):""}`,pay:document.querySelector('input[name="pay"]:checked').value,notes:v("notes")};
-  cart=[];save();view="done";renderCart();
+  const order={ref,items:cart.map(l=>({...l,name:find(l.id).name,price:find(l.id).price})),subtotal:subtotal(),shipping:shipping(),name:v("name"),phone:v("phone"),email:v("email"),addr:`${v("addr")}, ${v("city")}${v("prov")?", "+v("prov"):""}`,pay:document.querySelector('input[name="pay"]:checked').value,notes:v("notes"),sent:false};
+  const btn=$("#placeOrder");btn.disabled=true;btn.textContent="Placing order…";
+  try{
+    const ctrl=new AbortController();const t=setTimeout(()=>ctrl.abort(),9000);
+    const r=await fetch("/api/order",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({order}),signal:ctrl.signal});
+    clearTimeout(t);
+    const j=await r.json().catch(()=>({}));
+    if(r.ok&&j.ref){order.ref=j.ref;order.sent=true}
+    else if(r.status===400){$("#coMsg").textContent=j.error||"Please check your details.";btn.disabled=false;btn.textContent="Place Order";return}
+  }catch(e){}
+  lastOrder=order;cart=[];save();view="done";renderCart();
 }
 function orderText(o){return `New order ${o.ref} – Triangle of Health\n${o.items.map(i=>`${i.q} × ${i.name} (${peso(i.price*i.q)})`).join("\n")}\nSubtotal: ${peso(o.subtotal)}\nShipping: ${o.shipping?peso(o.shipping):"Free"}\nTotal: ${peso(o.subtotal+o.shipping)}\nPayment: ${o.pay}\n\nName: ${o.name}\nMobile: ${o.phone}${o.email?"\nEmail: "+o.email:""}\nAddress: ${o.addr}${o.notes?"\nNotes: "+o.notes:""}`}
 function esc(s){return s.replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]))}
 function renderDone(){
   const o=lastOrder;$("#drTitle").textContent="Order Placed";
-  $("#drBody").innerHTML=`<div class="done"><div class="tick"><svg><use href="#i-check"/></svg></div><h4>Thank you, ${esc(o.name.split(" ")[0])}!</h4><p>Send your order to the clinic with one tap below. We confirm stock, shipping and ${o.pay} details by message.</p>
+  $("#drBody").innerHTML=`<div class="done"><div class="tick"><svg><use href="#i-check"/></svg></div><h4>Thank you, ${esc(o.name.split(" ")[0])}!</h4><p>${o.sent?`Your order is in. The clinic will message you to confirm stock, shipping and ${o.pay} payment details.`:`Send your order to the clinic with one tap below. We confirm stock, shipping and ${o.pay} details by message.`}</p>
   <div class="receipt"><div><span>Reference</span><b>${o.ref}</b></div>${o.items.map(i=>`<div><span>${i.q} × ${i.name}</span><b>${peso(i.price*i.q)}</b></div>`).join("")}<div><span>Shipping</span><b>${o.shipping?peso(o.shipping):"Free"}</b></div><div><span>Total</span><b>${peso(o.subtotal+o.shipping)}</b></div><div><span>Payment</span><b>${o.pay}</b></div></div></div>`;
-  $("#drFoot").innerHTML=`<a class="btn btn-green btn-block" target="_blank" rel="noopener" href="https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(orderText(o))}">Send Order on WhatsApp</a><button class="btn btn-line btn-block" type="button" id="copyOrder">Copy Order Details</button><p class="fine">Or email it to ${SHOP.email}. <button class="rm" type="button" id="newOrder">Start a new order</button></p>`;
+  $("#drFoot").innerHTML=`<a class="btn ${o.sent?"btn-line":"btn-green"} btn-block" target="_blank" rel="noopener" href="https://wa.me/${SHOP.whatsapp}?text=${encodeURIComponent(orderText(o))}">${o.sent?"Message Us on WhatsApp":"Send Order on WhatsApp"}</a><button class="btn btn-line btn-block" type="button" id="copyOrder">Copy Order Details</button><p class="fine">Or email it to ${SHOP.email}. <button class="rm" type="button" id="newOrder">Start a new order</button></p>`;
   $("#copyOrder").addEventListener("click",()=>copyText(orderText(o)));
   $("#newOrder").addEventListener("click",()=>{view="cart";lastOrder=null;renderCart()});
 }
