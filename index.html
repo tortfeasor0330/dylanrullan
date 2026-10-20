@@ -170,7 +170,7 @@ section{padding-block:88px}
 .about-photo img{display:block;width:100%;max-width:100%;aspect-ratio:560/574;object-fit:cover}
 .about-photo .hand{position:absolute;right:18px;top:22px;color:#fff;font-size:30px;transform:rotate(-6deg);text-shadow:0 2px 10px rgba(0,0,0,.4);text-align:right}
 .about-photo .stamp{position:absolute;left:16px;bottom:16px;background:var(--yellow);color:#1B2220;border-radius:12px;padding:10px 14px;font-size:12px;font-weight:600;line-height:1.3}
-.about-photo .stamp b{display:block;font-size:20px}
+.about-photo .stamp b{display:block;font-size:16px}
 .about-list{display:grid;gap:16px;margin-top:26px}
 .about-list li{display:flex;gap:14px;align-items:flex-start;list-style:none}
 .about-list ul{padding:0;margin:0}
@@ -178,8 +178,34 @@ section{padding-block:88px}
 .about-list small{color:var(--muted);font-size:13px}
 .about-text p+p{margin-top:12px}
 .about-text p{color:var(--muted);max-width:60ch}
-.about .btn{margin-top:28px;color:var(--red)}
+.about .btn-ghost{color:var(--red)}
 @media (max-width:900px){.about .wrap{grid-template-columns:1fr;gap:36px}.about-photo{max-width:480px}}
+
+
+.about .wrap{align-items:start}
+.about-photo{position:sticky;top:calc(96px + env(safe-area-inset-top,0px))}
+.about-text .name-sub{font-size:14px;color:var(--muted);margin-top:6px}
+.cred-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.cred-chips span{font-size:12px;font-weight:600;color:var(--head,var(--fg));background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 12px}
+.about-text .bio p{margin-top:12px}
+.philo{margin:24px 0 0;padding:18px 22px;border-radius:14px;background:var(--card);border-left:4px solid var(--red);font-size:clamp(17px,1.8vw,20px);font-weight:600;line-height:1.45;color:var(--fg)}
+.philo small{display:block;font-size:12.5px;font-weight:500;color:var(--muted);margin-top:6px}
+.focus-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+.focus{display:flex;gap:12px;align-items:flex-start;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px}
+.focus b{display:block;font-size:14px}
+.focus small{display:block;color:var(--muted);font-size:12.5px;line-height:1.5;margin-top:2px}
+.focus .ic{width:40px;height:40px;border-radius:10px}
+.focus .ic svg{width:20px;height:20px}
+details.bio-more{margin-top:20px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+details.bio-more summary{cursor:pointer;list-style:none;padding:14px 0;font-weight:600;color:var(--red);display:flex;justify-content:space-between;align-items:center}
+details.bio-more summary::-webkit-details-marker{display:none}
+details.bio-more summary::after{content:"+";font-size:22px;font-weight:400;line-height:1;transition:transform .2s}
+details.bio-more[open] summary::after{transform:rotate(45deg)}
+details.bio-more .bio{padding-bottom:16px}
+.about-btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.about-btns .btn{margin-top:0}
+@media (max-width:900px){.about-photo{position:relative;top:0}}
+@media (max-width:540px){.focus-grid{grid-template-columns:1fr}}
 
 /* OFFER */
 .offer{padding-block:0 88px;background:var(--surface)}
@@ -584,21 +610,39 @@ footer a:hover{color:var(--band-fg)}
 <section class="about" id="about">
   <div class="wrap">
     <div class="about-photo">
-      <img src="images/dr-rullan-about.jpg" alt="Portrait of Dr. Dylan Thor R. Rullan" width="560" height="574" loading="lazy">
-      <div class="hand">Listens first,<br>prescribes second</div>
-      <div class="stamp"><b>MD + ND</b>Integrative approach</div>
+      <img src="images/dr-rullan-about.jpg" alt="Portrait of Dr. Dylan Thor Pablo R. Rullan in a white coat" width="560" height="574" loading="lazy">
+      <div class="hand">a.k.a.<br>Master Lance</div>
+      <div class="stamp"><b>PhD in Naturopathy</b>Doctor of Integrative Medicine</div>
     </div>
     <div class="about-text">
       <div class="eyebrow">About the Doctor</div>
-      <h2 class="h2">More Than a Prescription</h2>
-      <p style="margin-top:14px">Dr. Dylan Thor R. Rullan practises integrative and naturopathic medicine: evidence-based conventional care, combined with nutrition, botanical medicine and lifestyle therapy. The aim is simple. Find out why you feel unwell, then treat that.</p>
-      <p>Each consultation is a focused 30 minutes. Your history, your diet, your sleep and your stress all count as clinical information, and you leave with a written plan rather than a rushed note.</p>
-      <div class="about-list"><ul>
-        <li><span class="ic r"><svg><use href="#i-heart"/></svg></span><div><b>Root-Cause Assessment</b><small>Detailed history, physical exam and targeted labs</small></div></li>
-        <li><span class="ic g"><svg><use href="#i-leaf"/></svg></span><div><b>Natural &amp; Conventional Together</b><small>Botanicals and nutrition that respect your current medication</small></div></li>
-        <li><span class="ic y"><svg><use href="#i-shield"/></svg></span><div><b>Follow-Up You Can Reach</b><small>Scheduled reviews to adjust the plan as you improve</small></div></li>
-      </ul></div>
-      <a class="btn btn-ghost btn-sm" href="#process">How a visit works <svg><use href="#i-arrow"/></svg></a>
+      <h2 class="h2">Dr. Dylan Thor Pablo R. Rullan</h2>
+      <div class="cred-chips"><span>Doctor of Integrative Medicine</span><span>Doctor of Naturopathy</span><span>PhD in Naturopathy</span><span>Doctor of Humanities</span><span>Chiropractic Care Practitioner</span><span>Health Educator</span></div>
+      <div class="bio">
+        <p style="margin-top:18px">Dr. Dylan Thor Pablo R. Rullan is a Doctor of Integrative Medicine, Naturopathic Doctor in Advanced Diploma, Doctor of Humanities, and holder of a PhD in Naturopathy, dedicated to advancing integrative, preventive, and holistic approaches to health and wellness.</p>
+        <p>A cum laude graduate, Dr. Rullan has developed a multidisciplinary educational foundation that includes a Bachelor's Degree in Political Science, with academic units in Master's in Educational Management, complemented by specialized training and certifications in areas related to integrative health, including Iridology and Chiropractic Care.</p>
+        <p>With extensive hands-on experience in chiropractic care and integrative wellness, Dr. Rullan believes that effective health care should look at the individual as a whole: physical condition, nutrition, lifestyle, habits, environment, and overall well-being.</p>
+      </div>
+      <blockquote class="philo">“Doctors should not only treat, they should teach.”<small>Dr. Rullan's guiding philosophy</small></blockquote>
+      <div class="focus-grid">
+        <div class="focus"><span class="ic g"><svg><use href="#i-leaf"/></svg></span><div><b>Naturopathy &amp; Nutrition</b><small>Lifestyle wellness, food intake and preventive health</small></div></div>
+        <div class="focus"><span class="ic r"><svg><use href="#i-heart"/></svg></span><div><b>Chiropractic Care</b><small>Extensive hands-on experience in chiropractic and integrative wellness</small></div></div>
+        <div class="focus"><span class="ic y"><svg><use href="#i-user"/></svg></span><div><b>Eye Health Education</b><small>Non-invasive external eye-cleanse and diabetic retinopathy education programs</small></div></div>
+        <div class="focus"><span class="ic k"><svg><use href="#i-video"/></svg></span><div><b>Health Educator &amp; Speaker</b><small>Guest on radio programs and local TV, mentor and public speaker</small></div></div>
+      </div>
+      <details class="bio-more">
+        <summary>Read full biography</summary>
+        <div class="bio">
+          <p>He is particularly passionate about naturopathy, lifestyle wellness, nutrition and food intake, preventive health, chiropractic care, and health education. He has also developed a non-invasive eye-cleanse procedure focused on the external cleansing of the eyes and removal of accumulated dirt, dust, and other external debris, with the goal of supporting clearer visual comfort. His work also includes educational wellness programs addressing eye health and diabetic retinopathy; he emphasizes that such programs are complementary and should not replace appropriate ophthalmologic care.</p>
+          <p>Over the years, Dr. Rullan has received numerous testimonials from clients who attribute significant improvements in their health and quality of life to the care, guidance, and wellness programs they received. These stories have strengthened his commitment to helping people pursue healthier lifestyles while encouraging responsible, informed health decisions.</p>
+          <p>Beyond clinical and academic work, Dr. Rullan is known for his passion for teaching, mentoring, community education, and public speaking. He has appeared as a guest on various radio programs and local television channels, sharing his knowledge on health, wellness, lifestyle, and practical approaches to improving one's quality of life.</p>
+          <p>He is also known by many as “Master Lance,” a name associated with his knowledge and practice of Feng Shui and his interest in helping people create environments and lifestyles that promote harmony, balance, and positive living.</p>
+          <p>A lifelong learner and advocate of continuous personal development, Dr. Rullan believes that knowledge becomes more meaningful when it is shared.</p>
+          <p>Outside his professional work, Dr. Rullan enjoys dancing and traveling, reflecting his belief that a healthy life should also be an active, joyful, and meaningful one.</p>
+          <p>Today, through his continuing work in integrative medicine, naturopathy, wellness education, and community health advocacy, Dr. Dylan Thor Pablo R. Rullan remains committed to one purpose: empowering people with knowledge and practical tools to take a more active role in their health and well-being.</p>
+        </div>
+      </details>
+      <div class="about-btns"><a class="btn btn-red btn-sm" href="#book">Book a consultation <svg><use href="#i-arrow"/></svg></a><a class="btn btn-ghost btn-sm" href="#process">How a visit works <svg><use href="#i-arrow"/></svg></a></div>
     </div>
   </div>
 </section>
