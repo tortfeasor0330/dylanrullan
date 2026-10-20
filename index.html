@@ -796,7 +796,7 @@ footer a:hover{color:var(--band-fg)}
 /* ---- Practice details: edit these ---- */
 const PRACTICE = {
   address: "Clinic address, City, Philippines",
-  phone: "+63 917 000 0000",
+  phone: "+63 915 441 5252",
   email: "appointments@drdylanrullan.com",
   tz: "Asia/Manila", tzOffset: 8,
   bookAheadDays: 45,
@@ -1102,7 +1102,7 @@ function summaryText(b,o){
 function showDone(b,o){
   const v=$("#confirmView"), pend=o.status==="pending_verification", loc=localLabel(b.date,b.time);
   const head = !o.saved ? "Almost done" : pend ? "Booking received!" : "You're booked!";
-  const pill = !o.saved ? `<span class="spill warn">Not sent yet</span>` : pend ? `<span class="spill pending">● Payment under review</span>` : `<span class="spill ok">✓ Confirmed</span>`;
+  const pill = !o.saved ? "" : pend ? `<span class="spill pending">● Payment under review</span>` : `<span class="spill ok">✓ Confirmed</span>`;
   const text = !o.saved ? `Send these details${b.fee?" and your payment screenshot":""} to the clinic at ${esc(PRACTICE.email)} or ${esc(PRACTICE.phone)} so we can confirm your slot.`
     : pend ? `Your slot is held. We're checking your ${esc(o.payment.method)} payment and will send your confirmation${b.mode==="online"?" and video link":""} to <b></b>.`
     : `Your ${b.mode==="online"?"online":"face-to-face"} consultation is reserved. Details${b.mode==="online"?" and your video link":""} will be sent to <b></b>.`;
