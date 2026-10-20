@@ -226,11 +226,11 @@ section{padding-block:72px}
 .pimg img{width:100%;height:100%;object-fit:cover;display:block}
 .pimg .save-badge{position:absolute;right:14px;top:14px;width:70px;height:70px;border-radius:50%;background:var(--red);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:700;line-height:1.1;text-transform:uppercase;transform:rotate(-8deg);box-shadow:0 6px 14px rgba(0,0,0,.2)}
 .pimg .save-badge b{display:block;font-size:13px}
-.pimg .top-tag{position:absolute;left:0;right:0;top:12px;text-align:center;color:#fff;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;text-shadow:0 2px 6px rgba(0,0,0,.35)}
+.pimg .top-tag{position:absolute;left:50%;top:14px;transform:translateX(-50%);width:max-content;max-width:60%;background:rgba(36,75,58,.92);color:#fff;font-weight:700;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:5px 12px}
 .pimg .icons3{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:10px}
-.pimg .icons3 span{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.85);display:grid;place-items:center;color:#fff;background:rgba(0,0,0,.15)}
+.pimg .icons3 span{width:34px;height:34px;border-radius:50%;border:1.5px solid rgba(255,255,255,.9);display:grid;place-items:center;color:#fff;background:rgba(36,75,58,.75)}
 .pimg .icons3 svg{width:16px;height:16px}
-.pcard h3{font-size:19px;font-weight:500;margin-top:10px}
+.pcard h3{font-size:18px;font-weight:600;margin-top:10px;text-wrap:balance}
 .pcard .incl{font-size:12.5px;color:var(--muted);max-width:32ch;margin-inline:auto}
 .pcard .savetxt{font-weight:600;font-size:14px;color:var(--fg)}
 .pcard s{color:var(--muted);font-size:13.5px}
@@ -487,14 +487,14 @@ form.co{display:grid;gap:12px}
 <div class="offers">
   <div class="wrap ogrid">
     <div class="otile t1">
-      <h3>New to the Triangle of Health? Try all three steps for 7 days and see how the routine fits your day.</h3>
-      <button class="btn btn-red btn-sm" type="button" data-add="trial">Get Trial Pack</button>
+      <h3>Start your daily routine with The Triangle of Health Nitro FX, our everyday pack.</h3>
+      <button class="btn btn-red btn-sm" type="button" data-add="fx">Get Nitro FX Pack</button>
       <img src="images/shop/hero-products.webp" alt="" width="1163" height="513">
     </div>
     <div class="otile t2">
       <span class="badge"><span><b>FREE</b>CONSULT</span></span>
-      <h3>Stock up on 3 months of the Triangle of Health and get a free 15-minute consult with Dr. Rullan.</h3>
-      <button class="btn btn-red btn-sm" type="button" data-add="m3">Get 3 Months + Free Consult</button>
+      <h3>Stock up on 3 months of Nitro Xtreme and get a free 15-minute consult with Dr. Rullan.</h3>
+      <button class="btn btn-red btn-sm" type="button" data-add="m3x">Get 3 Months + Free Consult</button>
       <img src="images/shop/hero-products.webp" alt="" width="1163" height="513">
     </div>
   </div>
@@ -692,9 +692,9 @@ const SHOP = {
   freeShipFrom: 5000,
   shippingFee: 150,
   bundles: [
-    { id:"trial", name:"7-Day Trial", incl:"7 Sunrise pouches · 21 Sunset softgels · Nitro Xtreme sample", price:1250, compare:1450, img:"images/shop/bundle-trial.jpg", tag:"" },
-    { id:"m1", name:"1-Month Triangle of Health", incl:"30 Sunrise pouches · 90 Sunset softgels · 1 Nitro Xtreme (56 mL)", price:5450, compare:5950, img:"images/shop/bundle-1m.jpg", tag:"Most popular", note:"+ Free shipping" },
-    { id:"m3", name:"3-Month Triangle of Health", incl:"3 × 1-Month Triangle of Health packs", price:15450, compare:17850, img:"images/shop/bundle-3m.jpg", tag:"Free shipping!", note:"+ Free consult" }
+    { id:"fx", name:"The Triangle of Health Nitro FX", incl:"30 Sunrise pouches · 90 Sunset softgels · 1 Nitro FX (56 mL)", price:10500, compare:10750, img:"images/shop/bundle-fx.jpg", tag:"", note:"" },
+    { id:"xtreme", name:"The Triangle of Health Nitro Xtreme", incl:"30 Sunrise pouches · 90 Sunset softgels · 1 Nitro Xtreme (56 mL)", price:10500, compare:11000, img:"images/shop/bundle-xtreme.jpg", tag:"Most popular", note:"+ Free shipping" },
+    { id:"m3x", name:"3-Month Triangle of Health Nitro Xtreme", incl:"3 × The Triangle of Health Nitro Xtreme packs", price:29900, compare:33000, img:"images/shop/bundle-3m-xtreme.jpg", tag:"Best value", note:"+ Free consult" }
   ],
   singles: [
     { id:"sunrise", name:"Sunrise", sub:"30 pouches", price:2650, color:"#F2B630", icon:"i-sun", ink:"#173D2D" },
@@ -703,11 +703,11 @@ const SHOP = {
   ],
   reviews: [
     { n:"Ana M.", c:"#2F7A55", p:"Triangle of Health", q:"Sunrise has become part of my breakfast. Easy to mix and it tastes good in a smoothie.", img:"images/shop/lifestyle-1.jpg" },
-    { n:"Ramon B.", c:"#D9412E", p:"1-Month Triangle of Health", q:"Simple routine: morning, noon, night. Dr. Rullan explained exactly how to take it.", img:"images/shop/lifestyle-2.jpg" },
-    { n:"Joy T.", c:"#C08A10", p:"7-Day Trial", q:"Ordering was easy and the clinic followed up after my first week.", img:"images/shop/lifestyle-3.jpg" },
-    { n:"Mark D.", c:"#4A5550", p:"3-Month Triangle of Health", q:"I take Nitro before my workouts. The whole family is on the Triangle of Health now.", img:"images/shop/lifestyle-4.jpg" },
+    { n:"Ramon B.", c:"#D9412E", p:"Triangle of Health Nitro Xtreme", q:"Simple routine: morning, noon, night. Dr. Rullan explained exactly how to take it.", img:"images/shop/lifestyle-2.jpg" },
+    { n:"Joy T.", c:"#C08A10", p:"Triangle of Health Nitro FX", q:"Ordering was easy and the clinic followed up after my first week.", img:"images/shop/lifestyle-3.jpg" },
+    { n:"Mark D.", c:"#4A5550", p:"3-Month Nitro Xtreme", q:"I take Nitro before my workouts. The whole family is on the Triangle of Health now.", img:"images/shop/lifestyle-4.jpg" },
     { n:"Liza C.", c:"#2F7A55", p:"Sunset", q:"Three softgels with dinner is easy to remember. Nice to have omega-3s covered.", img:"images/shop/lifestyle-5.jpg" },
-    { n:"Paolo R.", c:"#D9412E", p:"1-Month Triangle of Health", q:"Well packed and delivered on time. Clear instructions in the box.", img:"images/shop/lifestyle-6.jpg" }
+    { n:"Paolo R.", c:"#D9412E", p:"Triangle of Health Nitro Xtreme", q:"Well packed and delivered on time. Clear instructions in the box.", img:"images/shop/lifestyle-6.jpg" }
   ]
 };
 
