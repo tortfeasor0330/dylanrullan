@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Bookings Admin | Dr. Rullan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<style>
+:root{--green:#2F7A55;--deep:#244B3A;--gold:#C6A96B;--gold-soft:#F4EEDF;--red:#D9412E;--red-soft:#FBE7E3;--green-soft:#E3F1E8;--bg:#EEF3EC;--card:#fff;--fg:#1B2220;--muted:#5E6864;--line:#DCE4D8;color-scheme:light}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:"Poppins",system-ui,-apple-system,"Segoe UI",sans-serif;font-size:14px;line-height:1.5}
+header{background:var(--deep);color:#fff}
+.wrap{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header .wrap{display:flex;align-items:center;gap:14px;padding-block:14px}
+header b{font-size:16px}
+header small{display:block;color:var(--gold);font-size:11px;letter-spacing:.06em}
+header button{margin-left:auto}
+main .wrap{padding-block:28px 60px}
+.btn{border:0;border-radius:999px;padding:9px 16px;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
+.btn-red{background:var(--red);color:#fff}.btn-line{background:var(--card);border:1.5px solid var(--line);color:var(--fg)}.btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.4)}
+.btn[disabled]{opacity:.5;cursor:default}
+.login{max-width:380px;margin:60px auto;background:var(--card);border-radius:18px;padding:28px;box-shadow:0 10px 30px rgba(20,30,25,.08)}
+.login h1{font-size:20px;margin:0 0 6px}.login p{color:var(--muted);margin:0 0 18px}
+input,select{font:inherit;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;width:100%;background:#fff;color:var(--fg)}
+.login .btn{width:100%;margin-top:12px;padding:12px}
+.err{color:var(--red);font-size:13px;margin-top:10px;min-height:1em}
+.bar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+.bar h1{font-size:22px;margin:0}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.filters select{width:auto}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.kpi{background:var(--card);border-radius:14px;padding:14px 16px}
+.kpi b{display:block;font-size:24px;font-variant-numeric:tabular-nums}
+.kpi span{color:var(--muted);font-size:12.5px}
+.tablebox{margin-top:18px;background:var(--card);border-radius:16px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;min-width:980px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+td{font-variant-numeric:tabular-nums}
+td small{display:block;color:var(--muted)}
+.pill{display:inline-block;font-size:11.5px;font-weight:700;border-radius:999px;padding:3px 10px;white-space:nowrap}
+.pill.pending_verification{background:var(--gold-soft)}.pill.confirmed{background:var(--green-soft);color:var(--green)}
+.pill.payment_issue{background:var(--red-soft);color:var(--red)}.pill.cancelled{background:#eee;color:#777}
+.thumb{width:64px;height:84px;border-radius:8px;object-fit:cover;border:1px solid var(--line);cursor:zoom-in;background:#f4f4f4;display:block}
+.acts{display:flex;flex-direction:column;gap:6px}
+.acts .btn{padding:6px 12px;font-size:12px}
+.empty{padding:40px;text-align:center;color:var(--muted)}
+dialog{border:0;border-radius:14px;padding:0;max-width:min(92vw,560px)}
+dialog img{display:block;max-width:100%;max-height:86vh}
+dialog::backdrop{background:rgba(0,0,0,.6)}
+@media (max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap"><div><b>Dr. Rullan · Bookings</b><small>CLINIC ADMIN</small></div><button class="btn btn-ghost" id="logout" hidden>Sign out</button></div></header>
+<main><div class="wrap">
+  <form class="login" id="login">
+    <h1>Clinic sign-in</h1>
+    <p>Enter the admin password set in Vercel (ADMIN_KEY).</p>
+    <label for="key" style="font-size:12px;font-weight:600;color:var(--muted)">Password</label>
+    <input id="key" type="password" autocomplete="current-password">
+    <button class="btn btn-red" type="submit">Sign in</button>
+    <div class="err" id="loginErr" role="alert"></div>
+  </form>
+  <section id="app" hidden>
+    <div class="bar"><h1>Appointments</h1>
+      <div class="filters">
+        <select id="fWhen" aria-label="Show"><option value="upcoming">Upcoming</option><option value="past">Past</option><option value="all">All</option></select>
+        <select id="fStatus" aria-label="Status"><option value="">Any status</option><option value="pending_verification">To verify</option><option value="confirmed">Confirmed</option><option value="payment_issue">Payment issue</option><option value="cancelled">Cancelled</option></select>
+        <button class="btn btn-line" id="refresh" type="button">Refresh</button>
+      </div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="tablebox"><table><thead><tr><th>Date &amp; time (PHT)</th><th>Patient</th><th>Appointment</th><th>Concern &amp; notes</th><th>Payment</th><th>Screenshot</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+  </section>
+</div></main>
+<dialog id="viewer"><img id="viewerImg" alt="Payment screenshot"></dialog>
+<script>
+const $=s=>document.querySelector(s);
+const LABEL={pending_verification:"To verify",confirmed:"Confirmed",payment_issue:"Payment issue",cancelled:"Cancelled"};
+const TYPES={initial:"Initial consultation",followup:"Follow-up",discovery:"Discovery call"};
+let KEY="",DATA=[];const thumbs={};
+try{KEY=sessionStorage.getItem("rullan-admin")||""}catch(e){}
+const today=new Date(Date.now()+8*3600e3).toISOString().slice(0,10);
+const t12=t=>{let[h,m]=t.split(":").map(Number);const ap=h>=12?"PM":"AM";h=h%12||12;return `${h}:${String(m).padStart(2,"0")} ${ap}`};
+const ld=d=>new Date(d+"T00:00:00Z").toLocaleDateString("en-PH",{weekday:"short",month:"short",day:"numeric",year:"numeric",timeZone:"UTC"});
+async function api(path,opt={}){const r=await fetch(path,{...opt,headers:{...(opt.headers||{}),"x-admin-key":KEY}});if(r.status===401)throw new Error("Wrong password.");if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.error||"Request failed.")}return r}
+async function load(){
+  $("#rows").innerHTML=`<tr><td colspan="8" class="empty">Loading…</td></tr>`;
+  const j=await (await api("/api/admin")).json();DATA=j.bookings||[];render();
+}
+function render(){
+  const w=$("#fWhen").value,st=$("#fStatus").value;
+  const list=DATA.filter(b=>(w==="all"||(w==="upcoming"?b.date>=today:b.date<today))&&(!st||b.status===st));
+  if(w==="past")list.reverse();
+  const up=DATA.filter(b=>b.date>=today&&b.status!=="cancelled");
+  $("#kpis").innerHTML=[["Upcoming",up.length],["To verify",DATA.filter(b=>b.status==="pending_verification").length],["Confirmed (upcoming)",up.filter(b=>b.status==="confirmed").length],["Paid fees (confirmed)","₱"+DATA.filter(b=>b.status==="confirmed").reduce((s,b)=>s+(b.fee||0),0).toLocaleString("en-PH")]].map(([l,v])=>`<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join("");
+  const tb=$("#rows");tb.innerHTML="";
+  if(!list.length){tb.innerHTML=`<tr><td colspan="8" class="empty">No bookings match these filters.</td></tr>`;return}
+  list.forEach(b=>{
+    const tr=document.createElement("tr");
+    const cell=(main,sub)=>{const td=document.createElement("td");const d=document.createElement("div");d.textContent=main;td.appendChild(d);if(sub){const s=document.createElement("small");s.textContent=sub;s.style.whiteSpace="pre-line";td.appendChild(s)}return td};
+    tr.appendChild(cell(ld(b.date),t12(b.time)+" · "+b.ref));
+    tr.appendChild(cell(b.name,`${b.email}\n${b.phone}${b.dob?"\nDOB "+b.dob:""}`));
+    tr.appendChild(cell(TYPES[b.type]||b.type,b.mode==="online"?"Online · "+(b.platform||""):"Face-to-face"));
+    tr.appendChild(cell(b.concern||"—",b.notes||""));
+    tr.appendChild(cell(b.fee?"₱"+b.fee+" · "+(b.payment?b.payment.method:""):"Free",b.payment&&b.payment.refNo?"Ref "+b.payment.refNo:""));
+    const sh=document.createElement("td");
+    if(b.payment&&b.payment.screenshot){const img=document.createElement("img");img.className="thumb";img.alt="Payment screenshot for "+b.name;sh.appendChild(img);loadThumb(b.payment.screenshot,img)}else sh.textContent="—";
+    tr.appendChild(sh);
+    const stt=document.createElement("td");const pill=document.createElement("span");pill.className="pill "+b.status;pill.textContent=LABEL[b.status]||b.status;stt.appendChild(pill);tr.appendChild(stt);
+    const at=document.createElement("td");const acts=document.createElement("div");acts.className="acts";
+    const mk=(label,action,cls)=>{const x=document.createElement("button");x.className="btn "+cls;x.type="button";x.textContent=label;x.addEventListener("click",()=>act(b,action,x,label));acts.appendChild(x)};
+    if(b.status!=="confirmed"&&b.status!=="cancelled")mk("Mark paid","verify","btn-red");
+    if(b.status==="pending_verification")mk("Payment issue","reject","btn-line");
+    if(b.status!=="cancelled")mk("Cancel","cancel","btn-line");
+    at.appendChild(acts);tr.appendChild(at);tb.appendChild(tr);
+  });
+}
+async function loadThumb(path,img){
+  try{if(!thumbs[path]){const r=await api("/api/admin?file="+encodeURIComponent(path));thumbs[path]=URL.createObjectURL(await r.blob())}
+    img.src=thumbs[path];img.addEventListener("click",()=>{$("#viewerImg").src=thumbs[path];$("#viewer").showModal()});}catch(e){img.alt="Could not load";}
+}
+async function act(b,action,btn,label){
+  if(action==="cancel"&&btn.dataset.arm!=="1"){btn.dataset.arm="1";btn.textContent="Confirm cancel";return}
+  btn.disabled=true;btn.textContent="Saving…";
+  try{const j=await (await api("/api/admin",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,ref:b.ref})})).json();b.status=j.status;render()}
+  catch(e){alertBox(e.message);btn.disabled=false;btn.textContent=label}
+}
+function alertBox(m){$("#rows").insertAdjacentHTML("afterbegin",`<tr><td colspan="8" class="err" style="padding:12px 14px">${m.replace(/</g,"&lt;")}</td></tr>`)}
+$("#viewer").addEventListener("click",()=>$("#viewer").close());
+["fWhen","fStatus"].forEach(id=>$("#"+id).addEventListener("change",render));
+$("#refresh").addEventListener("click",()=>load().catch(e=>alertBox(e.message)));
+$("#logout").addEventListener("click",()=>{KEY="";try{sessionStorage.removeItem("rullan-admin")}catch(e){}location.reload()});
+async function start(){
+  try{await load();$("#login").hidden=true;$("#app").hidden=false;$("#logout").hidden=false;try{sessionStorage.setItem("rullan-admin",KEY)}catch(e){}}
+  catch(e){$("#app").hidden=true;$("#login").hidden=false;$("#loginErr").textContent=e.message;}
+}
+$("#login").addEventListener("submit",e=>{e.preventDefault();KEY=$("#key").value;$("#loginErr").textContent="";start()});
+if(KEY)start();
+</script>
+</body>
+</html>

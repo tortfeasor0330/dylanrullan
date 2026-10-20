@@ -369,6 +369,67 @@ form.bk-form{margin-top:22px;border-top:1px solid var(--line);padding-top:20px;d
 .doc-table td{font-variant-numeric:tabular-nums}
 .doc-table tr:last-child td{border-bottom:0}
 
+
+/* CHECKOUT */
+.backlink{background:none;border:0;color:var(--muted);font-size:13px;cursor:pointer;padding:0;display:inline-flex;gap:6px;align-items:center}
+.backlink:hover{color:var(--fg)}
+.co-steps{display:flex;gap:8px;align-items:center;font-size:12px;font-weight:600;color:var(--muted);margin-top:10px}
+.co-steps span{display:inline-flex;align-items:center;gap:6px}
+.co-steps i{width:20px;height:20px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:11px;background:var(--surface);border:1px solid var(--line)}
+.co-steps .on{color:var(--fg)}.co-steps .on i{background:var(--red);border-color:var(--red);color:#fff}
+.co-steps .done i{background:var(--green);border-color:var(--green);color:#fff}
+.co-steps b{flex:0 0 18px;height:1px;background:var(--line)}
+.co-title{font-size:20px;font-weight:700;margin-top:14px}
+.co-sub{color:var(--muted);font-size:13.5px;margin-top:4px}
+.co-sum{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--surface);border-radius:14px;padding:16px;margin-top:16px}
+.co-cal{width:78px;border-radius:12px;overflow:hidden;text-align:center;background:var(--card);border:1px solid var(--line);font-variant-numeric:tabular-nums}
+.co-cal span{display:block;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.08em;padding:3px 0}
+.co-cal b{display:block;font-size:28px;line-height:1.1;padding-top:6px}
+.co-cal small{display:block;font-size:11px;color:var(--muted);padding-bottom:6px}
+.co-rows{display:grid;gap:4px;min-width:0}
+.co-rows div{display:flex;justify-content:space-between;gap:12px;font-size:13.5px}
+.co-rows span{color:var(--muted)}
+.co-rows b{text-align:right;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.co-time{font-size:17px;font-weight:700}
+.co-time small{display:block;font-size:12px;font-weight:400;color:var(--muted)}
+.pay-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:22px}
+.pay-head h4{font-size:15px}
+.pay-head b{font-size:20px;font-variant-numeric:tabular-nums}
+.pay-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pay-tab{border:1.5px solid var(--line);border-radius:12px;padding:11px;background:var(--card);font-weight:700;font-size:14px;cursor:pointer;color:var(--fg);display:flex;align-items:center;justify-content:center;gap:8px}
+.pay-tab i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.pay-tab[aria-selected="true"]{border-color:var(--green);background:var(--green-soft)}
+.pay-panel{display:grid;grid-template-columns:190px 1fr;gap:18px;margin-top:12px;border:1px solid var(--line);border-radius:14px;padding:16px}
+.qr{width:100%;aspect-ratio:1;max-width:100%;height:auto;border-radius:12px;border:1px solid var(--line);background:#fff;object-fit:contain;display:block}
+.qr-cap{font-size:11.5px;color:var(--muted);text-align:center;margin-top:6px}
+.acct{display:grid;gap:6px;font-size:13.5px}
+.acct div{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap}
+.acct span{color:var(--muted)}
+.acct b{font-variant-numeric:tabular-nums}
+.acct .copy-sm{background:none;border:1px solid var(--line);border-radius:6px;font-size:11px;padding:1px 7px;cursor:pointer;color:var(--fg);margin-left:6px}
+.pay-steps{margin:12px 0 0;padding-left:18px;font-size:13px;color:var(--muted);display:grid;gap:4px}
+.pay-steps b{color:var(--fg)}
+.drop{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:2px dashed color-mix(in srgb,var(--fg) 22%,transparent);border-radius:14px;padding:22px 16px;text-align:center;cursor:pointer;margin-top:16px;transition:background .15s,border-color .15s}
+.drop:hover,.drop.over{border-color:var(--green);background:var(--green-soft)}
+.drop svg{width:30px;height:30px;color:var(--link-green,var(--green))}
+.drop b{font-size:14px}
+.drop small{font-size:12px;color:var(--muted)}
+.drop input{position:absolute;inset:0;opacity:0;cursor:pointer}
+.preview{display:flex;gap:12px;align-items:center;margin-top:12px;border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--card)}
+.preview img{width:64px;height:64px;border-radius:8px;object-fit:cover;flex-shrink:0}
+.preview div{flex:1;min-width:0;font-size:13px}
+.preview b{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.preview small{color:var(--muted)}
+.co-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-top:12px}
+.co-free{margin-top:18px;background:var(--green-soft);border-radius:12px;padding:12px 14px;font-size:13.5px}
+.co-submit{width:100%;justify-content:center;border-radius:12px;padding:14px;margin-top:14px}
+.co-note{font-size:12px;color:var(--muted);margin-top:10px;text-align:center}
+.spill{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;border-radius:999px;padding:4px 12px;margin-top:10px}
+.spill.pending{background:var(--yellow-soft);color:var(--fg)}
+.spill.ok{background:var(--green-soft);color:var(--link-green,var(--green))}
+.spill.warn{background:var(--red-soft);color:var(--red)}
+@media (max-width:620px){.pay-panel{grid-template-columns:1fr}.qr-wrap{max-width:230px;margin-inline:auto;width:100%}.co-sum{grid-template-columns:1fr}.co-cal{display:none}}
+
 /* CONTACT / FOOTER */
 footer{background:var(--band);color:var(--band-fg);border-top:1px solid var(--band-line)}
 footer .wrap{padding-block:56px 28px}
@@ -549,13 +610,14 @@ footer a:hover{color:var(--band-fg)}
             <select id="f-platform"><option>Google Meet</option><option>Zoom</option><option>Messenger video</option><option>WhatsApp video</option></select></div>
           <div class="field full"><label for="f-notes">Anything the doctor should know? (optional)</label><textarea id="f-notes" placeholder="Symptoms, current medication, recent lab tests…"></textarea></div>
           <label class="check"><input type="checkbox" id="f-consent"> I agree that my details are used to arrange this appointment, and I understand online consultations do not replace emergency care.</label>
-          <div class="summary" id="summary"><div><small style="color:var(--muted)">Your selection</small><br><b id="sumText">Choose a date and time</b></div><div class="fee" id="sumFee">₱2,500</div></div>
+          <div class="summary" id="summary"><div><small style="color:var(--muted)">Your selection</small><br><b id="sumText">Choose a date and time</b></div><div class="fee" id="sumFee">₱500</div></div>
           <div class="form-msg" id="formMsg" role="alert"></div>
-          <button class="btn btn-red" type="submit" id="submitBtn">Confirm Booking <svg><use href="#i-arrow"/></svg></button>
+          <button class="btn btn-red" type="submit" id="submitBtn">Continue to Payment <svg><use href="#i-arrow"/></svg></button>
         </form>
         <div class="status-line" id="statusLine"><i></i><span>Checking live availability…</span></div>
         <div class="mine" id="mine" hidden><h4>Your upcoming appointments</h4><div id="mineList"></div></div>
       </div>
+      <div id="checkoutView" hidden></div>
       <div id="confirmView" hidden></div>
     </div>
   </div>
@@ -697,7 +759,7 @@ footer a:hover{color:var(--band-fg)}
     <div class="eyebrow">Doctor's View · only you can see this</div>
     <h2>Upcoming Appointments</h2>
     <p class="lead" id="docCount">Loading…</p>
-    <div class="doc-table"><table><thead><tr><th>Date &amp; time (PHT)</th><th>Type</th><th>Patient</th><th>Contact</th><th>Concern &amp; notes</th><th></th></tr></thead><tbody id="docRows"></tbody></table></div>
+    <div class="doc-table"><table><thead><tr><th>Date &amp; time (PHT)</th><th>Type</th><th>Patient</th><th>Contact</th><th>Concern &amp; notes</th><th>Payment</th><th></th></tr></thead><tbody id="docRows"></tbody></table></div>
   </div>
 </section>
 </main>
@@ -738,7 +800,12 @@ const PRACTICE = {
   email: "appointments@drdylanrullan.com",
   tz: "Asia/Manila", tzOffset: 8,
   bookAheadDays: 45,
-  fees: { initial: 2500, followup: 1500, discovery: 0 },
+  fees: { initial: 500, followup: 500, discovery: 0 },
+  // Payment details shown at checkout. Replace the QR images in images/pay/ with your real ones.
+  payment: {
+    gcash: { label:"GCash", name:"DYLAN THOR R. RULLAN", number:"0917 000 0000", qr:"images/pay/gcash-qr.png" },
+    maya:  { label:"Maya",  name:"DYLAN THOR R. RULLAN", number:"0917 000 0000", qr:"images/pay/maya-qr.png" }
+  },
   durations: { initial: 30, followup: 30, discovery: 15 },
   typeNames: { initial: "Initial consultation", followup: "Follow-up", discovery: "Discovery call" },
   // Slot start times (PHT). Index = weekday, 0 = Sunday.
@@ -791,7 +858,7 @@ const FIRST = addDays(TODAY,1);
 const LAST = addDays(TODAY,PRACTICE.bookAheadDays);
 
 /* ---- State ---- */
-const state = { mode:"clinic", date:null, time:null, view:parse(FIRST), taken:new Map(), db:null, uid:null, live:false, mine:[] };
+const state = { api:false, mode:"clinic", date:null, time:null, view:parse(FIRST), taken:new Map(), db:null, uid:null, live:false, mine:[] };
 const slotId = (date,time) => `${date}_${time.replace(":","")}`;
 function slotsFor(date,mode){ return (PRACTICE.hours[mode][dowOf(date)]||[]); }
 function isTaken(date,time){ return state.taken.has(slotId(date,time)); }
@@ -865,9 +932,11 @@ $("#f-type").addEventListener("change",()=>{ if($("#f-type").value==="discovery"
 document.querySelectorAll("[data-concern]").forEach(a=>a.addEventListener("click",()=>{ $("#f-concern").value=a.dataset.concern; }));
 $("#discoveryBtn").addEventListener("click",()=>{ $("#f-type").value="discovery"; setMode("online"); });
 
-/* ---- Submit ---- */
+/* ---- Step 1: details → checkout ---- */
 function fieldErr(id,bad){ $(id).closest(".field").classList.toggle("err",bad); return bad; }
-$("#bkForm").addEventListener("submit", async e=>{
+let pending=null;
+const PAY={method:"gcash",dataUrl:null,fileName:"",size:0};
+$("#bkForm").addEventListener("submit", e=>{
   e.preventDefault();
   const msg=$("#formMsg"); msg.textContent="";
   const name=$("#f-name").value.trim(), email=$("#f-email").value.trim(), phone=$("#f-phone").value.trim();
@@ -877,34 +946,147 @@ $("#bkForm").addEventListener("submit", async e=>{
   bad = fieldErr("#f-phone", phone.replace(/\D/g,"").length<7) || bad;
   if(!state.date||!state.time){ msg.textContent="Choose a date and a time on the calendar first."; return; }
   if(bad){ msg.textContent="Check the highlighted fields: name, a valid email and a phone number are needed."; return; }
-  if(!$("#f-consent").checked){ msg.textContent="Tick the consent box to confirm the booking."; return; }
+  if(!$("#f-consent").checked){ msg.textContent="Tick the consent box to continue."; return; }
+  if(isTaken(state.date,state.time)){ msg.textContent="That time was just booked. Please choose another slot."; state.time=null; renderSlots(); return; }
   const type=$("#f-type").value;
-  const booking = {
+  pending = {
     id: slotId(state.date,state.time), date:state.date, time:state.time, mode:state.mode, type,
     concern:$("#f-concern").value, name, email, phone, dob:$("#f-dob").value,
     platform: state.mode==="online" ? $("#f-platform").value : "", notes:$("#f-notes").value.trim(),
     fee: PRACTICE.fees[type], createdAt: new Date().toISOString()
   };
-  const btn=$("#submitBtn"); btn.disabled=true; btn.firstChild.textContent="Booking… ";
+  showCheckout();
+});
+
+function esc(s){return String(s).replace(/[<>&"]/g,c=>({"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c]))}
+function stepsBar(n){const L=["Details","Payment","Done"];return `<div class="co-steps">${L.map((l,i)=>`${i?"<b></b>":""}<span class="${i+1<n?"done":i+1===n?"on":""}"><i>${i+1<n?"✓":i+1}</i>${l}</span>`).join("")}</div>`}
+function showCheckout(){
+  const b=pending, free=!b.fee, {y,m,d}=parse(b.date), loc=localLabel(b.date,b.time);
+  const v=$("#checkoutView");
+  v.innerHTML=`<button class="backlink" type="button" id="coBack">← Edit details</button>${stepsBar(2)}
+    <h3 class="co-title">Confirm your schedule${free?"":" &amp; pay"}</h3>
+    <p class="co-sub">${free?"Check your appointment, then confirm it.":"Check your appointment, pay the consultation fee by GCash or Maya, then upload your receipt."}</p>
+    <div class="co-sum">
+      <div class="co-cal" aria-hidden="true"><span>${MONTHS[m-1].slice(0,3).toUpperCase()}</span><b>${d}</b><small>${DOW[dowOf(b.date)]}</small></div>
+      <div class="co-rows">
+        <div class="co-time">${longDate(b.date)} · ${t12(b.time)} PHT${loc?`<small>${loc}</small>`:""}</div>
+        <div><span>Appointment</span><b>${PRACTICE.typeNames[b.type]} · ${PRACTICE.durations[b.type]} min</b></div>
+        <div><span>Format</span><b>${b.mode==="clinic"?"Face-to-face at the clinic":"Online · "+esc(b.platform)}</b></div>
+        <div><span>Concern</span><b>${esc(b.concern)}</b></div>
+        <div><span>Patient</span><b>${esc(b.name)}</b></div>
+      </div>
+    </div>
+    ${free?`<p class="co-free">The discovery call is free, so no payment is needed.</p>`:`
+    <div class="pay-head"><h4>Pay with</h4><b>${peso(b.fee)}</b></div>
+    <div class="pay-tabs" role="tablist" aria-label="Payment method">
+      <button class="pay-tab" type="button" role="tab" data-pay="gcash" id="tab-gcash"><i style="background:#0070E0"></i>GCash</button>
+      <button class="pay-tab" type="button" role="tab" data-pay="maya" id="tab-maya"><i style="background:#2F7A55"></i>Maya</button>
+    </div>
+    <div class="pay-panel" id="payPanel" role="tabpanel"></div>
+    <label class="drop" id="drop" for="co-file"><input type="file" id="co-file" accept="image/*">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16V4M7 9l5-5 5 5"/><path d="M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg>
+      <b>Upload your payment screenshot</b><small>Tap to choose a photo or drag it here · JPG or PNG</small></label>
+    <div id="prev"></div>
+    <div class="co-grid">
+      <div class="field"><label for="co-refno">Reference number from the receipt (optional)</label><input id="co-refno" inputmode="numeric" placeholder="e.g. 1234 567 890123"></div>
+      <label class="check"><input type="checkbox" id="co-paid"> <span id="paidLbl">I have sent ${peso(b.fee)} and uploaded the receipt.</span></label>
+    </div>`}
+    <p class="form-msg" id="coMsg" role="alert"></p>
+    <button class="btn btn-red co-submit" type="button" id="coSubmit">${free?"Confirm Booking":"Submit Booking &amp; Payment"} <svg><use href="#i-arrow"/></svg></button>
+    <p class="co-note">${free?"You'll receive the video link by email.":"Your slot is held as soon as you submit. The clinic verifies your payment and sends your confirmation by email or SMS."}</p>`;
+  v.querySelector("#coBack").addEventListener("click",()=>{v.hidden=true;$("#bookerView").hidden=false;$("#bookCard").scrollIntoView({behavior:"smooth",block:"start"})});
+  v.querySelector("#coSubmit").addEventListener("click",submitBooking);
+  if(!free){
+    v.querySelectorAll("[data-pay]").forEach(t=>t.addEventListener("click",()=>{PAY.method=t.dataset.pay;renderPay()}));
+    const drop=v.querySelector("#drop"), inp=v.querySelector("#co-file");
+    inp.addEventListener("change",()=>{ if(inp.files[0]) takeFile(inp.files[0]); });
+    ["dragenter","dragover"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.add("over")}));
+    ["dragleave","drop"].forEach(ev=>drop.addEventListener(ev,e=>{e.preventDefault();drop.classList.remove("over")}));
+    drop.addEventListener("drop",e=>{const f=e.dataTransfer&&e.dataTransfer.files[0]; if(f) takeFile(f);});
+    renderPay(); renderPreview();
+  }
+  $("#bookerView").hidden=true; $("#confirmView").hidden=true; v.hidden=false;
+  $("#bookCard").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function renderPay(){
+  const p=PRACTICE.payment[PAY.method], b=pending;
+  document.querySelectorAll("[data-pay]").forEach(t=>t.setAttribute("aria-selected",t.dataset.pay===PAY.method));
+  $("#payPanel").innerHTML=`<div class="qr-wrap"><img class="qr" src="${p.qr}" alt="${p.label} QR code for ${esc(p.name)}" width="600" height="600"><div class="qr-cap">Scan with your ${p.label} app</div></div>
+    <div><div class="acct">
+      <div><span>Account name</span><b>${esc(p.name)}</b></div>
+      <div><span>${p.label} number</span><span><b>${esc(p.number)}</b><button class="copy-sm" type="button" id="copyNum">Copy</button></span></div>
+      <div><span>Amount</span><b>${peso(b.fee)}</b></div>
+    </div>
+    <ol class="pay-steps">
+      <li>Open <b>${p.label}</b> and tap <b>Scan QR</b>, or send money to the number above.</li>
+      <li>Pay exactly <b>${peso(b.fee)}</b>. Put your name in the message.</li>
+      <li>Take a <b>screenshot</b> of the successful payment.</li>
+      <li>Upload it below and submit.</li>
+    </ol></div>`;
+  $("#copyNum").addEventListener("click",()=>copyText(p.number.replace(/\s/g,"")));
+  const pl=$("#paidLbl"); if(pl) pl.textContent=`I have sent ${peso(b.fee)} by ${p.label} and uploaded the receipt.`;
+}
+function renderPreview(){
+  const box=$("#prev"); if(!box) return;
+  if(!PAY.dataUrl){box.innerHTML="";return}
+  box.innerHTML=`<div class="preview"><img src="${PAY.dataUrl}" alt="Your payment screenshot"><div><b>${esc(PAY.fileName)}</b><small>Ready to submit · ${Math.round(PAY.size/1024)} KB</small></div><button class="linkbtn" type="button" id="rmShot">Remove</button></div>`;
+  $("#rmShot").addEventListener("click",()=>{PAY.dataUrl=null;PAY.fileName="";const i=$("#co-file");if(i)i.value="";renderPreview()});
+}
+function takeFile(f){
+  const msg=$("#coMsg"); msg.textContent="";
+  if(!/^image\//.test(f.type)){ msg.textContent="That file isn't an image. Upload a screenshot (JPG or PNG)."; return; }
+  if(f.size>15*1024*1024){ msg.textContent="That image is over 15 MB. Take a regular screenshot instead."; return; }
+  const url=URL.createObjectURL(f), img=new Image();
+  img.onload=()=>{
+    const max=1400, s=Math.min(1,max/Math.max(img.width,img.height));
+    const c=document.createElement("canvas"); c.width=Math.round(img.width*s); c.height=Math.round(img.height*s);
+    const x=c.getContext("2d"); x.fillStyle="#fff"; x.fillRect(0,0,c.width,c.height); x.drawImage(img,0,0,c.width,c.height);
+    PAY.dataUrl=c.toDataURL("image/jpeg",.82); PAY.fileName=f.name||"screenshot.jpg"; PAY.size=Math.round(PAY.dataUrl.length*.75);
+    URL.revokeObjectURL(url); renderPreview();
+  };
+  img.onerror=()=>{ URL.revokeObjectURL(url); msg.textContent="That image couldn't be read. Try a different screenshot."; };
+  img.src=url;
+}
+const makeRef=b=>"DR-"+b.date.replace(/-/g,"").slice(2)+"-"+b.time.replace(":","")+"-"+Math.random().toString(36).slice(2,6).toUpperCase();
+async function submitBooking(){
+  const msg=$("#coMsg"); msg.textContent="";
+  const b=pending, free=!b.fee, label=free?"":PRACTICE.payment[PAY.method].label;
+  if(!free){
+    if(!PAY.dataUrl){ msg.textContent="Upload a screenshot of your payment to continue."; return; }
+    if(!$("#co-paid").checked){ msg.textContent="Tick the box to confirm you have sent the payment."; return; }
+  }
+  const payment=free?null:{method:label, refNo:($("#co-refno").value||"").trim()};
+  const btn=$("#coSubmit"); btn.disabled=true; const old=btn.innerHTML; btn.textContent="Submitting…";
   try{
     if(state.db && state.uid){
-      const ref = state.db.doc("slots/"+booking.id);
-      const lease = await ref.acquire({holder:state.uid, ttlMs:8000});
-      if(!lease.acquired) throw {userMsg:"Someone is booking this time right now. Pick another slot."};
-      const cur = await ref.get();
-      if(cur.exists && cur.data().uid) throw {userMsg:"That time was just taken. Please pick another slot."};
-      await ref.set({date:booking.date,time:booking.time,mode:booking.mode,uid:state.uid,createdAt:booking.createdAt});
-      await state.db.doc(`requests/${state.uid}/bookings/${booking.id}`).set(booking);
-      showConfirm(booking,true);
+      const ref=state.db.doc("slots/"+b.id);
+      const lease=await ref.acquire({holder:state.uid, ttlMs:8000});
+      if(!lease.acquired) throw {userMsg:"Someone is booking this time right now. Go back and pick another slot."};
+      const cur=await ref.get();
+      if(cur.exists && cur.data().uid) throw {userMsg:"That time was just taken. Go back and pick another slot."};
+      if(!free){
+        const assets=await window.claude.use("assets");
+        if(assets){ const blob=await (await fetch(PAY.dataUrl)).blob(); const up=await assets.upload(blob); payment.screenshotUrl=up.url; payment.screenshotId=up.id; }
+      }
+      const bref=makeRef(b), status=free?"confirmed":"pending_verification";
+      await ref.set({date:b.date,time:b.time,mode:b.mode,uid:state.uid,createdAt:b.createdAt});
+      await state.db.doc(`requests/${state.uid}/bookings/${b.id}`).set({...b,ref:bref,status,payment});
+      showDone(b,{ref:bref,status,saved:true,payment});
+    } else if(state.api){
+      const r=await fetch("/api/book",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({booking:b,payment:free?null:{...payment,screenshot:PAY.dataUrl}})});
+      const j=await r.json().catch(()=>({}));
+      if(r.status===409){ state.taken.set(b.id,{}); renderCal(); renderSlots(); throw {userMsg:j.error||"That time was just booked. Go back and pick another slot."}; }
+      if(!r.ok) throw {userMsg:j.error||"The booking could not be saved. Please try again."};
+      state.taken.set(b.id,{}); renderCal(); renderSlots();
+      showDone(b,{ref:j.ref,status:j.status,saved:true,payment});
     } else {
-      showConfirm(booking,false);
+      showDone(b,{ref:makeRef(b),status:"not_sent",saved:false,payment});
     }
+    PAY.dataUrl=null; PAY.fileName="";
   } catch(err){
-    if(err && err.userMsg){ msg.textContent=err.userMsg; }
-    else if(err && err.code==="invalid_argument"){ showConfirm(booking,false); }
-    else { msg.textContent="The booking could not be saved. Check your connection and try again."; }
-  } finally { btn.disabled=false; btn.firstChild.textContent="Confirm Booking "; }
-});
+    msg.textContent = err && err.userMsg ? err.userMsg : "The booking could not be saved. Check your connection and try again.";
+  } finally { btn.disabled=false; btn.innerHTML=old; }
+}
 
 function gcalLink(b){
   const s=slotInstant(b.date,b.time), e=new Date(s.getTime()+PRACTICE.durations[b.type]*60000);
@@ -914,22 +1096,25 @@ function gcalLink(b){
     location: b.mode==="online" ? "Online" : PRACTICE.address});
   return "https://calendar.google.com/calendar/render?"+p.toString();
 }
-function summaryText(b){
-  return `Appointment request – Dr. Dylan Thor R. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.notes?"\nNotes: "+b.notes:""}`;
+function summaryText(b,o){
+  return `Appointment request ${o&&o.ref?o.ref+" ":""}– Dr. Dylan Thor R. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.fee?`\nFee: ${peso(b.fee)}${o&&o.payment?" paid by "+o.payment.method+(o.payment.refNo?" (ref "+o.payment.refNo+")":""):""}`:""}${b.notes?"\nNotes: "+b.notes:""}`;
 }
-function showConfirm(b,saved){
-  const v=$("#confirmView");
-  const ref = "DR-" + b.date.replace(/-/g,"").slice(2) + "-" + b.time.replace(":","");
-  v.innerHTML = `<div class="confirm">
+function showDone(b,o){
+  const v=$("#confirmView"), pend=o.status==="pending_verification", loc=localLabel(b.date,b.time);
+  const head = !o.saved ? "Almost done" : pend ? "Booking received!" : "You're booked!";
+  const pill = !o.saved ? `<span class="spill warn">Not sent yet</span>` : pend ? `<span class="spill pending">● Payment under review</span>` : `<span class="spill ok">✓ Confirmed</span>`;
+  const text = !o.saved ? `Send these details${b.fee?" and your payment screenshot":""} to the clinic at ${esc(PRACTICE.email)} or ${esc(PRACTICE.phone)} so we can confirm your slot.`
+    : pend ? `Your slot is held. We're checking your ${esc(o.payment.method)} payment and will send your confirmation${b.mode==="online"?" and video link":""} to <b></b>.`
+    : `Your ${b.mode==="online"?"online":"face-to-face"} consultation is reserved. Details${b.mode==="online"?" and your video link":""} will be sent to <b></b>.`;
+  v.innerHTML = `${stepsBar(3)}<div class="confirm">
     <div class="tick"><svg><use href="#i-check"/></svg></div>
-    <h4>${saved?"You're booked!":"Your request is ready"}</h4>
-    <p>${saved?`Your ${b.mode==="online"?"online":"face-to-face"} consultation is reserved. A confirmation${b.mode==="online"?" with your video link":""} and intake form will be sent to <b></b>.`:`Copy the details below and send them to the clinic at ${PRACTICE.email} or ${PRACTICE.phone} so the clinic can confirm your slot.`}</p>
+    <h4>${head}</h4>${pill}<p>${text}</p>
     <div class="receipt">
-      <div><span>Reference</span><b>${ref}</b></div>
+      <div><span>Reference</span><b>${o.ref}</b></div>
       <div><span>Appointment</span><b>${PRACTICE.typeNames[b.type]} · ${PRACTICE.durations[b.type]} min</b></div>
-      <div><span>Format</span><b>${b.mode==="clinic"?"Face-to-face":"Online · "+b.platform}</b></div>
-      <div><span>Date &amp; time</span><b>${longDate(b.date)}<br>${t12(b.time)} PHT${localLabel(b.date,b.time)?"<br><small style='color:var(--muted);font-weight:400'>"+localLabel(b.date,b.time)+"</small>":""}</b></div>
-      <div><span>Fee</span><b>${peso(b.fee)}</b></div>
+      <div><span>Format</span><b>${b.mode==="clinic"?"Face-to-face":"Online · "+esc(b.platform)}</b></div>
+      <div><span>Date &amp; time</span><b>${longDate(b.date)}<br>${t12(b.time)} PHT${loc?"<br><small style='color:var(--muted);font-weight:400'>"+loc+"</small>":""}</b></div>
+      <div><span>Fee</span><b>${b.fee?peso(b.fee)+(o.payment?" · "+esc(o.payment.method):""):"Free"}</b></div>
     </div>
     <div class="confirm-actions">
       <a class="btn btn-red btn-sm" href="${gcalLink(b)}" target="_blank" rel="noopener">Add to Google Calendar</a>
@@ -937,9 +1122,9 @@ function showConfirm(b,saved){
       <button class="btn btn-line btn-sm" type="button" id="again">Book another</button>
     </div></div>`;
   const em=v.querySelector("p b"); if(em) em.textContent=b.email;
-  v.querySelector("#copySum").addEventListener("click",()=>copyText(summaryText(b)));
-  v.querySelector("#again").addEventListener("click",()=>{v.hidden=true;$("#bookerView").hidden=false;state.time=null;renderSlots();renderSummary()});
-  $("#bookerView").hidden=true; v.hidden=false;
+  v.querySelector("#copySum").addEventListener("click",()=>copyText(summaryText(b,o)));
+  v.querySelector("#again").addEventListener("click",()=>{v.hidden=true;$("#bookerView").hidden=false;state.time=null;pending=null;renderSlots();renderSummary()});
+  $("#bookerView").hidden=true; $("#checkoutView").hidden=true; v.hidden=false;
   $("#bookCard").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
@@ -978,6 +1163,9 @@ async function loadDoctor(slots){
     const cells=[`${longDate(s.date)}\n${t12(s.time)}`, b?`${PRACTICE.typeNames[b.type]||""}\n${s.mode==="online"?"Online · "+(b.platform||""):"Face-to-face"}`:(s.mode==="online"?"Online":"Face-to-face"),
       b?`${b.name}${b.dob?"\nDOB "+b.dob:""}`:"(details unavailable)", b?`${b.email}\n${b.phone}`:"", b?`${b.concern}${b.notes?"\n"+b.notes:""}`:""];
     cells.forEach(c=>{const td=document.createElement("td");td.style.whiteSpace="pre-line";td.textContent=c;tr.appendChild(td)});
+    const ptd=document.createElement("td"); ptd.style.whiteSpace="pre-line";
+    if(b&&b.payment){ ptd.textContent=`${b.payment.method}${b.payment.refNo?"\nRef "+b.payment.refNo:""}\n${b.status==="pending_verification"?"To verify":b.status||""}\n`; if(b.payment.screenshotUrl){const a=document.createElement("a");a.href=b.payment.screenshotUrl;a.target="_blank";a.rel="noopener";a.textContent="View screenshot";ptd.appendChild(a);} } else ptd.textContent=b&&b.fee===0?"Free":"—";
+    tr.appendChild(ptd);
     const td=document.createElement("td"); const btn=document.createElement("button"); btn.className="linkbtn"; btn.type="button"; btn.textContent="Release slot";
     btn.addEventListener("click",async()=>{
       if(btn.dataset.arm!=="1"){btn.dataset.arm="1";btn.textContent="Confirm release";return}
@@ -1002,7 +1190,13 @@ function setStatus(live,text){ const s=$("#statusLine"); s.classList.toggle("liv
 renderCal(); renderSlots(); renderSummary();
 (async()=>{
   const c = window.claude;
-  if(!c || !c.use){ setStatus(false,"Choose a time and send your request. The clinic confirms every booking by email or phone."); return; }
+  if(!c || !c.use){
+    try{
+      const r=await fetch("/api/availability",{cache:"no-store"});
+      if(r.ok){ const j=await r.json(); state.api=true; state.taken=new Map((j.taken||[]).map(id=>[id,{}])); renderCal(); renderSlots(); setStatus(true,"Live availability · booked times are hidden"); return; }
+    }catch(e){}
+    setStatus(false,"Choose a time and send your request. The clinic confirms every booking by email or phone."); return;
+  }
   const [db,user] = await Promise.all([c.use("db"), c.use("user")]);
   if(!db){ setStatus(false,"Sign in to reserve a slot instantly. Otherwise your request is prepared for the clinic to confirm."); return; }
   state.db=db;
