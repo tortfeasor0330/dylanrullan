@@ -395,7 +395,9 @@ form.bk-form{margin-top:22px;border-top:1px solid var(--line);padding-top:20px;d
 .pay-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-top:22px}
 .pay-head h4{font-size:15px}
 .pay-head b{font-size:20px;font-variant-numeric:tabular-nums}
-.pay-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.pay-tabs{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:10px}
+.pay-note{font-size:12px;color:var(--muted);margin-top:10px;background:var(--surface);border-radius:8px;padding:8px 10px}
+.acct small{font-size:11px}
 .pay-tab{border:1.5px solid var(--line);border-radius:12px;padding:11px;background:var(--card);font-weight:700;font-size:14px;cursor:pointer;color:var(--fg);display:flex;align-items:center;justify-content:center;gap:8px}
 .pay-tab i{width:10px;height:10px;border-radius:50%;display:inline-block}
 .pay-tab[aria-selected="true"]{border-color:var(--green);background:var(--green-soft)}
@@ -803,8 +805,8 @@ const PRACTICE = {
   fees: { initial: 500, followup: 500, discovery: 0 },
   // Payment details shown at checkout. Replace the QR images in images/pay/ with your real ones.
   payment: {
-    gcash: { label:"GCash", name:"DYLAN THOR R. RULLAN", number:"0917 000 0000", qr:"images/pay/gcash-qr.png" },
-    maya:  { label:"Maya",  name:"DYLAN THOR R. RULLAN", number:"0917 000 0000", qr:"images/pay/maya-qr.png" }
+    gcash: { label:"GCash", color:"#0070E0", name:"DY**N TH*R PA**O R.", nameNote:"as shown in GCash", number:"", qr:"images/pay/gcash-qr.png", note:"InstaPay QR: you can also scan it with Maya or your bank app." },
+    maya:  { label:"Maya", color:"#2F7A55", name:"DYLAN THOR PABLO RULLAN", nameNote:"as shown in Maya", number:"0915 441 5252", qr:"images/pay/maya-qr.png", note:"InstaPay QR: you can also scan it with GCash or your bank app." }
   },
   durations: { initial: 30, followup: 30, discovery: 15 },
   typeNames: { initial: "Initial consultation", followup: "Follow-up", discovery: "Discovery call" },
@@ -979,8 +981,7 @@ function showCheckout(){
     ${free?`<p class="co-free">The discovery call is free, so no payment is needed.</p>`:`
     <div class="pay-head"><h4>Pay with</h4><b>${peso(b.fee)}</b></div>
     <div class="pay-tabs" role="tablist" aria-label="Payment method">
-      <button class="pay-tab" type="button" role="tab" data-pay="gcash" id="tab-gcash"><i style="background:#0070E0"></i>GCash</button>
-      <button class="pay-tab" type="button" role="tab" data-pay="maya" id="tab-maya"><i style="background:#2F7A55"></i>Maya</button>
+      ${Object.entries(PRACTICE.payment).filter(([k,p])=>p.qr).map(([k,p])=>`<button class="pay-tab" type="button" role="tab" data-pay="${k}" id="tab-${k}"><i style="background:${p.color}"></i>${p.label}</button>`).join("")}
     </div>
     <div class="pay-panel" id="payPanel" role="tabpanel"></div>
     <label class="drop" id="drop" for="co-file"><input type="file" id="co-file" accept="image/*">
@@ -1013,17 +1014,17 @@ function renderPay(){
   document.querySelectorAll("[data-pay]").forEach(t=>t.setAttribute("aria-selected",t.dataset.pay===PAY.method));
   $("#payPanel").innerHTML=`<div class="qr-wrap"><img class="qr" src="${p.qr}" alt="${p.label} QR code for ${esc(p.name)}" width="600" height="600"><div class="qr-cap">Scan with your ${p.label} app</div></div>
     <div><div class="acct">
-      <div><span>Account name</span><b>${esc(p.name)}</b></div>
-      <div><span>${p.label} number</span><span><b>${esc(p.number)}</b><button class="copy-sm" type="button" id="copyNum">Copy</button></span></div>
+      <div><span>Account name${p.nameNote?` <small>(${p.nameNote})</small>`:""}</span><b>${esc(p.name)}</b></div>
+      ${p.number?`<div><span>${p.label} number</span><span><b>${esc(p.number)}</b><button class="copy-sm" type="button" id="copyNum">Copy</button></span></div>`:""}
       <div><span>Amount</span><b>${peso(b.fee)}</b></div>
     </div>
     <ol class="pay-steps">
-      <li>Open <b>${p.label}</b> and tap <b>Scan QR</b>, or send money to the number above.</li>
+      <li>Open <b>${p.label}</b> and tap <b>Scan QR</b>${p.number?", or send money to the number above":""}. Check the name matches <b>${esc(p.name)}</b>.</li>
       <li>Pay exactly <b>${peso(b.fee)}</b>. Put your name in the message.</li>
       <li>Take a <b>screenshot</b> of the successful payment.</li>
       <li>Upload it below and submit.</li>
-    </ol></div>`;
-  $("#copyNum").addEventListener("click",()=>copyText(p.number.replace(/\s/g,"")));
+    </ol>${p.note?`<p class="pay-note">${p.note}</p>`:""}</div>`;
+  const cn=$("#copyNum"); if(cn) cn.addEventListener("click",()=>copyText(p.number.replace(/\s/g,"")));
   const pl=$("#paidLbl"); if(pl) pl.textContent=`I have sent ${peso(b.fee)} by ${p.label} and uploaded the receipt.`;
 }
 function renderPreview(){
