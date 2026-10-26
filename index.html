@@ -255,6 +255,11 @@ details.bio-more .bio{padding-bottom:16px}
 .who small{color:var(--muted);font-size:12px}
 .sample-note{font-size:12px;color:var(--muted);margin-top:18px;display:flex;gap:8px;align-items:center}
 .sample-note span{background:var(--yellow-soft);color:var(--fg);border-radius:6px;padding:2px 8px;font-weight:600;font-size:11px}
+.story-img{width:100%;height:auto;aspect-ratio:4/3;max-width:100%;object-fit:cover;border-radius:10px;display:block}
+.ctag{align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--link-green,var(--green));background:var(--green-soft);border-radius:999px;padding:3px 10px}
+.tcard q{line-height:1.6}
+.story-note{margin-top:20px;font-size:12.5px;color:var(--muted);background:var(--surface);border-left:3px solid var(--red);border-radius:8px;padding:10px 14px;max-width:80ch}
+.story-note b{color:var(--fg)}
 @media (max-width:900px){.tgrid{grid-template-columns:1fr}}
 
 /* BOOKING */
@@ -629,13 +634,29 @@ footer a:hover{color:var(--band-fg)}
   <div class="wrap">
     <div class="eyebrow">Patient Stories</div>
     <h2 class="h2">What Patients Say</h2>
-    <p class="lead">Feedback shared by patients after their care plans.</p>
+    <p class="lead">Real stories Dr. Dylan has shared from his practice, translated from his Facebook posts.</p>
     <div class="tgrid">
-      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>For the first time a doctor asked about my sleep, my food and my stress before writing anything. Three months on, my blood pressure readings are steadier.</q><div class="who"><span class="avatar" style="background:#2F7A55">MA</span><div><b>Maria A.</b><small>Hypertension care</small></div></div></div>
-      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>I did all my consultations online from abroad. The video calls were on time, and the written plan was easy to follow.</q><div class="who"><span class="avatar" style="background:#D9412E">JR</span><div><b>Jun R.</b><small>Online patient</small></div></div></div>
-      <div class="tcard"><div class="stars" aria-label="5 out of 5">★★★★★</div><q>He worked with my existing diabetes medication instead of telling me to stop it. My energy is back and my sugar readings are more stable.</q><div class="who"><span class="avatar" style="background:#A88D52">LC</span><div><b>Liza C.</b><small>Diabetes care</small></div></div></div>
+      <article class="tcard">
+        <img class="story-img" src="images/stories/jao.jpg" alt="Jao, before and after her care program" width="640" height="480" loading="lazy">
+        <span class="ctag">Myoma · pain</span>
+        <q>Jao was diagnosed with a myoma 8 years ago and was advised two months ago to have it removed by surgery because of severe pain. She couldn't get out of bed without help and had lower-back pain and very painful periods. On May 27, 2022 she started a new program of medicine and food intake. In the first week the back and abdominal pain were gone and she could get up on her own. On June 18 she had her period with no pain.</q>
+        <div class="who"><span class="avatar" style="background:#2F7A55">J</span><div><b>Jao</b><small>Shared by Dr. Dylan · Jun 21, 2022</small></div></div>
+      </article>
+      <article class="tcard">
+        <img class="story-img" src="images/stories/jason.jpg" alt="Jason at the beach" width="640" height="480" loading="lazy">
+        <span class="ctag">Seizures</span>
+        <q>Jason's seizure attacks have been gone since my intervention. His medical doctor ran his check-up and tests, and was so pleased that his check-ups moved from monthly to every 3 months. As a VA he could only work 4 to 6 hours a day. Now he can work 8 hours.</q>
+        <div class="who"><span class="avatar" style="background:#D9412E">J</span><div><b>Jason</b><small>Shared by Dr. Dylan on Facebook</small></div></div>
+      </article>
+      <article class="tcard">
+        <img class="story-img" src="images/stories/tommy-honorata.jpg" alt="Manong Tommy and Manang Honorata" width="640" height="480" loading="lazy">
+        <span class="ctag">Heart &amp; blood pressure</span>
+        <q>A husband and wife, one with rheumatic heart disease and the other with hypertension. Their blood pressures were 150/100 and 160/100. Twenty-five minutes after a small dose of nitric oxide they were 130/90 and 140/90, taken by their daughter Descha, a nurse.</q>
+        <div class="who"><span class="avatar" style="background:#A88D52">T</span><div><b>Manong Tommy &amp; Manang Honorata</b><small>Shared by Dr. Dylan · May 14, 2022</small></div></div>
+      </article>
     </div>
-    <p class="sample-note"><span>Sample</span>Placeholder reviews. Replace with real, consented patient testimonials before launch.</p>
+    <p class="story-note"><b>Please read:</b> these are individual experiences shared by Dr. Dylan, and results vary from person to person. They are not a promise of results. Don't stop or change any prescribed medicine, or cancel planned surgery, without talking to your physician.</p>
+    <a class="link-arrow" href="https://www.facebook.com/profile.php?id=100087962718821" target="_blank" rel="noopener" style="margin-top:14px">More stories on Dr. Dylan's Facebook <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 
