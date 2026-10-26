@@ -221,8 +221,12 @@ section{padding-block:72px}
 .center-btn{display:flex;justify-content:center;margin-top:28px}
 .sample-note{font-size:11.5px;color:var(--muted);margin-top:14px;display:flex;gap:8px;align-items:center;justify-content:center;flex-wrap:wrap;text-align:center}
 .sample-note span{background:var(--yellow-soft);color:var(--fg);border-radius:6px;padding:2px 8px;font-weight:700;font-size:10.5px}
-.vid{width:min(300px,70vw);aspect-ratio:3/5;max-width:100%;border-radius:18px;overflow:hidden;position:relative;background:#173D2D;box-shadow:var(--shadow)}
-.vid img{width:100%;height:100%;object-fit:cover;display:block}
+.vid{width:min(290px,72vw);margin:0;display:flex;flex-direction:column;gap:10px}
+.vid video{width:100%;aspect-ratio:9/16;max-width:100%;height:auto;object-fit:contain;background:#0E1E17;border-radius:18px;display:block;box-shadow:var(--shadow)}
+.vid figcaption{font-size:13px;color:var(--muted);line-height:1.4;padding-inline:4px}
+.vid figcaption b{display:block;color:var(--fg);font-size:14px}
+.vid-note{font-size:12.5px;color:var(--muted);background:var(--card);border-left:3px solid var(--red);border-radius:8px;padding:10px 14px;max-width:80ch;margin:20px auto 0}
+.vid-note b{color:var(--fg)}
 
 /* BUNDLES */
 .pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:38px}
@@ -472,22 +476,17 @@ form.co{display:grid;gap:12px}
   <div class="wrap">
     <div class="panel">
       <h2 class="up">Don't Take Our Word For It!</h2>
-      <p class="sub-c">Real routines from people taking the Triangle of Health every day.</p>
+      <p class="sub-c">Customers share their experience with the Triangle of Health, in their own words.</p>
       <div class="carousel" data-carousel>
         <button class="arrow prev" type="button" aria-label="Previous videos"><svg><use href="#i-left"/></svg></button>
         <div class="track">
-          <div class="vid"><img src="images/shop/video-1.jpg" alt="Customer video 1" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-2.jpg" alt="Customer video 2" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-3.jpg" alt="Customer video 3" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-4.jpg" alt="Customer video 4" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-5.jpg" alt="Customer video 5" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-6.jpg" alt="Customer video 6" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-7.jpg" alt="Customer video 7" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-8.jpg" alt="Customer video 8" loading="lazy" width="600" height="1000"></div>
-          <div class="vid"><img src="images/shop/video-9.jpg" alt="Customer video 9" loading="lazy" width="600" height="1000"></div>
+          <figure class="vid"><video controls playsinline preload="none" poster="images/../videos/story-1.jpg"><source src="videos/story-1.mp4" type="video/mp4">Your browser can't play this video.</video><figcaption><b>Customer story</b>Daily routine with the Triangle of Health</figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="images/../videos/story-2.jpg"><source src="videos/story-2.mp4" type="video/mp4">Your browser can't play this video.</video><figcaption><b>Noel Kunanan, 38</b>Heart enlargement</figcaption></figure>
+          <figure class="vid"><video controls playsinline preload="none" poster="images/../videos/story-4.jpg"><source src="videos/story-4.mp4" type="video/mp4">Your browser can't play this video.</video><figcaption><b>Customer story</b>Respiratory illness & daily routine</figcaption></figure>
         </div>
         <button class="arrow next" type="button" aria-label="Next videos"><svg><use href="#i-right"/></svg></button>
       </div>
+      <p class="vid-note"><b>Please note:</b> these are personal experiences and results vary. Food supplements are not medicines. Keep taking any medicine your doctor prescribed, and talk to your doctor before making changes.</p>
       <div class="center-btn"><a class="btn btn-red" href="https://www.tiktok.com/@docdyofficial" target="_blank" rel="noopener">See More on TikTok</a></div>
     </div>
   </div>
