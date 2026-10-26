@@ -255,6 +255,14 @@ details.bio-more .bio{padding-bottom:16px}
 .who small{color:var(--muted);font-size:12px}
 .sample-note{font-size:12px;color:var(--muted);margin-top:18px;display:flex;gap:8px;align-items:center}
 .sample-note span{background:var(--yellow-soft);color:var(--fg);border-radius:6px;padding:2px 8px;font-weight:600;font-size:11px}
+.story-track{display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:8px;scrollbar-width:none}
+.story-track::-webkit-scrollbar{display:none}
+.story-track .tcard{flex:0 0 calc((100% - 40px)/3.15);min-width:260px;scroll-snap-align:start}
+@media (max-width:1000px){.story-track .tcard{flex-basis:calc((100% - 20px)/2.1)}}
+@media (max-width:600px){.story-track .tcard{flex-basis:86%}}
+.story-dots{display:flex;gap:6px;justify-content:center;margin-top:14px}
+.story-dots button{width:8px;height:8px;border-radius:50%;border:0;padding:0;background:var(--line);cursor:pointer;transition:width .2s,background .2s}
+.story-dots button[aria-current="true"]{width:22px;border-radius:6px;background:var(--green)}
 .story-img{width:100%;height:auto;aspect-ratio:4/3;max-width:100%;object-fit:cover;border-radius:10px;display:block}
 .ctag{align-self:flex-start;font-size:11.5px;font-weight:700;color:var(--link-green,var(--green));background:var(--green-soft);border-radius:999px;padding:3px 10px}
 .tcard q{line-height:1.6}
@@ -632,10 +640,15 @@ footer a:hover{color:var(--band-fg)}
 
 <section class="testimonials">
   <div class="wrap">
-    <div class="eyebrow">Patient Stories</div>
-    <h2 class="h2">What Patients Say</h2>
-    <p class="lead">Real stories Dr. Dylan has shared from his practice, translated from his Facebook posts.</p>
-    <div class="tgrid">
+    <div class="sec-head">
+      <div>
+        <div class="eyebrow">Patient Stories</div>
+        <h2 class="h2">What Patients Say</h2>
+        <p class="lead">Real stories Dr. Dylan has shared from his practice, translated from his Facebook posts.</p>
+      </div>
+      <div class="svc-nav"><button class="svc-arrow" type="button" id="storyPrev" aria-label="Previous stories"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button><button class="svc-arrow" type="button" id="storyNext" aria-label="Next stories"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    </div>
+    <div class="tgrid story-track" id="storyTrack">
       <article class="tcard">
         <img class="story-img" src="images/stories/jao.jpg" alt="Jao, before and after her care program" width="640" height="480" loading="lazy">
         <span class="ctag">Myoma · pain</span>
@@ -667,6 +680,7 @@ footer a:hover{color:var(--band-fg)}
         <div class="who"><span class="avatar" style="background:#D9412E">A</span><div><b>PRC exam proctor</b><small>Shared by Dr. Dylan on Facebook</small></div></div>
       </article>
     </div>
+    <div class="story-dots" id="storyDots" aria-label="Choose a story"></div>
     <p class="story-note"><b>Please read:</b> these are individual experiences shared by Dr. Dylan, and results vary from person to person. They are not a promise of results. Don't stop or change any prescribed medicine, or cancel planned surgery, without talking to your physician.</p>
     <a class="link-arrow" href="https://www.facebook.com/profile.php?id=100087962718821" target="_blank" rel="noopener" style="margin-top:14px">More stories on Dr. Dylan's Facebook <svg width="16" height="16"><use href="#i-arrow"/></svg></a>
   </div>
@@ -1217,6 +1231,17 @@ function setStatus(live,text){ const s=$("#statusLine"); s.classList.toggle("liv
 (()=>{const t=document.getElementById("svcTrack"),p=document.getElementById("svcPrev"),n=document.getElementById("svcNext");if(!t)return;
   const step=()=>{const c=t.querySelector(".svc");return c?c.getBoundingClientRect().width+20:280};
   const upd=()=>{p.disabled=t.scrollLeft<4;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4};
+  p.addEventListener("click",()=>t.scrollBy({left:-step(),behavior:"smooth"}));n.addEventListener("click",()=>t.scrollBy({left:step(),behavior:"smooth"}));
+  t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);setTimeout(upd,60);})();
+
+
+/* ---- Patient stories carousel ---- */
+(()=>{const t=document.getElementById("storyTrack"),p=document.getElementById("storyPrev"),n=document.getElementById("storyNext"),dots=document.getElementById("storyDots");if(!t)return;
+  const cards=[...t.querySelectorAll(".tcard")];
+  const step=()=>{const c=cards[0];return c?c.getBoundingClientRect().width+20:300};
+  cards.forEach((c,i)=>{const d=document.createElement("button");d.type="button";d.setAttribute("aria-label","Story "+(i+1));d.addEventListener("click",()=>t.scrollTo({left:c.offsetLeft-t.offsetLeft,behavior:"smooth"}));dots.appendChild(d)});
+  const upd=()=>{p.disabled=t.scrollLeft<4;n.disabled=t.scrollLeft+t.clientWidth>=t.scrollWidth-4;
+    const i=Math.round(t.scrollLeft/step());[...dots.children].forEach((d,k)=>d.setAttribute("aria-current",k===Math.min(i,cards.length-1)?"true":"false"))};
   p.addEventListener("click",()=>t.scrollBy({left:-step(),behavior:"smooth"}));n.addEventListener("click",()=>t.scrollBy({left:step(),behavior:"smooth"}));
   t.addEventListener("scroll",upd,{passive:true});addEventListener("resize",upd);setTimeout(upd,60);})();
 
