@@ -604,7 +604,6 @@ footer a:hover{color:var(--band-fg)}
             <select id="f-type">
               <option value="initial">Initial consultation · 30 min</option>
               <option value="followup">Follow-up · 30 min</option>
-              <option value="discovery">Discovery call · 15 min (online)</option>
             </select></div>
           <div class="field"><label for="f-concern">Main concern</label>
             <select id="f-concern">
@@ -758,22 +757,6 @@ footer a:hover{color:var(--band-fg)}
   </div>
 </section>
 
-<div class="offer">
-  <div class="wrap">
-    <div class="offer-card">
-      <div>
-        <div class="eyebrow">New Patients</div>
-        <h3>Not sure where to start? <span>Talk to Dr. Rullan first.</span></h3>
-        <p>Book a free 15-minute online discovery call. Describe what you are dealing with and find out whether integrative care is the right fit before you commit to a full consultation.</p>
-        <a class="btn btn-red" style="margin-top:22px" href="#book" id="discoveryBtn">Book a Discovery Call <svg><use href="#i-arrow"/></svg></a>
-      </div>
-      <div class="offer-right">
-        <div class="seal"><div><b>FREE</b><small>15 MIN CALL</small></div></div>
-      </div>
-    </div>
-  </div>
-</div>
-
 <section class="why">
   <div class="wrap">
     <div class="why-note hand">Care that fits<br>your life</div>
@@ -826,7 +809,7 @@ footer a:hover{color:var(--band-fg)}
         </div>
       </div>
       <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#process">Your Visit</a></li><li><a href="#book">Book Online</a></li><li><a href="shop.html">Shop</a></li></ul></div>
-      <div><h4>Consultations</h4><ul><li>Face-to-face</li><li>Online telehealth</li><li>Follow-up reviews</li><li>Free discovery call</li><li>Lab interpretation</li></ul></div>
+      <div><h4>Consultations</h4><ul><li>Face-to-face</li><li>Online telehealth</li><li>Follow-up reviews</li><li>Lab interpretation</li></ul></div>
       <div><h4>Contact</h4><ul>
         <li class="contact-row"><svg><use href="#i-pin"/></svg><span id="c-addr"></span></li>
         <li class="contact-row"><svg><use href="#i-phone"/></svg><span><span id="c-phone"></span><button class="copy" data-copy="phone" type="button">Copy</button></span></li>
@@ -849,14 +832,14 @@ const PRACTICE = {
   email: "appointments@drdylanrullan.com",
   tz: "Asia/Manila", tzOffset: 8,
   bookAheadDays: 45,
-  fees: { initial: 500, followup: 500, discovery: 0 },
+  fees: { initial: 500, followup: 500 },
   // Payment details shown at checkout. Replace the QR images in images/pay/ with your real ones.
   payment: {
     gcash: { label:"GCash", color:"#0070E0", name:"DY**N TH*R PA**O R.", nameNote:"as shown in GCash", number:"", qr:"images/pay/gcash-qr.png", note:"InstaPay QR: you can also scan it with Maya or your bank app." },
     maya:  { label:"Maya", color:"#2F7A55", name:"DYLAN THOR PABLO RULLAN", nameNote:"as shown in Maya", number:"0915 441 5252", qr:"images/pay/maya-qr.png", note:"InstaPay QR: you can also scan it with GCash or your bank app." }
   },
-  durations: { initial: 30, followup: 30, discovery: 15 },
-  typeNames: { initial: "Initial consultation", followup: "Follow-up", discovery: "Discovery call" },
+  durations: { initial: 30, followup: 30 },
+  typeNames: { initial: "Initial consultation", followup: "Follow-up" },
   // Slot start times (PHT). Index = weekday, 0 = Sunday.
   hours: {
     clinic: { 1:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 2:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 3:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 4:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 5:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 6:["09:00","09:30","10:00","10:30","11:00","11:30"] },
@@ -972,14 +955,12 @@ function renderSummary(){
 function setMode(mode){
   state.mode=mode;
   document.querySelectorAll(".mode").forEach(b=>b.setAttribute("aria-pressed", b.dataset.mode===mode?"true":"false"));
-  if(mode==="clinic" && $("#f-type").value==="discovery") $("#f-type").value="initial";
   if(state.time && !slotsFor(state.date,mode).includes(state.time)) state.time=null;
   renderCal();renderSlots();renderSummary();
 }
 document.querySelectorAll(".mode").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
-$("#f-type").addEventListener("change",()=>{ if($("#f-type").value==="discovery" && state.mode!=="online") setMode("online"); else renderSummary(); });
+$("#f-type").addEventListener("change",renderSummary);
 document.querySelectorAll("[data-concern]").forEach(a=>a.addEventListener("click",()=>{ $("#f-concern").value=a.dataset.concern; }));
-$("#discoveryBtn").addEventListener("click",()=>{ $("#f-type").value="discovery"; setMode("online"); });
 
 /* ---- Step 1: details → checkout ---- */
 function fieldErr(id,bad){ $(id).closest(".field").classList.toggle("err",bad); return bad; }
@@ -1025,7 +1006,7 @@ function showCheckout(){
         <div><span>Patient</span><b>${esc(b.name)}</b></div>
       </div>
     </div>
-    ${free?`<p class="co-free">The discovery call is free, so no payment is needed.</p>`:`
+    ${free?`<p class="co-free">No payment is needed for this appointment.</p>`:`
     <div class="pay-head"><h4>Pay with</h4><b>${peso(b.fee)}</b></div>
     <div class="pay-tabs" role="tablist" aria-label="Payment method">
       ${Object.entries(PRACTICE.payment).filter(([k,p])=>p.qr).map(([k,p])=>`<button class="pay-tab" type="button" role="tab" data-pay="${k}" id="tab-${k}"><i style="background:${p.color}"></i>${p.label}</button>`).join("")}
