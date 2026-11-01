@@ -18,9 +18,9 @@ export function phoneE164(p) {
   return d;
 }
 export function splitName(n) { const p = String(n || "").trim().split(/\s+/); return { first: p[0] || "", last: p.slice(1).join(" ") }; }
-const TYPE = { initial: "Initial consultation", followup: "Follow-up", discovery: "Discovery call" };
+const TYPE = { initial: "Basic Health Consultation", comprehensive: "Comprehensive Wellness Assessment", followup: "Follow-up", discovery: "Discovery call" };
 const STATUS = { pending_verification: "Payment under review", confirmed: "Confirmed", payment_issue: "Payment issue", cancelled: "Cancelled" };
-const DUR = { initial: 30, followup: 30, discovery: 15 };
+const DUR = { initial: 30, comprehensive: 30, followup: 30, discovery: 15 };
 export function bookingPayload(event, r, req) {
   const host = req && req.headers && (req.headers["x-forwarded-host"] || req.headers.host);
   const [h, m] = r.time.split(":").map(Number);

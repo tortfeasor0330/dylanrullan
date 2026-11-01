@@ -207,6 +207,35 @@ details.bio-more .bio{padding-bottom:16px}
 @media (max-width:900px){.about-photo{position:relative;top:0}}
 @media (max-width:540px){.focus-grid{grid-template-columns:1fr}}
 
+/* PRICING */
+.pricing{background:var(--surface)}
+.price-head{text-align:center;max-width:640px;margin:0 auto 40px}
+.price-head .lead{margin-inline:auto}
+.price-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;max-width:960px;margin:0 auto}
+.price-card{background:var(--card);border-radius:22px;padding:34px 32px;box-shadow:var(--shadow);display:flex;flex-direction:column;position:relative;border:1.5px solid var(--line)}
+.price-card.premium{background:var(--band);color:var(--band-fg);border-color:var(--band)}
+.price-tag{display:inline-block;align-self:flex-start;font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;padding:6px 12px;border-radius:999px;background:var(--green-soft);color:var(--link-green)}
+.premium .price-tag{background:var(--yellow);color:#1B3A2D}
+.price-card h3{font-size:22px;font-weight:700;margin-top:16px;line-height:1.25}
+.price-amt{display:flex;align-items:baseline;gap:12px;margin-top:14px}
+.price-amt b{font-size:46px;font-weight:700;line-height:1;color:var(--green-deep)}
+.premium .price-amt b{color:var(--yellow)}
+.price-amt s{font-size:22px;color:var(--muted);text-decoration-color:var(--red);text-decoration-thickness:2.5px}
+.price-save{font-size:12px;font-weight:600;color:#fff;background:var(--red);border-radius:999px;padding:4px 10px;align-self:center}
+.price-for{margin-top:12px;color:var(--muted);font-size:14.5px}
+.premium .price-for{color:var(--band-muted)}
+.price-inc{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.premium .price-inc{border-color:var(--band-line);color:var(--band-muted)}
+.price-list{list-style:none;padding:0;margin:12px 0 26px;display:grid;gap:10px;flex:1}
+.price-list li{display:flex;gap:10px;font-size:14.5px;line-height:1.45}
+.price-list li::before{content:"";flex:none;width:18px;height:18px;margin-top:2px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A55' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/12px no-repeat}
+.premium .price-list li::before{background-color:rgba(198,169,107,.22);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23C6A96B' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E")}
+.price-card .btn{align-self:stretch;justify-content:center;text-align:center}
+.premium .btn-gold{background:var(--yellow);color:#1B3A2D}
+.premium .btn-gold:hover{background:#D8C08F;transform:translateY(-1px)}
+.price-note{text-align:center;margin-top:22px;font-size:13px;color:var(--muted)}
+#sumFee s{color:var(--muted);font-weight:500;margin-right:6px;text-decoration-color:var(--red)}
+@media (max-width:760px){.price-grid{grid-template-columns:1fr}.price-card{padding:28px 22px}}
 /* OFFER */
 .offer{padding-block:0 88px;background:var(--surface)}
 .offer-card{background:var(--band);color:var(--band-fg);border-radius:22px;padding:44px clamp(24px,5vw,56px);display:grid;grid-template-columns:1.3fr 1fr;gap:28px;align-items:center;position:relative;overflow:hidden}
@@ -510,6 +539,7 @@ footer a:hover{color:var(--band-fg)}
     <ul class="nav-links" id="navLinks">
       <li><a href="#home" class="on">Home</a></li>
       <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#process">Your Visit</a></li>
       <li><a href="shop.html">Shop</a></li>
@@ -558,6 +588,47 @@ footer a:hover{color:var(--band-fg)}
   </div>
 </div>
 
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="price-head">
+      <div class="eyebrow">Consultation Fees</div>
+      <h2 class="h2">Choose Your Consultation</h2>
+      <p class="lead">Two options, face-to-face or online. Pay by GCash or Maya when you book.</p>
+    </div>
+    <div class="price-grid">
+      <article class="price-card">
+        <span class="price-tag">Entry level</span>
+        <h3>Basic Health Consultation</h3>
+        <div class="price-amt"><s aria-label="Regular price 700 pesos">₱700</s><b>₱500</b><span class="price-save">Save ₱200</span></div>
+        <p class="price-for">For patients with a specific concern or those seeking an initial consultation.</p>
+        <div class="price-inc">Includes, as appropriate</div>
+        <ul class="price-list">
+          <li>Brief health history and discussion of the main concern</li>
+          <li>Basic clinical assessment within the doctor's professional scope</li>
+          <li>Initial guidance and recommendations</li>
+          <li>Advice on whether further assessment is needed</li>
+        </ul>
+        <a class="btn btn-red" href="#book" data-book-type="initial">Book Basic Consultation <svg><use href="#i-arrow"/></svg></a>
+      </article>
+      <article class="price-card premium">
+        <span class="price-tag">Premium service</span>
+        <h3>Comprehensive Wellness Assessment</h3>
+        <div class="price-amt"><b>₱1,500</b></div>
+        <p class="price-for">For patients who want a broader, more detailed review of their health and lifestyle.</p>
+        <div class="price-inc">Includes, as applicable</div>
+        <ul class="price-list">
+          <li>More detailed health history</li>
+          <li>Multiple relevant health parameters</li>
+          <li>Assessment of nutrition, food intake and timing</li>
+          <li>Review of lifestyle and wellness factors</li>
+          <li>Personalized recommendations and follow-up plan</li>
+        </ul>
+        <a class="btn btn-gold" href="#book" data-book-type="comprehensive">Book Comprehensive Assessment <svg><use href="#i-arrow"/></svg></a>
+      </article>
+    </div>
+  </div>
+</section>
+
 <section class="booking" id="book">
   <div class="wrap">
     <div>
@@ -602,8 +673,8 @@ footer a:hover{color:var(--band-fg)}
         <form class="bk-form" id="bkForm" novalidate>
           <div class="field"><label for="f-type">Appointment type</label>
             <select id="f-type">
-              <option value="initial">Initial consultation · 30 min</option>
-              <option value="followup">Follow-up · 30 min</option>
+              <option value="initial">Basic Health Consultation · ₱500</option>
+              <option value="comprehensive">Comprehensive Wellness Assessment · ₱1,500</option>
             </select></div>
           <div class="field"><label for="f-concern">Main concern</label>
             <select id="f-concern">
@@ -808,7 +879,7 @@ footer a:hover{color:var(--band-fg)}
           <a href="https://www.youtube.com/@dyllanthorvrullan4190" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M21.6 7.2a2.5 2.5 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 7.2 26 26 0 0 0 2 12a26 26 0 0 0 .4 4.8 2.5 2.5 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8A26 26 0 0 0 22 12a26 26 0 0 0-.4-4.8zM10 15V9l5.2 3z" fill="currentColor"/></svg></a>
         </div>
       </div>
-      <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#about">About</a></li><li><a href="#process">Your Visit</a></li><li><a href="#book">Book Online</a></li><li><a href="shop.html">Shop</a></li></ul></div>
+      <div><h4>Quick Links</h4><ul><li><a href="#home">Home</a></li><li><a href="#services">Services</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#about">About</a></li><li><a href="#process">Your Visit</a></li><li><a href="#book">Book Online</a></li><li><a href="shop.html">Shop</a></li></ul></div>
       <div><h4>Consultations</h4><ul><li>Face-to-face</li><li>Online telehealth</li><li>Follow-up reviews</li><li>Lab interpretation</li></ul></div>
       <div><h4>Contact</h4><ul>
         <li class="contact-row"><svg><use href="#i-pin"/></svg><span id="c-addr"></span></li>
@@ -832,14 +903,15 @@ const PRACTICE = {
   email: "appointments@drdylanrullan.com",
   tz: "Asia/Manila", tzOffset: 8,
   bookAheadDays: 45,
-  fees: { initial: 500, followup: 500 },
+  fees: { initial: 500, comprehensive: 1500, followup: 500 },
+  regularFees: { initial: 700 },
   // Payment details shown at checkout. Replace the QR images in images/pay/ with your real ones.
   payment: {
     gcash: { label:"GCash", color:"#0070E0", name:"DY**N TH*R PA**O R.", nameNote:"as shown in GCash", number:"", qr:"images/pay/gcash-qr.png", note:"InstaPay QR: you can also scan it with Maya or your bank app." },
     maya:  { label:"Maya", color:"#2F7A55", name:"DYLAN THOR PABLO RULLAN", nameNote:"as shown in Maya", number:"0915 441 5252", qr:"images/pay/maya-qr.png", note:"InstaPay QR: you can also scan it with GCash or your bank app." }
   },
-  durations: { initial: 30, followup: 30 },
-  typeNames: { initial: "Initial consultation", followup: "Follow-up" },
+  durations: { initial: 30, comprehensive: 30, followup: 30 },
+  typeNames: { initial: "Basic Health Consultation", comprehensive: "Comprehensive Wellness Assessment", followup: "Follow-up" },
   // Slot start times (PHT). Index = weekday, 0 = Sunday.
   hours: {
     clinic: { 1:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 2:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 3:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 4:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 5:["09:00","09:30","10:00","10:30","11:00","11:30","14:00","14:30","15:00","15:30","16:00","16:30"], 6:["09:00","09:30","10:00","10:30","11:00","11:30"] },
@@ -945,7 +1017,8 @@ function renderSlots(){
 
 function renderSummary(){
   const type=$("#f-type").value;
-  $("#sumFee").textContent = peso(PRACTICE.fees[type]);
+  const reg=(PRACTICE.regularFees||{})[type];
+  $("#sumFee").innerHTML = (reg?`<s>${peso(reg)}</s>`:"") + peso(PRACTICE.fees[type]);
   $("#platformField").hidden = state.mode!=="online";
   if(state.date && state.time){
     $("#sumText").textContent = `${PRACTICE.typeNames[type]} · ${state.mode==="clinic"?"Face-to-face":"Online"} · ${longDate(state.date)}, ${t12(state.time)} PHT`;
@@ -960,6 +1033,7 @@ function setMode(mode){
 }
 document.querySelectorAll(".mode").forEach(b=>b.addEventListener("click",()=>setMode(b.dataset.mode)));
 $("#f-type").addEventListener("change",renderSummary);
+document.querySelectorAll("[data-book-type]").forEach(a=>a.addEventListener("click",()=>{ $("#f-type").value=a.dataset.bookType; renderSummary(); }));
 document.querySelectorAll("[data-concern]").forEach(a=>a.addEventListener("click",()=>{ $("#f-concern").value=a.dataset.concern; }));
 
 /* ---- Step 1: details → checkout ---- */

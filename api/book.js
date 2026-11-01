@@ -1,6 +1,6 @@
 import { store, configured, send } from "./_store.js";
 import { notify, bookingPayload } from "./_ghl.js";
-const TYPES = { initial: 500, followup: 500 };
+const TYPES = { initial: 500, comprehensive: 1500, followup: 500 };
 const s = (v, n = 200) => String(v ?? "").trim().slice(0, n);
 // POST /api/book  { booking:{...}, payment:{ method, refNo, screenshot:"data:image/jpeg;base64,..." } }
 export default async function handler(req, res) {

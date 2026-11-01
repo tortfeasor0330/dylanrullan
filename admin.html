@@ -81,7 +81,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
 <script>
 const $=s=>document.querySelector(s);
 const LABEL={pending_verification:"To verify",confirmed:"Confirmed",payment_issue:"Payment issue",cancelled:"Cancelled"};
-const TYPES={initial:"Initial consultation",followup:"Follow-up",discovery:"Discovery call"};
+const TYPES={initial:"Basic Health Consultation",comprehensive:"Comprehensive Wellness Assessment",followup:"Follow-up",discovery:"Discovery call"};
 let KEY="",DATA=[];const thumbs={};
 try{KEY=sessionStorage.getItem("rullan-admin")||""}catch(e){}
 const today=new Date(Date.now()+8*3600e3).toISOString().slice(0,10);
