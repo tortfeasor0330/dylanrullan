@@ -38,6 +38,7 @@ export function bookingPayload(event, r, req) {
     concern: r.concern || "", notes: r.notes || "",
     fee: r.fee, currency: "PHP", payment_method: r.payment ? r.payment.method : "", payment_ref: r.payment ? r.payment.refNo || "" : "",
     has_payment_screenshot: !!(r.payment && r.payment.screenshot),
+    ghl_contact_id: (r.ghl && r.ghl.contactId) || "", ghl_appointment_id: (r.ghl && r.ghl.appointmentId) || "", payment_screenshot_url: (r.ghl && r.ghl.mediaUrl) || "",
     admin_url: host ? `https://${host}/admin` : "", source: "Dr. Rullan website", created_at: r.createdAt, updated_at: r.updatedAt || r.createdAt
   };
 }

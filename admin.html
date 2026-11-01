@@ -111,7 +111,9 @@ function render(){
     const sh=document.createElement("td");
     if(b.payment&&b.payment.screenshot){const img=document.createElement("img");img.className="thumb";img.alt="Payment screenshot for "+b.name;sh.appendChild(img);loadThumb(b.payment.screenshot,img)}else sh.textContent="—";
     tr.appendChild(sh);
-    const stt=document.createElement("td");const pill=document.createElement("span");pill.className="pill "+b.status;pill.textContent=LABEL[b.status]||b.status;stt.appendChild(pill);tr.appendChild(stt);
+    const stt=document.createElement("td");const pill=document.createElement("span");pill.className="pill "+b.status;pill.textContent=LABEL[b.status]||b.status;stt.appendChild(pill);
+    if(b.ghl){const g=document.createElement("small");g.style.display="block";g.style.marginTop="6px";const ok=b.ghl.contactId&&b.ghl.appointmentId;g.textContent=ok?"✓ In GoHighLevel":(b.ghl.skipped?"":"⚠ GHL sync incomplete (retried on next action)");g.title=(b.ghl.errors||[]).join("\n");g.style.color=ok?"#2F7A55":"#B8321F";stt.appendChild(g)}
+    tr.appendChild(stt);
     const at=document.createElement("td");const acts=document.createElement("div");acts.className="acts";
     const mk=(label,action,cls)=>{const x=document.createElement("button");x.className="btn "+cls;x.type="button";x.textContent=label;x.addEventListener("click",()=>act(b,action,x,label));acts.appendChild(x)};
     if(b.status!=="confirmed"&&b.status!=="cancelled")mk("Mark paid","verify","btn-red");
@@ -127,7 +129,7 @@ async function loadThumb(path,img){
 async function act(b,action,btn,label){
   if(action==="cancel"&&btn.dataset.arm!=="1"){btn.dataset.arm="1";btn.textContent="Confirm cancel";return}
   btn.disabled=true;btn.textContent="Saving…";
-  try{const j=await (await api("/api/admin",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,ref:b.ref})})).json();b.status=j.status;render()}
+  try{const j=await (await api("/api/admin",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({action,ref:b.ref})})).json();b.status=j.status;if(j.ghl)b.ghl=Object.assign(b.ghl||{},j.ghl);render()}
   catch(e){alertBox(e.message);btn.disabled=false;btn.textContent=label}
 }
 function alertBox(m){$("#rows").insertAdjacentHTML("afterbegin",`<tr><td colspan="8" class="err" style="padding:12px 14px">${m.replace(/</g,"&lt;")}</td></tr>`)}

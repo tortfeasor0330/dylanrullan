@@ -1,5 +1,6 @@
 import { store, configured, send } from "./_store.js";
 import { notify, bookingPayload } from "./_ghl.js";
+import { ghlEnabled, busySlots, syncBooking, phtToDate } from "./_ghlapi.js";
 const TYPES = { initial: 500, comprehensive: 1500, followup: 500 };
 const s = (v, n = 200) => String(v ?? "").trim().slice(0, n);
 // POST /api/book  { booking:{...}, payment:{ method, refNo, screenshot:"data:image/jpeg;base64,..." } }
@@ -7,7 +8,7 @@ export default async function handler(req, res) {
   if (req.method !== "POST") return send(res, 405, { error: "Use POST." });
   if (!configured()) return send(res, 503, { error: "Booking storage is not set up yet." });
   const { booking: b = {}, payment: p = {} } = req.body || {};
-  const date = s(b.date, 10), time = s(b.time, 5), mode = s(b.mode, 10), type = s(b.type, 12);
+  const date = s(b.date, 10), time = s(b.time, 5), mode = s(b.mode, 10), type = s(b.type, 20);
   const errs = [];
   if (!/^\d{4}-\d{2}-\d{2}$/.test(date)) errs.push("date");
   if (!/^\d{2}:(00|30)$/.test(time)) errs.push("time");
@@ -33,6 +34,10 @@ export default async function handler(req, res) {
   const createdAt = new Date().toISOString();
   const slotPath = `slots/${id}.json`;
   if (await store.exists(slotPath)) return send(res, 409, { error: "That time was just booked. Please choose another slot." });
+  if (ghlEnabled()) { // also respect appointments and blocked time on the GoHighLevel calendar
+    try { const st = phtToDate(date, time).getTime(); if ((await busySlots(st - 3600e3, st + 3600e3)).has(id)) return send(res, 409, { error: "That time is no longer available. Please choose another slot." }); }
+    catch (e) { console.error("GHL busy check", String(e.message || e)); }
+  }
   try { await store.putJSON(slotPath, { ref, date, time, mode, createdAt }); }
   catch (e) { return e.exists ? send(res, 409, { error: "That time was just booked. Please choose another slot." }) : send(res, 500, { error: "Could not reserve the slot. Please try again." }); }
   try {
@@ -44,6 +49,11 @@ export default async function handler(req, res) {
       payment: fee > 0 ? { method: p.method, refNo: s(p.refNo, 60), screenshot } : null, createdAt
     };
     await store.putJSON(`bookings/${ref}.json`, record);
+    if (ghlEnabled()) {
+      const host = req.headers["x-forwarded-host"] || req.headers.host;
+      try { record.ghl = await syncBooking(record, shot, host ? `https://${host}/admin` : ""); await store.putJSON(`bookings/${ref}.json`, record, { overwrite: true }); }
+      catch (e) { console.error("GHL sync", String(e.message || e)); }
+    }
     await notify(process.env.GHL_BOOKING_WEBHOOK_URL, bookingPayload("booking.created", record, req));
     send(res, 200, { ok: true, ref, status: record.status });
   } catch (e) {

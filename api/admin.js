@@ -1,6 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { store, configured, send } from "./_store.js";
 import { notify, bookingPayload } from "./_ghl.js";
+import { ghlEnabled, syncBooking, syncStatus } from "./_ghlapi.js";
 // Clinic-only endpoint. Header "x-admin-key" must equal the ADMIN_KEY environment variable.
 function authed(req) {
   const want = process.env.ADMIN_KEY || "", got = String(req.headers["x-admin-key"] || "");
@@ -37,10 +38,21 @@ export default async function handler(req, res) {
       else if (action === "cancel") { rec.status = "cancelled"; try { await store.del(`slots/${rec.id}.json`); } catch {} }
       else return send(res, 400, { error: "Unknown action." });
       rec.updatedAt = new Date().toISOString();
+      if (ghlEnabled()) {
+        try {
+          if (!rec.ghl || !rec.ghl.contactId || !rec.ghl.appointmentId) { // booking made before GHL was connected, or an earlier sync failed
+            let shot = null;
+            if (rec.payment && rec.payment.screenshot && !(rec.ghl && rec.ghl.mediaUrl)) { const f = await store.getFile(rec.payment.screenshot); if (f) shot = { buf: f.body, type: f.type, ext: (rec.payment.screenshot.split(".").pop() || "jpg") }; }
+            const host = req.headers["x-forwarded-host"] || req.headers.host;
+            rec.ghl = await syncBooking(rec, shot, host ? `https://${host}/admin` : "");
+          }
+          rec.ghl = await syncStatus(rec, { verify: "payment verified, appointment confirmed", reject: "payment issue flagged", cancel: "cancelled" }[action]);
+        } catch (e) { console.error("GHL admin sync", String(e.message || e)); }
+      }
       await store.putJSON(path, rec, { overwrite: true });
       const ev = { verify: "booking.confirmed", reject: "booking.payment_issue", cancel: "booking.cancelled" }[action];
       await notify(process.env.GHL_BOOKING_WEBHOOK_URL, bookingPayload(ev, rec, req));
-      return send(res, 200, { ok: true, status: rec.status });
+      return send(res, 200, { ok: true, status: rec.status, ghl: rec.ghl ? { contactId: rec.ghl.contactId, appointmentId: rec.ghl.appointmentId, errors: rec.ghl.errors } : null });
     }
     send(res, 405, { error: "Method not allowed." });
   } catch (e) { send(res, 500, { error: "Something went wrong reading bookings." }); }
