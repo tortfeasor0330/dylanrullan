@@ -33,6 +33,10 @@ input,select{font:inherit;border:1.5px solid var(--line);border-radius:10px;padd
 .filters select{width:auto}
 .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
 .kpi{background:var(--card);border-radius:14px;padding:14px 16px}
+.ghlbox{background:var(--card);border-radius:14px;padding:14px 16px;margin-top:18px;font-size:13.5px}
+.ghlbox .head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ghlbox .head b{font-size:15px}.ghlbox ul{margin:10px 0 0;padding:0;list-style:none;display:grid;gap:6px}
+.ghlbox .ok{color:#2F7A55}.ghlbox .no{color:#B8321F}.ghlbox .dim{color:var(--muted)}
 .kpi b{display:block;font-size:24px;font-variant-numeric:tabular-nums}
 .kpi span{color:var(--muted);font-size:12.5px}
 .tablebox{margin-top:18px;background:var(--card);border-radius:16px;overflow-x:auto}
@@ -73,6 +77,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
         <button class="btn btn-line" id="refresh" type="button">Refresh</button>
       </div>
     </div>
+    <div class="ghlbox" id="ghlbox"><div class="head"><b>GoHighLevel</b><button class="btn btn-line" id="ghlCheck" type="button">Check connection</button></div><div id="ghlOut" class="dim">Checking…</div></div>
     <div class="kpis" id="kpis"></div>
     <div class="tablebox"><table><thead><tr><th>Date &amp; time (PHT)</th><th>Patient</th><th>Appointment</th><th>Concern &amp; notes</th><th>Payment</th><th>Screenshot</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
   </section>
@@ -88,6 +93,17 @@ const today=new Date(Date.now()+8*3600e3).toISOString().slice(0,10);
 const t12=t=>{let[h,m]=t.split(":").map(Number);const ap=h>=12?"PM":"AM";h=h%12||12;return `${h}:${String(m).padStart(2,"0")} ${ap}`};
 const ld=d=>new Date(d+"T00:00:00Z").toLocaleDateString("en-PH",{weekday:"short",month:"short",day:"numeric",year:"numeric",timeZone:"UTC"});
 async function api(path,opt={}){const r=await fetch(path,{...opt,headers:{...(opt.headers||{}),"x-admin-key":KEY}});if(r.status===401)throw new Error("Wrong password.");if(!r.ok){const j=await r.json().catch(()=>({}));throw new Error(j.error||"Request failed.")}return r}
+async function ghlCheck(){
+  const o=$("#ghlOut");o.className="dim";o.textContent="Checking…";
+  try{const j=await (await api("/api/admin?ghl=1")).json();const e=s=>String(s).replace(/[&<>]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;"})[c]);
+    const v=j.vars||{};const miss=["GHL_API_TOKEN","GHL_LOCATION_ID","GHL_CALENDAR_ID"].filter(k=>!v[k]);
+    let h=j.connected?`<div class="ok"><b>✓ Connected.</b> Bookings will create contacts, calendar appointments and upload payment screenshots.</div>`:(miss.length?`<div class="no"><b>Not connected.</b> Missing in Vercel: ${miss.join(", ")}. Add them, then redeploy.</div>`:`<div class="no"><b>Connection problem.</b> See below.</div>`);
+    h+=`<ul>${(j.checks||[]).map(c=>`<li class="${c.ok?"ok":"no"}">${c.ok?"✓":"✗"} ${e(c.name)}: ${e(c.detail)}${c.hint?` <span class="dim">(${e(c.hint)})</span>`:""}</li>`).join("")}`;
+    h+=["GHL_BOOKING_WEBHOOK_URL","GHL_ORDER_WEBHOOK_URL","GHL_CLINIC_ADDRESS"].map(k=>`<li class="${v[k]?"ok":"dim"}">${v[k]?"✓":"–"} ${k} ${v[k]?"set":"not set (optional)"}</li>`).join("")+`</ul>`;
+    if(j.tokenKind)h+=`<div class="dim" style="margin-top:8px">Token type: ${e(j.tokenKind)}. ${j.note?e(j.note):""}</div>`;
+    o.className="";o.innerHTML=h;
+  }catch(err){o.className="no";o.textContent="Could not run the check: "+err.message}
+}
 async function load(){
   $("#rows").innerHTML=`<tr><td colspan="8" class="empty">Loading…</td></tr>`;
   const j=await (await api("/api/admin")).json();DATA=j.bookings||[];render();
@@ -134,11 +150,12 @@ async function act(b,action,btn,label){
 }
 function alertBox(m){$("#rows").insertAdjacentHTML("afterbegin",`<tr><td colspan="8" class="err" style="padding:12px 14px">${m.replace(/</g,"&lt;")}</td></tr>`)}
 $("#viewer").addEventListener("click",()=>$("#viewer").close());
+$("#ghlCheck").addEventListener("click",ghlCheck);
 ["fWhen","fStatus"].forEach(id=>$("#"+id).addEventListener("change",render));
 $("#refresh").addEventListener("click",()=>load().catch(e=>alertBox(e.message)));
 $("#logout").addEventListener("click",()=>{KEY="";try{sessionStorage.removeItem("rullan-admin")}catch(e){}location.reload()});
 async function start(){
-  try{await load();$("#login").hidden=true;$("#app").hidden=false;$("#logout").hidden=false;try{sessionStorage.setItem("rullan-admin",KEY)}catch(e){}}
+  try{await load();ghlCheck();$("#login").hidden=true;$("#app").hidden=false;$("#logout").hidden=false;try{sessionStorage.setItem("rullan-admin",KEY)}catch(e){}}
   catch(e){$("#app").hidden=true;$("#login").hidden=false;$("#loginErr").textContent=e.message;}
 }
 $("#login").addEventListener("submit",e=>{e.preventDefault();KEY=$("#key").value;$("#loginErr").textContent="";start()});

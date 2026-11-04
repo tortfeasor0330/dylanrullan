@@ -173,3 +173,18 @@ export async function syncStatus(rec, label) {
 }
 
 export { phtToDate, slotIdOf };
+
+// Read-only connection check for the admin page. Creates nothing in GHL.
+export async function ghlStatus() {
+  const set = k => !!env(k);
+  const vars = { GHL_API_TOKEN: set("GHL_API_TOKEN"), GHL_LOCATION_ID: set("GHL_LOCATION_ID"), GHL_CALENDAR_ID: set("GHL_CALENDAR_ID"),
+    GHL_BOOKING_WEBHOOK_URL: set("GHL_BOOKING_WEBHOOK_URL"), GHL_ORDER_WEBHOOK_URL: set("GHL_ORDER_WEBHOOK_URL"), GHL_CLINIC_ADDRESS: set("GHL_CLINIC_ADDRESS") };
+  const checks = [];
+  const tokenKind = env("GHL_API_TOKEN").startsWith("pit-") ? "Private Integration token" : (env("GHL_API_TOKEN") ? "token (not a pit- Private Integration token)" : "");
+  if (!ghlEnabled()) return { connected: false, vars, tokenKind, checks };
+  const run = async (name, fn, hint) => { try { checks.push({ name, ok: true, detail: (await fn()) || "OK" }); } catch (e) { checks.push({ name, ok: false, detail: String(e.message || e), hint: e.status === 401 || e.status === 403 ? hint : undefined }); } };
+  await run("Calendar", async () => { const r = await call("GET", `/calendars/${env("GHL_CALENDAR_ID")}`, { version: V_CAL }); const c = r && (r.calendar || r); if (c && c.locationId && c.locationId !== env("GHL_LOCATION_ID")) throw new Error("Calendar belongs to a different location than GHL_LOCATION_ID"); return c && c.name ? `"${c.name}"` : "found"; }, "Check GHL_CALENDAR_ID and the token's calendars.readonly scope.");
+  await run("Calendar events (read)", async () => { const s = await busySlots(Date.now(), Date.now() + 7 * 864e5); return `${s.size} busy slot(s) in the next 7 days`; }, "Add the calendars/events.readonly scope to the token.");
+  await run("Contacts (read)", async () => { await call("GET", "/contacts/", { version: V_CONTACTS, query: { locationId: env("GHL_LOCATION_ID"), limit: 1 } }); return "OK"; }, "Check GHL_LOCATION_ID and the token's contacts.readonly scope.");
+  return { connected: checks.every(c => c.ok), vars, tokenKind, checks, note: "Write access (creating contacts, appointments, media) is confirmed by the first real booking." };
+}

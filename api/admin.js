@@ -1,7 +1,7 @@
 import { timingSafeEqual } from "node:crypto";
 import { store, configured, send } from "./_store.js";
 import { notify, bookingPayload } from "./_ghl.js";
-import { ghlEnabled, syncBooking, syncStatus } from "./_ghlapi.js";
+import { ghlEnabled, syncBooking, syncStatus, ghlStatus } from "./_ghlapi.js";
 // Clinic-only endpoint. Header "x-admin-key" must equal the ADMIN_KEY environment variable.
 function authed(req) {
   const want = process.env.ADMIN_KEY || "", got = String(req.headers["x-admin-key"] || "");
@@ -14,6 +14,7 @@ export default async function handler(req, res) {
   if (!authed(req)) return send(res, 401, { error: "Wrong password." });
   const url = new URL(req.url, "http://x");
   try {
+    if (req.method === "GET" && url.searchParams.get("ghl")) return send(res, 200, await ghlStatus());
     if (req.method === "GET" && url.searchParams.get("file")) {
       const p = url.searchParams.get("file");
       if (!p.startsWith("payments/")) return send(res, 400, { error: "Bad file." });
