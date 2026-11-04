@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Bookings Admin | Dr. Rullan</title>
+<title>Clinic Admin | Dr. Rullan</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
@@ -55,11 +55,20 @@ td small{display:block;color:var(--muted)}
 dialog{border:0;border-radius:14px;padding:0;max-width:min(92vw,560px)}
 dialog img{display:block;max-width:100%;max-height:86vh}
 dialog::backdrop{background:rgba(0,0,0,.6)}
+.tabs{display:flex;gap:6px;margin-bottom:18px}
+.tab{border:0;background:transparent;font:inherit;font-weight:600;font-size:14px;padding:9px 16px;border-radius:999px;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{background:var(--deep);color:#fff}
+.pill.o-new{background:var(--gold-soft)}.pill.o-paid{background:var(--green-soft);color:var(--green)}.pill.o-packed{background:#E6EEF8;color:#2D5B8C}
+.pill.o-shipped{background:#E9E4F6;color:#5B3F9A}.pill.o-delivered{background:var(--deep);color:#fff}.pill.o-cancelled{background:#eee;color:#777}
+.items{margin:0;padding:0;list-style:none}.items li{white-space:nowrap}
+.hist{margin-top:6px;font-size:11.5px;color:var(--muted);white-space:pre-line}
+.trk{width:150px;padding:6px 10px;font-size:12px}
+.filters input[type=search]{width:200px}
 @media (max-width:700px){.kpis{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
-<header><div class="wrap"><div><b>Dr. Rullan · Bookings</b><small>CLINIC ADMIN</small></div><button class="btn btn-ghost" id="logout" hidden>Sign out</button></div></header>
+<header><div class="wrap"><div><b>Dr. Rullan · Admin</b><small>CLINIC ADMIN</small></div><button class="btn btn-ghost" id="logout" hidden>Sign out</button></div></header>
 <main><div class="wrap">
   <form class="login" id="login">
     <h1>Clinic sign-in</h1>
@@ -69,6 +78,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <button class="btn btn-red" type="submit">Sign in</button>
     <div class="err" id="loginErr" role="alert"></div>
   </form>
+  <div class="tabs" id="tabs" role="tablist" hidden><button class="tab" role="tab" aria-selected="true" data-tab="app" type="button">Appointments</button><button class="tab" role="tab" aria-selected="false" data-tab="orders" type="button">Shop orders</button></div>
   <section id="app" hidden>
     <div class="bar"><h1>Appointments</h1>
       <div class="filters">
@@ -80,6 +90,18 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <div class="ghlbox" id="ghlbox"><div class="head"><b>GoHighLevel</b><button class="btn btn-line" id="ghlCheck" type="button">Check connection</button></div><div id="ghlOut" class="dim">Checking…</div></div>
     <div class="kpis" id="kpis"></div>
     <div class="tablebox"><table><thead><tr><th>Date &amp; time (PHT)</th><th>Patient</th><th>Appointment</th><th>Concern &amp; notes</th><th>Payment</th><th>Screenshot</th><th>Status</th><th></th></tr></thead><tbody id="rows"></tbody></table></div>
+  </section>
+  <section id="orders" hidden>
+    <div class="bar"><h1>Shop orders</h1>
+      <div class="filters">
+        <input type="search" id="oSearch" placeholder="Search name, ref, phone" aria-label="Search orders">
+        <select id="oStatus" aria-label="Status"><option value="open">Open (not delivered)</option><option value="">All</option><option value="new">New</option><option value="paid">Paid</option><option value="packed">Packed</option><option value="shipped">Shipped</option><option value="delivered">Delivered</option><option value="cancelled">Cancelled</option></select>
+        <button class="btn btn-line" id="oRefresh" type="button">Refresh</button>
+        <button class="btn btn-line" id="oCsv" type="button">Export CSV</button>
+      </div>
+    </div>
+    <div class="kpis" id="oKpis"></div>
+    <div class="tablebox"><table><thead><tr><th>Date &amp; ref</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Delivery address</th><th>Status</th><th></th></tr></thead><tbody id="oRows"></tbody></table></div>
   </section>
 </div></main>
 <dialog id="viewer"><img id="viewerImg" alt="Payment screenshot"></dialog>
@@ -154,9 +176,57 @@ $("#ghlCheck").addEventListener("click",ghlCheck);
 ["fWhen","fStatus"].forEach(id=>$("#"+id).addEventListener("change",render));
 $("#refresh").addEventListener("click",()=>load().catch(e=>alertBox(e.message)));
 $("#logout").addEventListener("click",()=>{KEY="";try{sessionStorage.removeItem("rullan-admin")}catch(e){}location.reload()});
+
+/* ---- Shop orders ---- */
+let ORD=[],ordLoaded=false;
+const OL={new:"New",paid:"Paid",packed:"Packed",shipped:"Shipped",delivered:"Delivered",cancelled:"Cancelled"};
+const NEXT={new:["paid","Mark paid"],paid:["packed","Mark packed"],packed:["shipped","Mark shipped"],shipped:["delivered","Mark delivered"]};
+const peso=n=>"₱"+Number(n||0).toLocaleString("en-PH");
+const dt=iso=>new Date(iso).toLocaleString("en-PH",{month:"short",day:"numeric",year:"numeric",hour:"numeric",minute:"2-digit",timeZone:"Asia/Manila"});
+async function loadOrders(){$("#oRows").innerHTML=`<tr><td colspan="8" class="empty">Loading…</td></tr>`;const j=await (await api("/api/orders")).json();ORD=j.orders||[];ordLoaded=true;renderOrders()}
+function ordList(){const st=$("#oStatus").value,q=$("#oSearch").value.trim().toLowerCase();
+  return ORD.filter(o=>(st==="open"?!["delivered","cancelled"].includes(o.status):(!st||o.status===st))&&(!q||[o.ref,o.name,o.phone,o.email,o.addr].join(" ").toLowerCase().includes(q)))}
+function renderOrders(){
+  const live=ORD.filter(o=>o.status!=="cancelled"),month=new Date(Date.now()+8*3600e3).toISOString().slice(0,7);
+  $("#oKpis").innerHTML=[["New (to check payment)",ORD.filter(o=>o.status==="new").length],["To pack / ship",ORD.filter(o=>["paid","packed"].includes(o.status)).length],["In transit",ORD.filter(o=>o.status==="shipped").length],["Sales this month (paid+)",peso(live.filter(o=>o.status!=="new"&&String(o.createdAt).slice(0,7)===month).reduce((t,o)=>t+(o.total||0),0))]].map(([l,v])=>`<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join("");
+  const tb=$("#oRows");tb.innerHTML="";const list=ordList();
+  if(!list.length){tb.innerHTML=`<tr><td colspan="8" class="empty">${ORD.length?"No orders match these filters.":"No shop orders yet."}</td></tr>`;return}
+  list.forEach(o=>{
+    const tr=document.createElement("tr");
+    const cell=(main,sub)=>{const td=document.createElement("td");const d=document.createElement("div");d.textContent=main;td.appendChild(d);if(sub){const x=document.createElement("small");x.textContent=sub;x.style.whiteSpace="pre-line";td.appendChild(x)}return td};
+    tr.appendChild(cell(dt(o.createdAt),o.ref));
+    tr.appendChild(cell(o.name,`${o.phone}${o.email?"\n"+o.email:""}`));
+    const it=document.createElement("td");const ul=document.createElement("ul");ul.className="items";(o.items||[]).forEach(i=>{const li=document.createElement("li");li.textContent=`${i.q} × ${i.name}`;ul.appendChild(li)});it.appendChild(ul);tr.appendChild(it);
+    tr.appendChild(cell(peso(o.total),o.shipping?`incl. ${peso(o.shipping)} shipping`:"Free shipping"));
+    tr.appendChild(cell(o.pay||"—",o.notes?"Note: "+o.notes:""));
+    tr.appendChild(cell(o.addr||"—",o.tracking?"Tracking: "+o.tracking:""));
+    const stt=document.createElement("td");const pill=document.createElement("span");pill.className="pill o-"+(o.status||"new");pill.textContent=OL[o.status]||o.status;stt.appendChild(pill);
+    if(o.history&&o.history.length>1){const h=document.createElement("div");h.className="hist";h.textContent=o.history.slice(1).map(x=>`${dt(x.at)}: ${x.status?OL[x.status]:"Note"}${x.tracking?" ("+x.tracking+")":""}${x.note?" · "+x.note:""}`).join("\n");stt.appendChild(h)}
+    tr.appendChild(stt);
+    const at=document.createElement("td");const acts=document.createElement("div");acts.className="acts";
+    const nx=NEXT[o.status||"new"];
+    if(nx){let trk=null;if(nx[0]==="shipped"){trk=document.createElement("input");trk.className="trk";trk.placeholder="Tracking no. (optional)";trk.setAttribute("aria-label","Tracking number");acts.appendChild(trk)}
+      const b=document.createElement("button");b.className="btn btn-red";b.type="button";b.textContent=nx[1];b.addEventListener("click",()=>ordAct(o,nx[0],b,{tracking:trk?trk.value:""}));acts.appendChild(b)}
+    const n=document.createElement("button");n.className="btn btn-line";n.type="button";n.textContent="Add note";n.addEventListener("click",()=>{const t=prompt("Note for "+o.ref);if(t&&t.trim())ordAct(o,"note",n,{note:t.trim()})});acts.appendChild(n);
+    if(!["delivered","cancelled"].includes(o.status)){const c=document.createElement("button");c.className="btn btn-line";c.type="button";c.textContent="Cancel";c.addEventListener("click",()=>{if(c.dataset.arm!=="1"){c.dataset.arm="1";c.textContent="Confirm cancel";return}ordAct(o,"cancelled",c)});acts.appendChild(c)}
+    at.appendChild(acts);tr.appendChild(at);tb.appendChild(tr);
+  });
+}
+async function ordAct(o,action,btn,extra={}){const lbl=btn.textContent;btn.disabled=true;btn.textContent="Saving…";
+  try{const j=await (await api("/api/orders",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({ref:o.ref,action,...extra})})).json();Object.assign(o,j.order);renderOrders()}
+  catch(e){$("#oRows").insertAdjacentHTML("afterbegin",`<tr><td colspan="8" class="err" style="padding:12px 14px">${e.message.replace(/</g,"&lt;")}</td></tr>`);btn.disabled=false;btn.textContent=lbl}}
+function csv(){const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const rows=[["Date (PHT)","Ref","Status","Customer","Phone","Email","Items","Subtotal","Shipping","Total","Payment","Address","Tracking","Notes"]].concat(ordList().map(o=>[dt(o.createdAt),o.ref,OL[o.status]||o.status,o.name,o.phone,o.email,(o.items||[]).map(i=>`${i.q} x ${i.name}`).join("; "),o.subtotal,o.shipping,o.total,o.pay,o.addr,o.tracking,o.notes]));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+rows.map(r=>r.map(esc).join(",")).join("\r\n")],{type:"text/csv"}));a.download=`shop-orders-${today}.csv`;a.click();}
+function showTab(t){document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===t?"true":"false"));$("#app").hidden=t!=="app";$("#orders").hidden=t!=="orders";
+  if(t==="orders"&&!ordLoaded)loadOrders().catch(e=>{$("#oRows").innerHTML=`<tr><td colspan="8" class="err" style="padding:12px 14px">${e.message.replace(/</g,"&lt;")}</td></tr>`});try{sessionStorage.setItem("rullan-tab",t)}catch(e){}}
+document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
+["oStatus","oSearch"].forEach(id=>$("#"+id).addEventListener("input",renderOrders));
+$("#oRefresh").addEventListener("click",()=>loadOrders().catch(e=>alert(e.message)));
+$("#oCsv").addEventListener("click",csv);
 async function start(){
-  try{await load();ghlCheck();$("#login").hidden=true;$("#app").hidden=false;$("#logout").hidden=false;try{sessionStorage.setItem("rullan-admin",KEY)}catch(e){}}
-  catch(e){$("#app").hidden=true;$("#login").hidden=false;$("#loginErr").textContent=e.message;}
+  try{await load();ghlCheck();$("#login").hidden=true;$("#tabs").hidden=false;$("#logout").hidden=false;let t="app";try{t=sessionStorage.getItem("rullan-tab")||"app"}catch(e){}showTab(t);try{sessionStorage.setItem("rullan-admin",KEY)}catch(e){}}
+  catch(e){$("#app").hidden=true;$("#orders").hidden=true;$("#tabs").hidden=true;$("#login").hidden=false;$("#loginErr").textContent=e.message;}
 }
 $("#login").addEventListener("submit",e=>{e.preventDefault();KEY=$("#key").value;$("#loginErr").textContent="";start()});
 if(KEY)start();

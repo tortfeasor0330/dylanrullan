@@ -1,13 +1,8 @@
-import { timingSafeEqual } from "node:crypto";
 import { store, configured, send } from "./_store.js";
 import { notify, bookingPayload } from "./_ghl.js";
 import { ghlEnabled, syncBooking, syncStatus, ghlStatus } from "./_ghlapi.js";
+import { authed } from "./_auth.js";
 // Clinic-only endpoint. Header "x-admin-key" must equal the ADMIN_KEY environment variable.
-function authed(req) {
-  const want = process.env.ADMIN_KEY || "", got = String(req.headers["x-admin-key"] || "");
-  if (!want || got.length !== want.length) return false;
-  return timingSafeEqual(Buffer.from(got), Buffer.from(want));
-}
 export default async function handler(req, res) {
   if (!configured()) return send(res, 503, { error: "Booking storage is not set up yet." });
   if (!process.env.ADMIN_KEY) return send(res, 503, { error: "Set the ADMIN_KEY environment variable in Vercel first." });

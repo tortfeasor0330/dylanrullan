@@ -45,3 +45,9 @@ Redeploy after adding or changing a variable.
 
 ### Order webhook fields
 `event, ref, status, first_name, last_name, full_name, email, phone (+63…), address, payment_method, notes, items_summary, item_count, subtotal, shipping, total, currency, items[], source, created_at`
+
+## Shop orders database
+Orders from `/shop` are stored in Vercel Blob (`orders/TOH-….json`) and managed at `/admin` → **Shop orders**:
+statuses New → Paid → Packed → Shipped (with tracking no.) → Delivered, or Cancelled; notes; search; CSV export.
+Prices and shipping (₱150, free from ₱5,000) are set on the server in `api/order.js` (`CATALOG`) — keep them in step with `SHOP` in `shop.html`.
+Each status change adds a tag + note on the GHL contact (`order paid`, `order shipped`, …) and sends `order.<status>` to `GHL_ORDER_WEBHOOK_URL`.
