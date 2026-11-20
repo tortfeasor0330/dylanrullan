@@ -1175,10 +1175,11 @@ async function submitBooking(){
       await ref.set({date:b.date,time:b.time,mode:b.mode,uid:state.uid,createdAt:b.createdAt});
       await state.db.doc(`requests/${state.uid}/bookings/${b.id}`).set({...b,ref:bref,status,payment});
       showDone(b,{ref:bref,status,saved:true,payment});
-    } else if(state.api){
+    } else if(state.api || !(window.claude && window.claude.use)){
       const r=await fetch("/api/book",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({booking:b,payment:free?null:{...payment,screenshot:PAY.dataUrl}})});
       const j=await r.json().catch(()=>({}));
       if(r.status===409){ state.taken.set(b.id,{}); renderCal(); renderSlots(); throw {userMsg:j.error||"That time was just booked. Go back and pick another slot."}; }
+      if(r.status===404 && !state.api){ showDone(b,{ref:makeRef(b),status:"not_sent",saved:false,payment}); PAY.dataUrl=null; PAY.fileName=""; return; }
       if(!r.ok) throw {userMsg:j.error||"The booking could not be saved. Please try again."};
       state.taken.set(b.id,{}); renderCal(); renderSlots();
       showDone(b,{ref:j.ref,status:j.status,saved:true,payment});
@@ -1200,7 +1201,7 @@ function gcalLink(b){
   return "https://calendar.google.com/calendar/render?"+p.toString();
 }
 function summaryText(b,o){
-  return `Appointment request ${o&&o.ref?o.ref+" ":""}– Dr. Dylan Thor R. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.fee?`\nFee: ${peso(b.fee)}${o&&o.payment?" paid by "+o.payment.method+(o.payment.refNo?" (ref "+o.payment.refNo+")":""):""}`:""}${b.notes?"\nNotes: "+b.notes:""}`;
+  return `Appointment request ${o&&o.ref?o.ref+" ":""}– Dr. Dylan Thor R. Rullan\n${PRACTICE.typeNames[b.type]} (${b.mode==="clinic"?"Face-to-face":"Online, "+b.platform})\n${longDate(b.date)}, ${t12(b.time)} PHT${b.mode==="clinic"?"\nClinic: "+PRACTICE.address:""}\nConcern: ${b.concern}\nName: ${b.name}\nEmail: ${b.email}\nPhone: ${b.phone}${b.fee?`\nFee: ${peso(b.fee)}${o&&o.payment?" paid by "+o.payment.method+(o.payment.refNo?" (ref "+o.payment.refNo+")":""):""}`:""}${b.notes?"\nNotes: "+b.notes:""}`;
 }
 function showDone(b,o){
   const v=$("#confirmView"), pend=o.status==="pending_verification", loc=localLabel(b.date,b.time);
@@ -1217,6 +1218,7 @@ function showDone(b,o){
       <div><span>Appointment</span><b>${PRACTICE.typeNames[b.type]} · ${PRACTICE.durations[b.type]} min</b></div>
       <div><span>Format</span><b>${b.mode==="clinic"?"Face-to-face":"Online · "+esc(b.platform)}</b></div>
       <div><span>Date &amp; time</span><b>${longDate(b.date)}<br>${t12(b.time)} PHT${loc?"<br><small style='color:var(--muted);font-weight:400'>"+loc+"</small>":""}</b></div>
+      <div><span>${b.mode==="clinic"?"Clinic address":"Where"}</span><b>${b.mode==="clinic"?`${esc(PRACTICE.address)}<br><a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(PRACTICE.address)}" target="_blank" rel="noopener" style="font-weight:600;font-size:13px">Open in Google Maps ↗</a>`:"Online · video link sent by email"}</b></div>
       <div><span>Fee</span><b>${b.fee?peso(b.fee)+(o.payment?" · "+esc(o.payment.method):""):"Free"}</b></div>
     </div>
     <div class="confirm-actions">
@@ -1307,6 +1309,7 @@ renderCal(); renderSlots(); renderSummary();
   if(!c || !c.use){
     try{
       const r=await fetch("/api/availability",{cache:"no-store"});
+      if(!r.ok) console.warn("Booking availability unavailable:", r.status, await r.clone().text().catch(()=>""));
       if(r.ok){ const j=await r.json(); state.api=true; state.taken=new Map((j.taken||[]).map(id=>[id,{}])); renderCal(); renderSlots(); setStatus(true,"Live availability · booked times are hidden"); return; }
     }catch(e){}
     setStatus(false,"Choose a time and send your request. The clinic confirms every booking by email or phone."); return;
