@@ -78,7 +78,7 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     <button class="btn btn-red" type="submit">Sign in</button>
     <div class="err" id="loginErr" role="alert"></div>
   </form>
-  <div class="tabs" id="tabs" role="tablist" hidden><button class="tab" role="tab" aria-selected="true" data-tab="app" type="button">Appointments</button><button class="tab" role="tab" aria-selected="false" data-tab="orders" type="button">Shop orders</button></div>
+  <div class="tabs" id="tabs" role="tablist" hidden><button class="tab" role="tab" aria-selected="true" data-tab="app" type="button">Appointments</button><button class="tab" role="tab" aria-selected="false" data-tab="orders" type="button">Shop orders</button><button class="tab" role="tab" aria-selected="false" data-tab="webinar" type="button">Webinar</button></div>
   <section id="app" hidden>
     <div class="bar"><h1>Appointments</h1>
       <div class="filters">
@@ -102,6 +102,18 @@ dialog::backdrop{background:rgba(0,0,0,.6)}
     </div>
     <div class="kpis" id="oKpis"></div>
     <div class="tablebox"><table><thead><tr><th>Date &amp; ref</th><th>Customer</th><th>Items</th><th>Total</th><th>Payment</th><th>Delivery address</th><th>Status</th><th></th></tr></thead><tbody id="oRows"></tbody></table></div>
+  </section>
+  <section id="webinar" hidden>
+    <div class="bar"><h1 id="wTitle">Webinar registrants</h1>
+      <div class="filters">
+        <input type="search" id="wSearch" placeholder="Search name, email, phone" aria-label="Search registrants">
+        <button class="btn btn-line" id="wRefresh" type="button">Refresh</button>
+        <button class="btn btn-line" id="wCsv" type="button">Export CSV</button>
+        <a class="btn btn-line" href="/webinar" target="_blank" rel="noopener">Open page ↗</a>
+      </div>
+    </div>
+    <div class="kpis" id="wKpis"></div>
+    <div class="tablebox"><table><thead><tr><th>Registered</th><th>Name</th><th>Email</th><th>Mobile</th><th>WebinarKit</th><th>GoHighLevel</th></tr></thead><tbody id="wRows"></tbody></table></div>
   </section>
 </div></main>
 <dialog id="viewer"><img id="viewerImg" alt="Payment screenshot"></dialog>
@@ -218,7 +230,30 @@ async function ordAct(o,action,btn,extra={}){const lbl=btn.textContent;btn.disab
 function csv(){const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
   const rows=[["Date (PHT)","Ref","Status","Customer","Phone","Email","Items","Subtotal","Shipping","Total","Payment","Address","Tracking","Notes"]].concat(ordList().map(o=>[dt(o.createdAt),o.ref,OL[o.status]||o.status,o.name,o.phone,o.email,(o.items||[]).map(i=>`${i.q} x ${i.name}`).join("; "),o.subtotal,o.shipping,o.total,o.pay,o.addr,o.tracking,o.notes]));
   const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+rows.map(r=>r.map(esc).join(",")).join("\r\n")],{type:"text/csv"}));a.download=`shop-orders-${today}.csv`;a.click();}
-function showTab(t){document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===t?"true":"false"));$("#app").hidden=t!=="app";$("#orders").hidden=t!=="orders";
+
+/* ---- Webinar ---- */
+let WREG=[],WINFO=null,wLoaded=false,WKCONF=false;
+async function loadWebinar(){$("#wRows").innerHTML=`<tr><td colspan="6" class="empty">Loading…</td></tr>`;const j=await (await api("/api/webinar")).json();WREG=j.registrants||[];WINFO=j.webinar;WKCONF=j.webinarKitConfigured;wLoaded=true;renderWebinar()}
+function wList(){const q=$("#wSearch").value.trim().toLowerCase();return WREG.filter(r=>!q||[r.name,r.email,r.phone].join(" ").toLowerCase().includes(q))}
+function renderWebinar(){
+  if(WINFO){$("#wTitle").textContent=WINFO.title;}
+  const start=WINFO?new Date(WINFO.start):null,dayAgo=Date.now()-864e5;
+  $("#wKpis").innerHTML=[["Registrants",WREG.length],["Last 24 hours",WREG.filter(r=>new Date(r.registeredAt)>dayAgo).length],["In WebinarKit",WKCONF?WREG.filter(r=>r.webinarKit&&r.webinarKit.ok).length:"Not set up"],["Webinar starts",start?start.toLocaleString("en-PH",{month:"short",day:"numeric",hour:"numeric",minute:"2-digit",timeZone:"Asia/Manila"})+" PHT":"–"]].map(([l,v])=>`<div class="kpi"><b>${v}</b><span>${l}</span></div>`).join("");
+  const tb=$("#wRows");tb.innerHTML="";const list=wList();
+  if(!list.length){tb.innerHTML=`<tr><td colspan="6" class="empty">${WREG.length?"No registrants match.":"No registrations yet."}</td></tr>`;return}
+  list.forEach(r=>{const tr=document.createElement("tr");
+    const td=(t,sub,cls)=>{const c=document.createElement("td");const d=document.createElement("div");d.textContent=t;if(cls)d.style.color=cls;c.appendChild(d);if(sub){const x=document.createElement("small");x.textContent=sub;c.appendChild(x)}tr.appendChild(c)};
+    td(dt(r.registeredAt),r.source||"");td(r.name);td(r.email);td(r.phone);
+    const wk=r.webinarKit;td(!wk?"–":wk.ok?"✓ Registered":"⚠ Not registered",wk&&!wk.ok?wk.error:"",wk?(wk.ok?"#2F7A55":"#B8321F"):"");
+    td(r.ghlContactId?"✓ Contact":"–",r.ghlError||"",r.ghlContactId?"#2F7A55":"");
+    tb.appendChild(tr)});
+}
+document.getElementById("wSearch").addEventListener("input",renderWebinar);
+document.getElementById("wRefresh").addEventListener("click",()=>loadWebinar().catch(e=>alert(e.message)));
+document.getElementById("wCsv").addEventListener("click",()=>{const esc=v=>`"${String(v??"").replace(/"/g,'""')}"`;
+  const rows=[["Registered (PHT)","First name","Last name","Email","Mobile","WebinarKit","GHL contact"]].concat(wList().map(r=>[dt(r.registeredAt),r.first,r.last,r.email,r.phone,r.webinarKit?(r.webinarKit.ok?"registered":"failed"):"",r.ghlContactId||""]));
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob(["\ufeff"+rows.map(r=>r.map(esc).join(",")).join("\r\n")],{type:"text/csv"}));a.download=`webinar-registrants-${today}.csv`;a.click()});
+function showTab(t){document.querySelectorAll(".tab").forEach(b=>b.setAttribute("aria-selected",b.dataset.tab===t?"true":"false"));$("#app").hidden=t!=="app";$("#orders").hidden=t!=="orders";$("#webinar").hidden=t!=="webinar";if(t==="webinar"&&!wLoaded)loadWebinar().catch(e=>{$("#wRows").innerHTML=`<tr><td colspan="6" class="err" style="padding:12px 14px">${e.message.replace(/</g,"&lt;")}</td></tr>`});
   if(t==="orders"&&!ordLoaded)loadOrders().catch(e=>{$("#oRows").innerHTML=`<tr><td colspan="8" class="err" style="padding:12px 14px">${e.message.replace(/</g,"&lt;")}</td></tr>`});try{sessionStorage.setItem("rullan-tab",t)}catch(e){}}
 document.querySelectorAll(".tab").forEach(b=>b.addEventListener("click",()=>showTab(b.dataset.tab)));
 ["oStatus","oSearch"].forEach(id=>$("#"+id).addEventListener("input",renderOrders));
@@ -226,7 +261,7 @@ $("#oRefresh").addEventListener("click",()=>loadOrders().catch(e=>alert(e.messag
 $("#oCsv").addEventListener("click",csv);
 async function start(){
   try{await load();ghlCheck();$("#login").hidden=true;$("#tabs").hidden=false;$("#logout").hidden=false;let t="app";try{t=sessionStorage.getItem("rullan-tab")||"app"}catch(e){}showTab(t);try{sessionStorage.setItem("rullan-admin",KEY)}catch(e){}}
-  catch(e){$("#app").hidden=true;$("#orders").hidden=true;$("#tabs").hidden=true;$("#login").hidden=false;$("#loginErr").textContent=e.message;}
+  catch(e){$("#app").hidden=true;$("#orders").hidden=true;$("#webinar").hidden=true;$("#tabs").hidden=true;$("#login").hidden=false;$("#loginErr").textContent=e.message;}
 }
 $("#login").addEventListener("submit",e=>{e.preventDefault();KEY=$("#key").value;$("#loginErr").textContent="";start()});
 if(KEY)start();

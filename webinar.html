@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Your Blood Flow Is Your Lifeline | Free Webinar with Dr. Rullan</title>
+<meta name="description" content="Free live webinar with Dr. Dylan Thor R. Rullan: how your circulation works, the warning signs people ignore, and everyday habits that support healthy blood flow.">
+<meta property="og:title" content="Your Blood Flow Is Your Lifeline: Free Live Webinar">
+<meta property="og:description" content="Join Dr. Dylan Thor R. Rullan for a free live talk on circulation, blood vessels and everyday habits for healthy blood flow.">
+<meta property="og:image" content="images/dr-rullan-about.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
+<style>
+:root{
+  --red:#D9412E;--red-deep:#B8321F;--green:#2F7A55;--green-deep:#244B3A;--green-soft:#E3F1E8;
+  --gold:#C6A96B;--gold-soft:#F4EEDF;--bg:#FFFFFF;--surface:#EEF3EC;--card:#FFFFFF;--fg:#1B2220;--muted:#5E6864;--line:#DCE4D8;
+  --band:#244B3A;--band-2:#2C5745;--band-fg:#F3F6F4;--band-muted:#C9D8CF;--band-line:#3B6A55;--link:#2F7A55;
+  --f:"Poppins",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--hand:"Caveat","Segoe Print",cursive;
+  --shadow:0 18px 50px rgba(20,30,25,.12);color-scheme:light
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1412;--surface:#151C19;--card:#1A2320;--fg:#E8EDEA;--muted:#A3AEA8;--line:#2A3530;--green-soft:#1C3328;--gold-soft:#3A3117;--link:#6CC596;--shadow:0 18px 50px rgba(0,0,0,.4);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1412;--surface:#151C19;--card:#1A2320;--fg:#E8EDEA;--muted:#A3AEA8;--line:#2A3530;--green-soft:#1C3328;--gold-soft:#3A3117;--link:#6CC596;--shadow:0 18px 50px rgba(0,0,0,.4);color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:var(--f);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--link)}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:max(16px,env(safe-area-inset-left,0px))}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.h2{font-size:clamp(28px,4vw,40px);line-height:1.15;margin:10px 0 0;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.lead{color:var(--muted);font-size:17px;max-width:62ch;margin:14px 0 0}
+section{padding:84px 0}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;border:0;cursor:pointer;text-decoration:none;font:inherit;font-weight:700;font-size:15px;border-radius:999px;padding:15px 28px;transition:transform .15s,background .15s,box-shadow .15s}
+.btn-red{background:var(--red);color:#fff;box-shadow:0 10px 24px rgba(217,65,46,.3)}
+.btn-red:hover{background:var(--red-deep);transform:translateY(-1px)}
+.btn svg{width:18px;height:18px}
+
+/* top bar */
+.top{position:absolute;inset:0 0 auto 0;z-index:5}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:18px}
+.brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:15px;line-height:1.2}
+.brand small{display:block;font-weight:500;font-size:11.5px;color:var(--gold);letter-spacing:.06em}
+.brand .mark{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center}
+.top a.back{color:#fff;font-size:13.5px;font-weight:600;text-decoration:none;opacity:.85}
+.top a.back:hover{opacity:1}
+
+/* hero */
+.hero{position:relative;background:var(--band);color:var(--band-fg);padding:120px 0 90px;overflow:hidden;isolation:isolate}
+.hero .flow{position:absolute;inset:auto -10% -30px -10%;height:340px;z-index:-1;opacity:.9}
+.hero .glow{position:absolute;width:720px;height:720px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(217,65,46,.28),transparent);z-index:-1}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:7px 14px}
+.pill .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(217,65,46,.6);animation:pulse 1.6s infinite}
+@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(217,65,46,0)}100%{box-shadow:0 0 0 0 rgba(217,65,46,0)}}
+.hero h1{font-size:clamp(40px,6.2vw,72px);line-height:1.02;letter-spacing:-.035em;margin:22px 0 0;font-weight:800;text-wrap:balance}
+.hero h1 .hand{font-family:var(--hand);font-weight:700;color:var(--gold);font-size:1.18em;letter-spacing:0;display:inline-block;transform:rotate(-2deg)}
+.hero .sub{font-size:18px;color:var(--band-muted);max-width:52ch;margin:20px 0 0}
+.when{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid var(--band-line);border-radius:14px;padding:10px 14px;font-weight:600;font-size:14.5px}
+.chip svg{width:20px;height:20px;color:var(--gold);flex:none}
+.chip small{display:block;font-weight:500;color:var(--band-muted);font-size:12px}
+.count{display:flex;gap:10px;margin-top:26px}
+.count div{min-width:74px;text-align:center;background:rgba(0,0,0,.18);border-radius:14px;padding:10px 8px}
+.count b{display:block;font-size:30px;line-height:1.1;font-variant-numeric:tabular-nums}
+.count span{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--band-muted)}
+.tentative{margin-top:12px;font-size:13px;color:var(--gold)}
+.host-mini{display:flex;align-items:center;gap:14px;margin-top:30px}
+.host-mini img{width:58px;height:58px;border-radius:50%;object-fit:cover;object-position:50% 18%;border:2px solid var(--gold)}
+.host-mini b{display:block;font-size:15px}.host-mini span{font-size:13px;color:var(--band-muted)}
+
+/* register card */
+.reg{background:var(--card);color:var(--fg);border-radius:24px;padding:30px;box-shadow:var(--shadow);position:relative}
+.reg .free{position:absolute;top:-16px;right:22px;background:var(--gold);color:#1B3A2D;font-weight:800;font-size:13px;letter-spacing:.1em;border-radius:999px;padding:8px 14px;transform:rotate(3deg);box-shadow:0 8px 18px rgba(0,0,0,.15)}
+.reg h2{margin:0;font-size:24px;line-height:1.2}
+.reg p.s{margin:8px 0 18px;color:var(--muted);font-size:14.5px}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+label{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.f{margin-bottom:14px}
+input[type=text],input[type=email],input[type=tel]{width:100%;font:inherit;font-size:15px;color:var(--fg);background:var(--bg);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;transition:border-color .15s,box-shadow .15s}
+input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(47,122,85,.15)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;color:var(--muted);font-weight:400;margin:4px 0 18px}
+.check input{margin-top:3px;width:18px;height:18px;accent-color:var(--green);flex:none}
+.reg .btn{width:100%}
+.msg{min-height:1.2em;margin-top:10px;font-size:13.5px;color:var(--red);text-align:center}
+.secure{display:flex;align-items:center;justify-content:center;gap:6px;margin-top:10px;font-size:12px;color:var(--muted)}
+.done{text-align:center}
+.done .tick{width:66px;height:66px;margin:0 auto 14px;border-radius:50%;background:var(--green-soft);color:var(--green);display:grid;place-items:center}
+.done .tick svg{width:30px;height:30px}
+.done .acts{display:flex;flex-direction:column;gap:10px;margin-top:18px}
+.btn-line{background:transparent;border:1.5px solid var(--line);color:var(--fg)}
+.btn-line:hover{border-color:var(--green)}
+
+/* learn */
+.learn{background:var(--surface)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
+.card{background:var(--card);border-radius:20px;padding:26px;box-shadow:0 2px 0 rgba(0,0,0,.02)}
+.card .n{font-family:var(--hand);font-size:42px;line-height:1;color:var(--red);font-weight:700}
+.card h3{margin:10px 0 6px;font-size:18px;line-height:1.3}
+.card p{margin:0;color:var(--muted);font-size:14.5px}
+.card.feature{background:var(--band);color:var(--band-fg);grid-row:span 2;display:flex;flex-direction:column;overflow:hidden;padding:0}
+.card.feature .in{padding:26px}
+.card.feature p{color:var(--band-muted)}
+.card.feature .n{color:var(--gold)}
+.card.feature img{margin-top:auto;width:100%;height:190px;object-fit:cover;object-position:50% 50%}
+.nobel{display:inline-flex;align-items:center;gap:8px;margin-top:14px;font-size:12.5px;font-weight:600;color:var(--gold);border:1px solid rgba(198,169,107,.45);border-radius:999px;padding:6px 12px}
+
+/* signs */
+.signs .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center}
+.signlist{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.sign{display:flex;gap:12px;align-items:center;background:var(--card);border:1.5px solid var(--line);border-radius:16px;padding:14px 16px;font-weight:600;font-size:15px}
+.sign i{width:38px;height:38px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;flex:none;font-style:normal;font-size:18px}
+.note{font-size:13px;color:var(--muted);margin-top:16px}
+
+/* who */
+.who{background:var(--surface)}
+.who .wrap{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.ticks{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:12px}
+.ticks li{display:flex;gap:12px;align-items:flex-start;font-size:16px}
+.ticks li::before{content:"";flex:none;width:24px;height:24px;margin-top:1px;border-radius:50%;background:var(--green-soft) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232F7A55' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/14px no-repeat}
+.agenda{background:var(--card);border-radius:20px;padding:26px}
+.agenda h3{margin:0 0 14px;font-size:18px}
+.agenda ol{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.agenda li{display:grid;grid-template-columns:76px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:15px}
+.agenda li:last-child{border-bottom:0}
+.agenda li b{color:var(--green);font-variant-numeric:tabular-nums;font-size:14px}
+
+/* host */
+.host .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:56px;align-items:center}
+.host .ph{position:relative}
+.host .ph img{border-radius:24px;width:100%;aspect-ratio:1/1.02;object-fit:cover;box-shadow:var(--shadow)}
+.host .ph .tag{position:absolute;left:18px;bottom:18px;background:var(--card);border-radius:14px;padding:10px 14px;box-shadow:var(--shadow);font-size:13px;line-height:1.35}
+.host .ph .tag b{display:block;font-size:14.5px}
+.creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.creds span{background:var(--gold-soft);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:600}
+
+/* faq */
+.faq .wrap{max-width:820px}
+details{border-bottom:1px solid var(--line);padding:18px 0}
+summary{cursor:pointer;font-weight:600;font-size:17px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";font-size:24px;line-height:1;color:var(--green)}
+details[open] summary::after{content:"–"}
+details p{margin:10px 0 0;color:var(--muted)}
+
+/* final */
+.final{background:var(--band);color:var(--band-fg);text-align:center;position:relative;overflow:hidden;isolation:isolate}
+.final .flow{position:absolute;inset:auto -10% -40px -10%;height:260px;z-index:-1;opacity:.7}
+.final h2{font-size:clamp(30px,4.5vw,48px);margin:0;line-height:1.1;letter-spacing:-.02em}
+.final p{color:var(--band-muted);margin:14px auto 28px;max-width:52ch}
+.disc{background:var(--surface);font-size:12.5px;color:var(--muted);padding:28px 0}
+.disc p{margin:0 0 8px;max-width:90ch}
+footer{background:#1A3729;color:#C9D8CF;font-size:13px;padding:22px 0}
+footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
+footer a{color:#fff}
+
+@media (max-width:960px){
+  .hero{padding:100px 0 70px}
+  .hero .wrap,.signs .wrap,.who .wrap,.host .wrap{grid-template-columns:1fr;gap:36px}
+  .cards{grid-template-columns:1fr 1fr}.card.feature{grid-row:auto;grid-column:1/-1}
+  .host .ph{max-width:420px}
+}
+@media (max-width:600px){
+  section{padding:64px 0}
+  .cards,.signlist,.row{grid-template-columns:1fr}
+  .count div{min-width:0;flex:1}
+  .reg{padding:24px 18px}
+  .top a.back span{display:none}
+}
+.sticky{position:fixed;left:12px;right:12px;bottom:max(12px,env(safe-area-inset-bottom));z-index:20;display:none;box-shadow:0 12px 30px rgba(0,0,0,.25)}
+@media (max-width:960px){.sticky.on{display:flex}body{padding-bottom:84px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-cal" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></g></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+  <symbol id="i-video" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="M16 10l6-3v10l-6-3"/></g></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-heart" viewBox="0 0 24 24"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z" fill="currentColor"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+</svg>
+
+<header class="top"><div class="wrap">
+  <a class="brand" href="/"><span class="mark"><svg width="20" height="20" style="color:var(--gold)"><use href="#i-heart"/></svg></span><span>Dr. Dylan Thor R. Rullan<small>INTEGRATIVE &amp; NATUROPATHIC MEDICINE</small></span></a>
+  <a class="back" href="/">← <span>Clinic website</span></a>
+</div></header>
+
+<main>
+<section class="hero" aria-labelledby="t">
+  <div class="glow"></div>
+  <svg class="flow" viewBox="0 0 1440 340" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 210 C 220 120, 380 300, 620 200 S 1020 90, 1440 190" fill="none" stroke="#C6A96B" stroke-opacity=".35" stroke-width="2"/>
+    <path d="M0 250 C 260 170, 420 320, 700 240 S 1080 150, 1440 240" fill="none" stroke="#D9412E" stroke-opacity=".55" stroke-width="3"/>
+    <path d="M0 290 C 240 230, 460 340, 760 280 S 1140 210, 1440 280" fill="none" stroke="#F3F6F4" stroke-opacity=".12" stroke-width="2"/>
+    <path d="M0 250 l120 0 l18 -46 l22 92 l20 -70 l14 24 l140 0" fill="none" stroke="#D9412E" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" opacity=".8"/>
+  </svg>
+  <div class="wrap">
+    <div>
+      <span class="pill"><span class="dot"></span>Free live webinar</span>
+      <h1 id="t">Your Blood Flow Is Your <span class="hand">Lifeline</span></h1>
+      <p class="sub">Every organ in your body depends on healthy circulation. Join Dr. Dylan Thor R. Rullan for a practical, easy-to-follow talk on how your blood vessels work, the warning signs people often ignore, and the everyday habits that support healthy blood flow.</p>
+      <div class="when">
+        <span class="chip"><svg><use href="#i-cal"/></svg><span id="wDate">Saturday</span></span>
+        <span class="chip"><svg><use href="#i-clock"/></svg><span id="wTime">7:00 PM PHT</span></span>
+        <span class="chip"><svg><use href="#i-video"/></svg><span>Online · join from your phone<small>Link sent after you register</small></span></span>
+      </div>
+      <div class="count" id="count" aria-label="Time until the webinar starts">
+        <div><b id="cD">–</b><span>Days</span></div><div><b id="cH">–</b><span>Hours</span></div><div><b id="cM">–</b><span>Mins</span></div><div><b id="cS">–</b><span>Secs</span></div>
+      </div>
+      <div class="tentative" id="tentative" hidden>Schedule to be confirmed. We'll email you if anything changes.</div>
+      <div class="host-mini"><img src="images/dr-rullan-about.jpg" alt="" width="58" height="58"><div><b>Hosted by Dr. Dylan Thor R. Rullan</b><span>Doctor of Integrative Medicine · PhD in Naturopathy</span></div></div>
+    </div>
+
+    <div class="reg" id="register">
+      <span class="free">FREE</span>
+      <div id="regForm">
+        <h2>Save your free seat</h2>
+        <p class="s">Register in 30 seconds and we'll send your join link and reminders.</p>
+        <form id="form" novalidate>
+          <div class="row">
+            <div class="f"><label for="first">First name</label><input type="text" id="first" autocomplete="given-name" required maxlength="60"></div>
+            <div class="f"><label for="last">Last name</label><input type="text" id="last" autocomplete="family-name" required maxlength="60"></div>
+          </div>
+          <div class="f"><label for="email">Email</label><input type="email" id="email" autocomplete="email" required maxlength="160" placeholder="you@example.com"></div>
+          <div class="f"><label for="phone">Mobile number</label><input type="tel" id="phone" autocomplete="tel" required maxlength="20" placeholder="0917 123 4567"></div>
+          <label class="check"><input type="checkbox" id="consent" required><span>Send me the join link and reminders by email and SMS. I can unsubscribe anytime.</span></label>
+          <button class="btn btn-red" type="submit" id="go">Reserve my seat <svg><use href="#i-arrow"/></svg></button>
+          <div class="msg" id="msg" role="alert"></div>
+          <div class="secure"><svg width="14" height="14"><use href="#i-lock"/></svg>Your details stay with Dr. Rullan's clinic.</div>
+        </form>
+      </div>
+      <div class="done" id="regDone" hidden></div>
+    </div>
+  </div>
+</section>
+
+<section class="learn" aria-labelledby="learnT">
+  <div class="wrap">
+    <span class="eyebrow">What you'll learn</span>
+    <h2 class="h2" id="learnT">One evening that could change how you care for your heart and blood vessels</h2>
+    <div class="cards">
+      <article class="card feature">
+        <div class="in">
+          <div class="n">01</div>
+          <h3>Nitric oxide: the molecule that keeps blood vessels relaxed</h3>
+          <p>Learn what nitric oxide does inside your blood vessels, why its levels tend to drop with age and lifestyle, and which daily habits help your body make more of it.</p>
+          <span class="nobel">🏅 Its role in blood vessels won the 1998 Nobel Prize in Medicine</span>
+        </div>
+        <img src="images/shop/arteries.jpg" alt="Illustration of a healthy artery next to a narrowed artery" width="800" height="800" loading="lazy">
+      </article>
+      <article class="card"><div class="n">02</div><h3>How your circulation really works</h3><p>Your heart, arteries and tiny capillaries, explained simply, and why every organ depends on them.</p></article>
+      <article class="card"><div class="n">03</div><h3>Warning signs people often ignore</h3><p>Cold hands and feet, numbness, swelling and tiredness, and when it's time to see a doctor.</p></article>
+      <article class="card"><div class="n">04</div><h3>Blood pressure, sugar &amp; cholesterol</h3><p>How these three numbers affect the walls of your blood vessels over the years.</p></article>
+      <article class="card"><div class="n">05</div><h3>Daily habits for healthy blood flow</h3><p>Food, movement, sleep and stress: simple changes you can start the next morning.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="signs" aria-labelledby="signsT">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Listen to your body</span>
+      <h2 class="h2" id="signsT">Does any of this sound familiar?</h2>
+      <p class="lead">These can be signs that your circulation needs attention. In the webinar, Dr. Rullan explains what they can mean and what you can do about them.</p>
+      <p class="note">These signs can have many causes. If you notice them, please have them checked by a doctor.</p>
+    </div>
+    <div class="signlist">
+      <div class="sign"><i>🖐️</i>Cold hands or feet</div>
+      <div class="sign"><i>⚡</i>Tingling or numbness</div>
+      <div class="sign"><i>🦵</i>Leg cramps when walking</div>
+      <div class="sign"><i>💧</i>Swollen ankles or feet</div>
+      <div class="sign"><i>😮‍💨</i>Tiring easily</div>
+      <div class="sign"><i>🩹</i>Wounds that heal slowly</div>
+      <div class="sign"><i>🧠</i>Brain fog or dizziness</div>
+      <div class="sign"><i>🩺</i>High blood pressure readings</div>
+    </div>
+  </div>
+</section>
+
+<section class="who" aria-labelledby="whoT">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Who should attend</span>
+      <h2 class="h2" id="whoT">This webinar is for you if…</h2>
+      <ul class="ticks">
+        <li>You have high blood pressure, diabetes or high cholesterol</li>
+        <li>Heart disease or stroke runs in your family</li>
+        <li>You're over 40 and want to stay active and independent</li>
+        <li>You care for a parent or loved one with a heart condition</li>
+        <li>You want clear, practical health advice without the jargon</li>
+      </ul>
+    </div>
+    <div class="agenda">
+      <h3>What happens during the session</h3>
+      <ol>
+        <li><b>0:00</b><span>Welcome, and why blood flow matters</span></li>
+        <li><b>0:10</b><span>Your circulation, explained simply</span></li>
+        <li><b>0:30</b><span>Nitric oxide and healthy blood vessels</span></li>
+        <li><b>0:50</b><span>Everyday habits that support circulation</span></li>
+        <li><b>1:10</b><span>Live Q&amp;A with Dr. Rullan</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="host" aria-labelledby="hostT">
+  <div class="wrap">
+    <div class="ph">
+      <img src="images/dr-rullan-about.jpg" alt="Dr. Dylan Thor R. Rullan in a white coat" width="560" height="574" loading="lazy">
+      <div class="tag"><b>Dr. Dylan Thor R. Rullan</b>Your host</div>
+    </div>
+    <div>
+      <span class="eyebrow">Meet your host</span>
+      <h2 class="h2" id="hostT">Dr. Dylan Thor R. Rullan</h2>
+      <p class="lead">Dr. Rullan is a Doctor of Integrative Medicine and holds a PhD in Naturopathy. He has spent his career helping patients take a more active role in their health through prevention, nutrition and lifestyle, alongside the care they receive from their doctors.</p>
+      <p class="lead">In this webinar he shares the same practical guidance he gives patients in his clinic in Baguio City.</p>
+      <div class="creds"><span>Doctor of Integrative Medicine</span><span>PhD in Naturopathy</span><span>Naturopathic Doctor (Adv. Diploma)</span><span>Doctor of Humanities</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" aria-labelledby="faqT">
+  <div class="wrap">
+    <span class="eyebrow">Questions</span>
+    <h2 class="h2" id="faqT">Before you join</h2>
+    <details><summary>Is the webinar really free?</summary><p>Yes. The live webinar is free. Just register to get your join link.</p></details>
+    <details><summary>How do I join?</summary><p>After you register, we'll email you a personal join link. You can watch from your phone, tablet or computer. There's nothing to install.</p></details>
+    <details><summary>Can I ask Dr. Rullan questions?</summary><p>Yes. The last part of the session is a live Q&amp;A. For questions about your own condition, you can book a consultation after the webinar.</p></details>
+    <details><summary>Should I stop or change my medicines after the webinar?</summary><p>No. The webinar is for education. Please don't stop or change any prescribed medicine without talking to your doctor first.</p></details>
+    <details><summary>Can I invite family members?</summary><p>Of course. Share this page so they can register with their own email and get their own join link.</p></details>
+  </div>
+</section>
+
+<section class="final">
+  <svg class="flow" viewBox="0 0 1440 260" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 170 C 260 90, 420 260, 700 170 S 1080 80, 1440 170" fill="none" stroke="#D9412E" stroke-opacity=".5" stroke-width="3"/>
+    <path d="M0 210 C 240 150, 460 260, 760 200 S 1140 130, 1440 200" fill="none" stroke="#C6A96B" stroke-opacity=".3" stroke-width="2"/>
+  </svg>
+  <div class="wrap">
+    <h2>Take care of your lifeline</h2>
+    <p id="finalWhen">Join Dr. Rullan live, for free.</p>
+    <a class="btn btn-red" href="#register" id="finalBtn">Reserve my free seat <svg><use href="#i-arrow"/></svg></a>
+  </div>
+</section>
+</main>
+
+<a class="btn btn-red sticky" id="sticky" href="#register">Reserve my free seat <svg><use href="#i-arrow"/></svg></a>
+<div class="disc"><div class="wrap">
+  <p><b>Health disclaimer:</b> This webinar is for general education only and is not medical advice, diagnosis or treatment. It does not replace consultation with your physician. Do not stop or change prescribed medicines without talking to your doctor. If you have chest pain, sudden weakness or numbness, or trouble speaking, seek emergency care right away.</p>
+</div></div>
+<footer><div class="wrap"><span>© <span id="yr"></span> Dr. Dylan Thor R. Rullan · Natural Vive Wellness</span><span><a href="/">Clinic website</a> · <a href="/#book">Book a consultation</a></span></div></footer>
+
+<script>
+const $=s=>document.querySelector(s);
+let W={slug:"blood-flow-lifeline",title:"Your Blood Flow Is Your Lifeline",start:"2026-12-05T19:00:00+08:00",durationMin:90,tentative:true};
+const fmt=(d,o)=>d.toLocaleString("en-US",{timeZone:"Asia/Manila",...o});
+function paint(){
+  const s=new Date(W.start);
+  $("#wDate").textContent=fmt(s,{weekday:"long",month:"long",day:"numeric",year:"numeric"});
+  const local=s.toLocaleString(undefined,{weekday:"short",hour:"numeric",minute:"2-digit"});
+  const isPH=Intl.DateTimeFormat().resolvedOptions().timeZone==="Asia/Manila";
+  $("#wTime").innerHTML=`${fmt(s,{hour:"numeric",minute:"2-digit"})} Philippine Time${isPH?"":`<small>${local} your time</small>`}`;
+  $("#finalWhen").textContent=`Join Dr. Rullan live on ${fmt(s,{weekday:"long",month:"long",day:"numeric"})} at ${fmt(s,{hour:"numeric",minute:"2-digit"})} (PHT). It's free.`;
+  $("#tentative").hidden=!W.tentative;
+  tick();
+}
+function tick(){
+  const ms=new Date(W.start)-Date.now();
+  if(ms<=0){$("#count").innerHTML=`<div style="flex:1;text-align:left;padding:12px 16px"><b style="font-size:18px">${ms>-W.durationMin*60000?"We're live now!":"This webinar has ended"}</b><span>${ms>-W.durationMin*60000?"Use the link in your email to join":"Register to hear about the next one"}</span></div>`;return}
+  const d=Math.floor(ms/864e5),h=Math.floor(ms/36e5)%24,m=Math.floor(ms/6e4)%60,sec=Math.floor(ms/1e3)%60;
+  [["cD",d],["cH",h],["cM",m],["cS",sec]].forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=String(v).padStart(2,"0")});
+}
+setInterval(tick,1000);
+if("IntersectionObserver" in window){const st=$("#sticky");let seen=new Set();const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));st.classList.toggle("on",!seen.size)},{threshold:.15});[$("#register"),document.querySelector(".final")].forEach(el=>el&&io.observe(el))}
+$("#yr").textContent=new Date().getFullYear();
+paint();
+fetch("/webinar.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.start){W={...W,...j};paint()}}).catch(()=>{});
+
+function gcal(){
+  const s=new Date(W.start),e=new Date(s.getTime()+W.durationMin*60000),z=d=>d.toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+  return "https://calendar.google.com/calendar/render?"+new URLSearchParams({action:"TEMPLATE",text:`${W.title} (free webinar with Dr. Rullan)`,dates:`${z(s)}/${z(e)}`,details:"Use the join link in your registration email.",location:"Online"}).toString();
+}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c]);
+$("#form").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const v=id=>$("#"+id).value.trim(),msg=$("#msg");msg.textContent="";
+  const data={first:v("first"),last:v("last"),email:v("email"),phone:v("phone"),consent:$("#consent").checked};
+  if(data.first.length<1||data.last.length<1){msg.textContent="Please enter your first and last name.";return}
+  if(!/^\S+@\S+\.\S+$/.test(data.email)){msg.textContent="Please enter a valid email address.";$("#email").focus();return}
+  if(data.phone.replace(/\D/g,"").length<10){msg.textContent="Please enter your mobile number.";$("#phone").focus();return}
+  if(!data.consent){msg.textContent="Please tick the box so we can send you the join link.";return}
+  const btn=$("#go"),old=btn.innerHTML;btn.disabled=true;btn.textContent="Reserving your seat…";
+  try{
+    const r=await fetch("/api/webinar",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify(data)});
+    const j=await r.json().catch(()=>({}));
+    if(!r.ok) throw new Error(j.error||"We couldn't register you just now. Please try again.");
+    const s=new Date(W.start);
+    $("#regForm").hidden=true;const d=$("#regDone");d.hidden=false;
+    d.innerHTML=`<div class="tick"><svg><use href="#i-check"/></svg></div><h2>You're registered, ${esc(data.first)}!</h2>
+      <p class="s" style="margin:10px 0 0">Your seat for <b>${esc(W.title)}</b> is saved for ${esc(fmt(s,{weekday:"long",month:"long",day:"numeric"}))} at ${esc(fmt(s,{hour:"numeric",minute:"2-digit"}))} (PHT). We'll send your join link to <b>${esc(data.email)}</b>.</p>
+      <div class="acts">${j.joinUrl?`<a class="btn btn-red" href="${esc(j.joinUrl)}" target="_blank" rel="noopener">Open my webinar link</a>`:""}
+      <a class="btn ${j.joinUrl?"btn-line":"btn-red"}" href="${gcal()}" target="_blank" rel="noopener">Add to Google Calendar</a>
+      <a class="btn btn-line" href="/#book">Book a consultation with Dr. Rullan</a></div>
+      <p class="s" style="margin-top:14px;font-size:13px">Can't find the email? Check your Promotions or Spam folder.</p>`;
+    d.scrollIntoView({behavior:"smooth",block:"center"});
+  }catch(err){msg.textContent=err.message}
+  finally{btn.disabled=false;btn.innerHTML=old}
+});
+</script>
+</body>
+</html>

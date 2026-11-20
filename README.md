@@ -51,3 +51,16 @@ Orders from `/shop` are stored in Vercel Blob (`orders/TOH-….json`) and manage
 statuses New → Paid → Packed → Shipped (with tracking no.) → Delivered, or Cancelled; notes; search; CSV export.
 Prices and shipping (₱150, free from ₱5,000) are set on the server in `api/order.js` (`CATALOG`) — keep them in step with `SHOP` in `shop.html`.
 Each status change adds a tag + note on the GHL contact (`order paid`, `order shipped`, …) and sends `order.<status>` to `GHL_ORDER_WEBHOOK_URL`.
+
+## Webinar page (`/webinar`)
+"Your Blood Flow Is Your Lifeline". Title, date/time (`start`, PHT), length and the "to be confirmed" note (`tentative`) are in **`webinar.json`**: the page and the API both read it.
+Registration (`POST /api/webinar`) saves the registrant in Vercel Blob, creates/updates the GHL contact (tags: `webinar registrant`, `webinar: your blood flow is your lifeline`, plus a note), sends `webinar.registered` to `GHL_WEBINAR_WEBHOOK_URL`, and registers the person in WebinarKit. Registrants are listed at `/admin` → **Webinar** (CSV export).
+
+| Variable | Purpose |
+|---|---|
+| `GHL_WEBINAR_WEBHOOK_URL` | GHL Inbound Webhook for webinar registrations (reminder workflow). |
+| `WEBINARKIT_API_KEY` | WebinarKit → Settings → API access. |
+| `WEBINARKIT_WEBINAR_ID` | The WebinarKit webinar's ID. |
+| `WEBINARKIT_DATE` | Optional. The session date exactly as WebinarKit expects it, if different from `webinar.json`. |
+| `WEBINARKIT_API_BASE` | Optional. Defaults to `https://webinarkit.com/api`. |
+Webhook fields: event, webinar, webinar_title, webinar_start, webinar_start_label, first_name, last_name, full_name, email, phone, join_url, webinarkit_registered, ghl_contact_id, registered_at.
