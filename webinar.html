@@ -7,7 +7,10 @@
 <meta name="description" content="Free live webinar with Dr. Dylan Thor R. Rullan: how your circulation works, the warning signs people ignore, and everyday habits that support healthy blood flow.">
 <meta property="og:title" content="Your Blood Flow Is Your Lifeline: Free Live Webinar">
 <meta property="og:description" content="Join Dr. Dylan Thor R. Rullan for a free live talk on circulation, blood vessels and everyday habits for healthy blood flow.">
-<meta property="og:image" content="images/dr-rullan-about.jpg">
+<meta property="og:image" content="https://dylanrullan.vercel.app/images/webinar/blood-flow-banner.jpg">
+<meta property="og:image:width" content="1672">
+<meta property="og:image:height" content="941">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
@@ -50,12 +53,14 @@ section{padding:84px 0}
 .hero{position:relative;background:var(--band);color:var(--band-fg);padding:120px 0 90px;overflow:hidden;isolation:isolate}
 .hero .flow{position:absolute;inset:auto -10% -30px -10%;height:340px;z-index:-1;opacity:.9}
 .hero .glow{position:absolute;width:720px;height:720px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(217,65,46,.28),transparent);z-index:-1}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
 .pill{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);color:#fff;font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;border-radius:999px;padding:7px 14px}
 .pill .dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 0 0 rgba(217,65,46,.6);animation:pulse 1.6s infinite}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(217,65,46,0)}100%{box-shadow:0 0 0 0 rgba(217,65,46,0)}}
 .hero h1{font-size:clamp(40px,6.2vw,72px);line-height:1.02;letter-spacing:-.035em;margin:22px 0 0;font-weight:800;text-wrap:balance}
 .hero h1 .hand{font-family:var(--hand);font-weight:700;color:var(--gold);font-size:1.18em;letter-spacing:0;display:inline-block;transform:rotate(-2deg)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.banner{width:100%;height:auto;border-radius:20px;margin-top:20px;box-shadow:0 22px 50px rgba(0,0,0,.35);border:3px solid rgba(198,169,107,.55)}
 .hero .sub{font-size:18px;color:var(--band-muted);max-width:52ch;margin:20px 0 0}
 .when{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
 .chip{display:inline-flex;align-items:center;gap:10px;background:rgba(255,255,255,.08);border:1px solid var(--band-line);border-radius:14px;padding:10px 14px;font-weight:600;font-size:14.5px}
@@ -201,8 +206,9 @@ footer a{color:#fff}
   <div class="wrap">
     <div>
       <span class="pill"><span class="dot"></span>Free live webinar</span>
-      <h1 id="t">Your Blood Flow Is Your <span class="hand">Lifeline</span></h1>
-      <p class="sub">Every organ in your body depends on healthy circulation. Join Dr. Dylan Thor R. Rullan for a practical, easy-to-follow talk on how your blood vessels work, the warning signs people often ignore, and the everyday habits that support healthy blood flow.</p>
+      <h1 id="t" class="sr">Your Blood Flow Is Your Lifeline</h1>
+      <img class="banner" src="images/webinar/blood-flow-banner.jpg" srcset="images/webinar/blood-flow-banner-900.jpg 900w, images/webinar/blood-flow-banner.jpg 1672w" sizes="(max-width:960px) 100vw, 620px" width="1672" height="941" alt="Your Blood Flow Is Your Lifeline: why healthy circulation matters to your brain and entire body. Fuels a healthier brain, supports a stronger heart, delivers nutrients and oxygen efficiently, helps you feel more energized and active." fetchpriority="high">
+      <p class="sub">Join Dr. Dylan Thor R. Rullan for a free, practical talk on how your blood vessels work, the warning signs people often ignore, and the everyday habits that support healthy blood flow.</p>
       <div class="when">
         <span class="chip"><svg><use href="#i-cal"/></svg><span id="wDate">Saturday</span></span>
         <span class="chip"><svg><use href="#i-clock"/></svg><span id="wTime">7:00 PM PHT</span></span>
