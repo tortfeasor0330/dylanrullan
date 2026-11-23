@@ -11,8 +11,7 @@
 <meta property="og:image:width" content="1672">
 <meta property="og:image:height" content="941">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="image" href="images/webinar/blood-flow-banner.jpg" media="(min-width:901px)">
-<link rel="preload" as="image" href="images/webinar/blood-flow-banner-900.jpg" media="(max-width:900px)">
+<link rel="preload" as="image" href="images/webinar/blood-flow-figure.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
@@ -48,11 +47,11 @@ section{padding:84px 0}
 .brand{display:flex;align-items:center;gap:10px;color:#fff;text-decoration:none;font-weight:700;font-size:15px;line-height:1.2}
 .brand small{display:block;font-weight:500;font-size:11.5px;color:var(--gold);letter-spacing:.06em}
 .brand .mark{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.12);display:grid;place-items:center}
-.top a.back{color:#fff;font-size:13.5px;font-weight:600;text-decoration:none;opacity:.85}
+.top a.back{color:#fff;font-size:13.5px;font-weight:600;text-decoration:none;opacity:.95;background:rgba(28,58,45,.55);padding:7px 12px;border-radius:999px;backdrop-filter:blur(4px)}
 .top a.back:hover{opacity:1}
 
 /* hero */
-.hero{position:relative;background:var(--band);color:var(--band-fg);padding:120px 0 90px;overflow:hidden;isolation:isolate}
+.hero{position:relative;background:linear-gradient(90deg,rgba(36,75,58,0) 60%,rgba(36,75,58,.18) 100%),url("images/webinar/blood-flow-figure.jpg") right center/auto 100% no-repeat,var(--band);color:var(--band-fg);padding:120px 0 90px;overflow:hidden;isolation:isolate}
 .hero .flow{position:absolute;inset:auto -10% -30px -10%;height:340px;z-index:-1;opacity:.9}
 .hero .glow{position:absolute;width:720px;height:720px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(217,65,46,.28),transparent);z-index:-1}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
@@ -200,15 +199,10 @@ footer a{color:#fff}
 .wkbox .d-none{display:none!important}
 
 /* hero 1: full-width banner background */
-.top{position:relative;background:var(--band)}
-.hero1{position:relative;z-index:2;width:100%;aspect-ratio:1672/941;min-height:200px;background:#e9efe4 url("images/webinar/blood-flow-banner.jpg") center/cover no-repeat}
-@media (max-width:900px){.hero1{background-image:url("images/webinar/blood-flow-banner-900.jpg")}}
-.hero1-cta{position:absolute;left:50%;bottom:-27px;transform:translateX(-50%);white-space:nowrap;padding:16px 34px;font-size:16px;box-shadow:0 14px 30px rgba(0,0,0,.28)}
-.hero1-cta:hover{transform:translateX(-50%) translateY(-1px)}
-@media (max-width:600px){.hero1-cta{display:none}}
-.hero{padding-top:84px}
+@media (max-width:960px){.hero{background:linear-gradient(180deg,rgba(36,75,58,.35) 0%,rgba(36,75,58,.9) 300px,var(--band) 440px),url("images/webinar/blood-flow-figure.jpg") right top/auto 460px no-repeat,var(--band);padding-top:100px!important}}
+@media (max-width:600px){.hero{padding-top:130px}
 @media (max-width:600px){.hero{padding-top:48px}}
-.hero-h{font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:-.03em;margin:18px 0 0;font-weight:800}
+.hero-h{font-size:clamp(38px,5.4vw,66px);line-height:1.08;letter-spacing:-.03em;margin:18px 0 0;font-weight:800}
 .hero-h .hand{font-family:var(--hand);font-weight:700;color:var(--gold);font-size:1.2em;letter-spacing:0}
 </style>
 </head>
@@ -229,12 +223,7 @@ footer a{color:#fff}
 </div></header>
 
 <main>
-<section class="hero1" aria-labelledby="t">
-  <h1 id="t" class="sr">Your Blood Flow Is Your Lifeline</h1>
-  <p class="sr">Why healthy circulation matters to your brain and entire body: it fuels a healthier brain, supports a stronger heart, delivers nutrients and oxygen efficiently, and helps you feel more energized and active.</p>
-  <a class="hero1-cta btn btn-red" href="#register">Reserve my free seat <svg><use href="#i-arrow"/></svg></a>
-</section>
-<section class="hero" aria-label="Webinar details and registration">
+<section class="hero" aria-labelledby="t">
   <div class="glow"></div>
   <svg class="flow" viewBox="0 0 1440 340" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 210 C 220 120, 380 300, 620 200 S 1020 90, 1440 190" fill="none" stroke="#C6A96B" stroke-opacity=".35" stroke-width="2"/>
@@ -245,6 +234,7 @@ footer a{color:#fff}
   <div class="wrap">
     <div>
       <span class="pill"><span class="dot"></span>Free live webinar</span>
+      <h1 id="t" class="hero-h">Your Blood Flow Is Your <span class="hand">Lifeline</span></h1>
       <p class="sub">Join Dr. Dylan Thor R. Rullan for a free, practical talk on how your blood vessels work, the warning signs people often ignore, and the everyday habits that support healthy blood flow.</p>
       <div class="when">
         <span class="chip"><svg><use href="#i-cal"/></svg><span id="wDate">Saturday</span></span>
@@ -391,7 +381,7 @@ footer a{color:#fff}
 
 <script>
 const $=s=>document.querySelector(s);
-let W={slug:"blood-flow-lifeline",title:"Your Blood Flow Is Your Lifeline",start:"2026-11-30T12:00:00+08:00",durationMin:90,tentative:false};
+let W={slug:"blood-flow-lifeline",title:"Your Blood Flow Is Your Lifeline",start:"2026-11-30T19:00:00+08:00",durationMin:90,tentative:false};
 const fmt=(d,o)=>d.toLocaleString("en-US",{timeZone:"Asia/Manila",...o});
 function paint(){
   const s=new Date(W.start);
