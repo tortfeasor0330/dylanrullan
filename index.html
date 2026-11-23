@@ -498,13 +498,6 @@ footer a:hover{color:var(--band-fg)}
 .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
 </style>
 
-<script>/* ?embed=book shows only the booking calendar, for use inside other pages (e.g. /webinar) */
-if(new URLSearchParams(location.search).get("embed")==="book")document.documentElement.classList.add("embed-book");</script>
-<style>
-html.embed-book body>header.nav,html.embed-book footer,html.embed-book main>*:not(#book){display:none!important}
-html.embed-book,html.embed-book body{background:transparent;overflow:hidden}
-html.embed-book #book{margin:0}
-</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -1341,16 +1334,5 @@ renderCal(); renderSlots(); renderSummary();
 })();
 </script>
 
-<script>
-if(document.documentElement.classList.contains("embed-book")&&window.parent!==window){
-  const post=m=>{try{parent.postMessage({rullanEmbed:true,...m},location.origin)}catch(e){}};
-  const send=()=>post({type:"height",h:Math.ceil(document.getElementById("book").getBoundingClientRect().height)});
-  if("ResizeObserver" in window)new ResizeObserver(send).observe(document.getElementById("book"));
-  window.addEventListener("load",send);setTimeout(send,600);
-  const own=Element.prototype.scrollIntoView;
-  Element.prototype.scrollIntoView=function(){post({type:"scroll",top:Math.round(this.getBoundingClientRect().top+window.scrollY)})};
-  document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[href^='#']");if(!a)return;const id=a.getAttribute("href");let t=null;try{t=id.length>1&&document.querySelector(id)}catch(x){}if(!t||!document.getElementById("book").contains(t)){e.preventDefault();window.open("/"+id,"_top")}},true);
-}
-</script>
 </body>
 </html>
