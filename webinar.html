@@ -11,6 +11,8 @@
 <meta property="og:image:width" content="1672">
 <meta property="og:image:height" content="941">
 <meta name="twitter:card" content="summary_large_image">
+<link rel="preload" as="image" href="images/webinar/blood-flow-banner.jpg" media="(min-width:901px)">
+<link rel="preload" as="image" href="images/webinar/blood-flow-banner-900.jpg" media="(max-width:900px)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Caveat:wght@600;700&display=swap">
@@ -161,7 +163,7 @@ footer .wrap{display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between}
 footer a{color:#fff}
 
 @media (max-width:960px){
-  .hero{padding:100px 0 70px}
+  .hero{padding:56px 0 64px}
   .hero .wrap,.signs .wrap,.who .wrap,.host .wrap{grid-template-columns:1fr;gap:36px}
   .cards{grid-template-columns:1fr 1fr}.card.feature{grid-row:auto;grid-column:1/-1}
   .host .ph{max-width:420px}
@@ -196,6 +198,18 @@ footer a{color:#fff}
 .wkbox #wk_element_6aef8c2761d05f7a7fee01f707ee3d9f:hover{background:var(--red-deep)!important;transform:translateY(-1px)}
 .wkbox #wk_element_6aef8c2761d05f7a7fee01f707ee3d9f p{margin:0;letter-spacing:.04em}
 .wkbox .d-none{display:none!important}
+
+/* hero 1: full-width banner background */
+.top{position:relative;background:var(--band)}
+.hero1{position:relative;z-index:2;width:100%;aspect-ratio:1672/941;min-height:200px;background:#e9efe4 url("images/webinar/blood-flow-banner.jpg") center/cover no-repeat}
+@media (max-width:900px){.hero1{background-image:url("images/webinar/blood-flow-banner-900.jpg")}}
+.hero1-cta{position:absolute;left:50%;bottom:-27px;transform:translateX(-50%);white-space:nowrap;padding:16px 34px;font-size:16px;box-shadow:0 14px 30px rgba(0,0,0,.28)}
+.hero1-cta:hover{transform:translateX(-50%) translateY(-1px)}
+@media (max-width:600px){.hero1-cta{display:none}}
+.hero{padding-top:84px}
+@media (max-width:600px){.hero{padding-top:48px}}
+.hero-h{font-size:clamp(30px,3.6vw,44px);line-height:1.08;letter-spacing:-.03em;margin:18px 0 0;font-weight:800}
+.hero-h .hand{font-family:var(--hand);font-weight:700;color:var(--gold);font-size:1.2em;letter-spacing:0}
 </style>
 </head>
 <body>
@@ -215,7 +229,12 @@ footer a{color:#fff}
 </div></header>
 
 <main>
-<section class="hero" aria-labelledby="t">
+<section class="hero1" aria-labelledby="t">
+  <h1 id="t" class="sr">Your Blood Flow Is Your Lifeline</h1>
+  <p class="sr">Why healthy circulation matters to your brain and entire body: it fuels a healthier brain, supports a stronger heart, delivers nutrients and oxygen efficiently, and helps you feel more energized and active.</p>
+  <a class="hero1-cta btn btn-red" href="#register">Reserve my free seat <svg><use href="#i-arrow"/></svg></a>
+</section>
+<section class="hero" aria-label="Webinar details and registration">
   <div class="glow"></div>
   <svg class="flow" viewBox="0 0 1440 340" preserveAspectRatio="none" aria-hidden="true">
     <path d="M0 210 C 220 120, 380 300, 620 200 S 1020 90, 1440 190" fill="none" stroke="#C6A96B" stroke-opacity=".35" stroke-width="2"/>
@@ -226,8 +245,6 @@ footer a{color:#fff}
   <div class="wrap">
     <div>
       <span class="pill"><span class="dot"></span>Free live webinar</span>
-      <h1 id="t" class="sr">Your Blood Flow Is Your Lifeline</h1>
-      <img class="banner" src="images/webinar/blood-flow-banner.jpg" srcset="images/webinar/blood-flow-banner-900.jpg 900w, images/webinar/blood-flow-banner.jpg 1672w" sizes="(max-width:960px) 100vw, 620px" width="1672" height="941" alt="Your Blood Flow Is Your Lifeline: why healthy circulation matters to your brain and entire body. Fuels a healthier brain, supports a stronger heart, delivers nutrients and oxygen efficiently, helps you feel more energized and active." fetchpriority="high">
       <p class="sub">Join Dr. Dylan Thor R. Rullan for a free, practical talk on how your blood vessels work, the warning signs people often ignore, and the everyday habits that support healthy blood flow.</p>
       <div class="when">
         <span class="chip"><svg><use href="#i-cal"/></svg><span id="wDate">Saturday</span></span>
