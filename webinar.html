@@ -51,7 +51,7 @@ section{padding:84px 0}
 .top a.back:hover{opacity:1}
 
 /* hero */
-.hero{position:relative;background:linear-gradient(90deg,rgba(36,75,58,0) 60%,rgba(36,75,58,.18) 100%),url("images/webinar/blood-flow-figure.jpg") right center/auto 100% no-repeat,var(--band);color:var(--band-fg);padding:120px 0 90px;overflow:hidden;isolation:isolate}
+.hero{position:relative;background:var(--band);color:var(--band-fg);padding:120px 0 90px;overflow:hidden;isolation:isolate}
 .hero .flow{position:absolute;inset:auto -10% -30px -10%;height:340px;z-index:-1;opacity:.9}
 .hero .glow{position:absolute;width:720px;height:720px;right:-200px;top:-260px;border-radius:50%;background:radial-gradient(closest-side,rgba(217,65,46,.28),transparent);z-index:-1}
 .hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:center}
@@ -60,6 +60,7 @@ section{padding:84px 0}
 @keyframes pulse{70%{box-shadow:0 0 0 10px rgba(217,65,46,0)}100%{box-shadow:0 0 0 0 rgba(217,65,46,0)}}
 .hero h1{font-size:clamp(40px,6.2vw,72px);line-height:1.02;letter-spacing:-.035em;margin:22px 0 0;font-weight:800;text-wrap:balance}
 .hero h1 .hand{font-family:var(--hand);font-weight:700;color:var(--gold);font-size:1.18em;letter-spacing:0;display:inline-block;transform:rotate(-2deg)}
+.hero::before{content:"";position:absolute;top:0;right:0;bottom:0;width:50%;z-index:-2;background:url("images/webinar/blood-flow-figure.jpg") 50% 30%/cover no-repeat;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 26%);mask-image:linear-gradient(90deg,transparent 0%,#000 26%)}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .banner{width:100%;height:auto;border-radius:20px;margin-top:20px;box-shadow:0 22px 50px rgba(0,0,0,.35);border:3px solid rgba(198,169,107,.55)}
 .hero .sub{font-size:18px;color:var(--band-muted);max-width:52ch;margin:20px 0 0}
@@ -199,7 +200,7 @@ footer a{color:#fff}
 .wkbox .d-none{display:none!important}
 
 /* hero 1: full-width banner background */
-@media (max-width:960px){.hero{background:linear-gradient(180deg,rgba(36,75,58,.35) 0%,rgba(36,75,58,.9) 300px,var(--band) 440px),url("images/webinar/blood-flow-figure.jpg") right top/auto 460px no-repeat,var(--band);padding-top:100px!important}}
+@media (max-width:960px){.hero{background:var(--band);padding-top:100px!important}.hero::before{width:100%;bottom:auto;height:520px;background-position:50% 20%;opacity:.42;-webkit-mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.6) 45%,transparent 100%);mask-image:linear-gradient(180deg,#000 0%,rgba(0,0,0,.6) 45%,transparent 100%)}}
 @media (max-width:600px){.hero{padding-top:130px}
 @media (max-width:600px){.hero{padding-top:48px}}
 .hero-h{font-size:clamp(38px,5.4vw,66px);line-height:1.08;letter-spacing:-.03em;margin:18px 0 0;font-weight:800}
