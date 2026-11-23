@@ -374,6 +374,14 @@ form.co{display:grid;gap:12px}
 .toast button{background:none;border:0;color:var(--yellow);font-weight:700;cursor:pointer;font-size:13px}
 </style>
 
+<script>/* ?embed=products shows only the product bundles and cart, for use inside other pages (e.g. /watch) */
+if(new URLSearchParams(location.search).get("embed")==="products")document.documentElement.classList.add("embed-products");</script>
+<style>
+html.embed-products body>header.nav,html.embed-products footer,html.embed-products .float-badge,html.embed-products main>*:not(#shop){display:none!important}
+html.embed-products #shop{padding-top:28px!important;padding-bottom:90px!important}
+.embed-cart{position:fixed;right:calc(16px + env(safe-area-inset-right,0px));bottom:16px;z-index:70;display:inline-flex;align-items:center;gap:10px;background:var(--red,#D9412E);color:#fff;border:0;border-radius:999px;padding:13px 20px;font:inherit;font-weight:700;font-size:15px;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.25)}
+.embed-cart b{background:#fff;color:var(--red,#D9412E);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px;padding:0 6px}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -680,7 +688,7 @@ form.co{display:grid;gap:12px}
   </div>
 </footer>
 
-<a class="float-badge" href="https://dylanrullan.vercel.app/#book"><span><b>FREE</b>Discovery<br>Call</span></a>
+<a class="float-badge" href="https://dylanrullan.vercel.app/#book"><span><b>₱500</b>Book a<br>Consult</span></a>
 
 <div class="scrim" id="scrim"></div>
 <aside class="drawer" id="drawer" aria-label="Shopping cart" aria-hidden="true">
@@ -849,5 +857,15 @@ document.addEventListener("keydown",e=>{if(e.key==="Escape")closeCart()});
 renderCart();
 </script>
 
+<script>
+if(document.documentElement.classList.contains("embed-products")){
+  const b=document.createElement("button");b.type="button";b.className="embed-cart";b.innerHTML='View cart <b id="embedCount">0</b>';
+  b.addEventListener("click",()=>document.getElementById("cartBtn").click());document.body.appendChild(b);
+  const src=document.getElementById("cartCount"),sync=()=>{document.getElementById("embedCount").textContent=src.hidden?"0":(src.textContent||"0")};
+  new MutationObserver(sync).observe(src,{childList:true,characterData:true,subtree:true,attributes:true});sync();
+  document.addEventListener("click",e=>{const a=e.target.closest&&e.target.closest("a[href^='#']");if(!a)return;const id=a.getAttribute("href");let t=null;try{t=id.length>1&&document.querySelector(id)}catch(x){}
+    if(!t||t.offsetParent===null){e.preventDefault();window.open("/shop"+id,"_blank")}},true);
+}
+</script>
 </body>
 </html>

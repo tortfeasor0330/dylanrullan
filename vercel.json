@@ -6,7 +6,7 @@
       "has": [{ "type": "host", "value": ".*shop.*" }],
       "destination": "/shop.html"
     },
-    { "source": "/thankyou", "destination": "/webinar-thank-you.html" },
-    { "source": "/thank-you", "destination": "/webinar-thank-you.html" }
+    { "source": "/thankyou", "destination": "/webinar-thank-you" },
+    { "source": "/thank-you", "destination": "/webinar-thank-you" }
   ]
 }
