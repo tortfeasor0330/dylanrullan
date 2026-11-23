@@ -100,6 +100,8 @@ input:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(47,
 .btn-line:hover{border-color:var(--green)}
 
 /* learn */
+.bookcal{padding:0;background:var(--band);border-top:1px solid rgba(198,169,107,.25)}
+.bookcal iframe{display:block;width:100%;height:1100px;border:0;background:transparent}
 .learn{background:var(--surface)}
 .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
 .card{background:var(--card);border-radius:20px;padding:26px;box-shadow:0 2px 0 rgba(0,0,0,.02)}
@@ -264,6 +266,10 @@ footer a{color:#fff}
   </div>
 </section>
 
+<section class="bookcal" id="book" aria-label="Book a consultation with Dr. Rullan">
+  <iframe id="bookFrame" src="/?embed=book" title="Book a consultation with Dr. Dylan Thor R. Rullan" loading="lazy"></iframe>
+</section>
+
 <section class="learn" aria-labelledby="learnT">
   <div class="wrap">
     <span class="eyebrow">What you'll learn</span>
@@ -378,7 +384,7 @@ footer a{color:#fff}
 <div class="disc"><div class="wrap">
   <p><b>Health disclaimer:</b> This webinar is for general education only and is not medical advice, diagnosis or treatment. It does not replace consultation with your physician. Do not stop or change prescribed medicines without talking to your doctor. If you have chest pain, sudden weakness or numbness, or trouble speaking, seek emergency care right away.</p>
 </div></div>
-<footer><div class="wrap"><span>© <span id="yr"></span> Dr. Dylan Thor R. Rullan · Natural Vive Wellness</span><span><a href="/">Clinic website</a> · <a href="/#book">Book a consultation</a></span></div></footer>
+<footer><div class="wrap"><span>© <span id="yr"></span> Dr. Dylan Thor R. Rullan · Natural Vive Wellness</span><span><a href="/">Clinic website</a> · <a href="#book">Book a consultation</a></span></div></footer>
 
 <script>
 const $=s=>document.querySelector(s);
@@ -401,7 +407,10 @@ function tick(){
   [["cD",d],["cH",h],["cM",m],["cS",sec]].forEach(([id,v])=>{const el=document.getElementById(id);if(el)el.textContent=String(v).padStart(2,"0")});
 }
 setInterval(tick,1000);
-if("IntersectionObserver" in window){const st=$("#sticky");let seen=new Set();const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));st.classList.toggle("on",!seen.size)},{threshold:.15});[$("#register"),document.querySelector(".final")].forEach(el=>el&&io.observe(el))}
+window.addEventListener("message",e=>{if(e.origin!==location.origin||!e.data||!e.data.rullanEmbed)return;const f=$("#bookFrame");
+  if(e.data.type==="height"&&e.data.h>200)f.style.height=e.data.h+"px";
+  if(e.data.type==="scroll")window.scrollTo({top:f.getBoundingClientRect().top+window.scrollY+e.data.top-16,behavior:"smooth"})});
+if("IntersectionObserver" in window){const st=$("#sticky");let seen=new Set();const io=new IntersectionObserver(es=>{es.forEach(e=>e.isIntersecting?seen.add(e.target):seen.delete(e.target));st.classList.toggle("on",!seen.size)},{threshold:.15});[$("#register"),$("#book"),document.querySelector(".final")].forEach(el=>el&&io.observe(el))}
 $("#yr").textContent=new Date().getFullYear();
 paint();
 fetch("/webinar.json",{cache:"no-store"}).then(r=>r.ok?r.json():null).then(j=>{if(j&&j.start){W={...W,...j};paint()}}).catch(()=>{});
