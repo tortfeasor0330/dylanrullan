@@ -505,6 +505,25 @@ html.embed-book body>header.nav,html.embed-book footer,html.embed-book main>*:no
 html.embed-book,html.embed-book body{background:transparent;overflow:hidden}
 html.embed-book #book{margin:0}
 </style>
+<!-- Meta Pixel Code -->
+<script>
+if(!/[?&]embed=/.test(location.search)){ /* not inside another page's frame (e.g. booking calendar in the watch room) */
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1174485958262188');
+fbq('track', 'PageView');
+}
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1174485958262188&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
